@@ -97,13 +97,18 @@
     line-height:1.08;letter-spacing:-.02em;font-weight:600;
   }
   h1 .accent{color:var(--ball)}
+  .hero-tagline{
+    margin-top:.6rem;font-weight:600;color:var(--ball);
+    font-size:clamp(1.15rem,2.2vw,1.5rem);letter-spacing:-.01em;
+  }
   .hero-sub{
     margin-top:1.3rem;max-width:30rem;font-size:clamp(.98rem,1.4vw,1.1rem);color:var(--ink-soft);
   }
   .hero-ctas{margin-top:1.9rem;display:flex;gap:.9rem;flex-wrap:wrap}
 
   /* ---------- showreel framed like an AE comp panel ---------- */
-  .reel-wrap{position:relative}
+  .hero-copy{min-width:0}
+  .reel-wrap{position:relative;min-width:0}
   .reel{
     position:relative;
     background:#1e1e1e;border-radius:14px;overflow:hidden;
@@ -420,7 +425,8 @@
   <div class="hero-top">
     <div class="hero-copy">
       <p class="kicker" data-i18n="hero.kicker">Art Direction &amp; Motion Design</p>
-      <h1 data-i18n-html="hero.h1">I direct, design and animate — <span class="accent">from the first sketch to the final frame.</span></h1>
+      <h1 data-i18n-html="hero.h1">Direct, design and animate</h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">From the first sketch to final frame</p>
       <p class="hero-sub" data-i18n="hero.sub">Hi, I'm Renata Acioli, a Brazilian art director and motion designer. I've directed an animated series pilot, built launch films and campaigns for brands like Banco do Brasil, and I still believe animation is the best way to tell a story. Literally.</p>
       <div class="hero-ctas">
         <a class="btn solid" href="#work" data-i18n="hero.cta1">See selected work →</a>
@@ -646,7 +652,7 @@
 <section class="contact" id="contact">
   <div class="reveal">
     <p class="kicker"><span class="num">04</span> · <span data-i18n="contact.kicker">let's animate it</span></p>
-    <p class="avail"><span class="dot-live"></span><span data-i18n="contact.avail">Open to full-time roles and contract work · usually replies within 24h</span></p>
+    <p class="avail"><span class="dot-live"></span><span data-i18n="contact.avail">usually replies within 24h</span></p>
     <h2 data-i18n-html="contact.title">Got a story that<br>needs to <span>move</span>?</h2>
     <p data-i18n="contact.p">I'm open to full-time roles, freelance projects and collaborations — and always up for good animation talk.</p>
     <div class="socials">
@@ -1013,7 +1019,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
     'nav.work': 'Projetos', 'nav.about': 'Sobre', 'nav.contact': 'Contato',
 
     'hero.kicker': 'Direção de Arte &amp; Motion Design',
-    'hero.h1': 'Eu dirijo, desenho e animo — <span class="accent">do primeiro rascunho ao frame final.</span>',
+    'hero.h1': 'Dirijo, desenho e animo',
+    'hero.tagline': 'Do primeiro rascunho ao frame final',
     'hero.sub': 'Oi, eu sou a Renata Acioli, diretora de arte e motion designer brasileira. Dirigi o piloto de uma série animada, criei filmes de lançamento e campanhas para marcas como o Banco do Brasil, e sigo acreditando que animação é a melhor forma de contar uma história. Literalmente.',
     'hero.cta1': 'Ver projetos →',
     'hero.cta2': 'Falar comigo',
@@ -1048,7 +1055,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     'qf.tools.t': 'Ferramentas',
     'qf.tools.d': 'Adobe Creative Cloud · workflow criativo com IA',
     'qf.cv': 'Baixar CV',
-    'contact.avail': 'Aberta a vagas efetivas e contratos · costumo responder em 24h',
+    'contact.avail': 'Costumo responder em até 24h',
 
     'clients': 'Marcas e agências com as quais já trabalhei',
 
