@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion Eyes — Renata Acioli</title>
+<meta name="description" content="Case study: Motion Eyes, a motion design study about eyes, balls and time — made during Layer Lemonade's Motion Design Essencial course.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta property="og:title" content="Motion Eyes — Renata Acioli">
+<meta property="og:description" content="Case study: Motion Eyes, a motion design study about eyes, balls and time — made during Layer Lemonade's Motion Design Essencial course.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/eyes/still-03.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/eyes/still-03.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#1c2b4d;
+    --night-2:#16223e;
+    --coral:#e85e50;
+    --teal:#52b7c4;
+    --pink:#e33f8f;
+    --yellow:#e8d22c;
+    --beige:#dcd9b8;
+    --ink:#15151a;
+    --white:#f6f4ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    background:var(--night);
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--pink);color:#fff}
+  a{text-decoration:none;color:inherit}
+  .mono{font-family:'Space Mono',monospace}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.1rem clamp(1.2rem,4vw,3rem);
+    background:rgba(22,34,62,.94);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid rgba(246,244,238,.18);
+    box-shadow:0 1px 0 rgba(0,0,0,.35);
+  }
+  .back{
+    font-size:.85rem;font-weight:700;color:var(--white);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--pink)}
+  .crumb{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,244,238,.55)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:#f6f4ee;font-weight:600;position:relative;text-decoration:none}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:#e33f8f;transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+
+  /* ---------- hero: night sky with THE eye ---------- */
+  .hero{
+    position:relative;min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:6rem 32px 5rem;
+    background:linear-gradient(180deg, var(--night-2) 0%, var(--night) 55%, #24345c 100%);
+    overflow:hidden;
+  }
+  .star{position:absolute;border-radius:50%;background:#fff;pointer-events:none}
+  @media (prefers-reduced-motion: no-preference){
+    .star{animation:tw 3.8s ease-in-out infinite}
+    .star:nth-child(3n){animation-delay:1.3s}
+    .star:nth-child(4n){animation-delay:2.5s}
+    @keyframes tw{0%,100%{opacity:.9}50%{opacity:.2}}
+  }
+  .moon{
+    position:absolute;top:9%;left:50%;translate:-50% 0;
+    width:56px;height:56px;border-radius:50%;
+    background:transparent;
+    box-shadow:14px 6px 0 0 #fff;
+    transform:rotate(15deg);
+    filter:drop-shadow(0 0 14px rgba(255,255,255,.45));
+  }
+  .mountains{
+    position:absolute;bottom:0;left:0;right:0;height:26vh;pointer-events:none;
+    background:
+      linear-gradient(115deg, #182648 0 30%, transparent 30.5%),
+      linear-gradient(-115deg, #182648 0 34%, transparent 34.5%),
+      linear-gradient(115deg, transparent 0 55%, #14203d 55.5%),
+      linear-gradient(-115deg, transparent 0 60%, #14203d 60.5%);
+  }
+  .sun{
+    position:absolute;bottom:17vh;left:50%;translate:-50% 0;
+    width:64px;height:64px;border-radius:50%;background:#fff;
+    box-shadow:0 0 40px 12px rgba(255,255,255,.55);
+  }
+
+  /* the eye */
+  .eye-wrap{position:relative;z-index:2;margin-bottom:3rem}
+  .eye{width:min(300px,62vw);position:relative}
+  svg.eye{height:auto;display:block;overflow:visible}
+  @media (prefers-reduced-motion: no-preference){
+    .lids{transform-origin:center center;animation:blink 6.5s infinite}
+    @keyframes blink{
+      0%,92%,100%{transform:scaleY(0)}
+      95%,97%{transform:scaleY(1)}
+    }
+  }
+
+  .kicker{
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:1.4rem;position:relative;z-index:2;
+  }
+  h1{
+    font-size:clamp(2.6rem,7vw,4.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.02;
+    position:relative;z-index:2;margin-bottom:1.1rem;
+  }
+  h1 .p{color:var(--pink)}
+  .tagline{
+    font-size:clamp(1rem,1.9vw,1.2rem);color:rgba(246,244,238,.75);
+    max-width:32rem;position:relative;z-index:2;margin-bottom:2.4rem;
+  }
+  .meta{
+    position:relative;z-index:2;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 3rem;
+    border-top:1px solid rgba(246,244,238,.18);border-bottom:1px solid rgba(246,244,238,.18);
+    padding:1.3rem 1rem;margin-bottom:2.2rem;text-align:left;
+  }
+  .meta dt{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.22em;
+    text-transform:uppercase;color:rgba(246,244,238,.5);margin-bottom:.25rem;
+  }
+  .meta dd{font-size:.95rem;font-weight:700}
+  .meta dd.c{color:var(--yellow)}
+  .cue{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,244,238,.6);position:relative;z-index:2}
+  .cue span{display:block;color:var(--pink);margin-top:.5rem}
+
+  /* ---------- film: coral band ---------- */
+  .film{
+    background:linear-gradient(180deg, var(--coral), #d94f48);
+    padding:clamp(4rem,8vw,6rem) 32px;
+  }
+  .wrap-wide{max-width:1000px;margin-inline:auto}
+  .film-frame{
+    position:relative;border-radius:16px;overflow:hidden;
+    box-shadow:0 34px 70px -30px rgba(0,0,0,.55);
+    border:4px solid var(--ink);
+    background:var(--ink);
+  }
+  .film-frame video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover;cursor:pointer}
+  .film-bar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.6rem .95rem;background:var(--ink);
+    font-family:'Space Mono',monospace;font-size:.66rem;color:rgba(246,244,238,.7);
+  }
+  .film-bar button{
+    background:none;border:1px solid rgba(246,244,238,.35);color:var(--white);
+    font:inherit;border-radius:999px;padding:.16rem .7rem;cursor:pointer;
+    transition:border-color .2s,color .2s;
+  }
+  .film-bar button:hover{border-color:var(--yellow);color:var(--yellow)}
+
+  /* ---------- process: alternating scene palettes ---------- */
+  .process{background:var(--beige);color:var(--ink);padding:clamp(4.5rem,9vw,7rem) 32px}
+  .label{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.3em;
+    text-transform:uppercase;margin-bottom:1rem;
+  }
+  .process .label{color:#8a8560}
+  h2{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:2.8rem}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .step{
+    border-radius:16px;padding:1.9rem 1.7rem;color:var(--white);
+    box-shadow:0 18px 40px -22px rgba(21,21,26,.5);
+  }
+  .step.coral{background:var(--coral)}
+  .step.teal{background:var(--teal)}
+  .step.night{background:var(--night)}
+  .step .num{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.24em;
+    opacity:.85;margin-bottom:.9rem;
+  }
+  .step h3{font-size:1.2rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.01em}
+  .step p{font-size:.92rem;opacity:.92}
+  .step .ball-dot{
+    display:inline-block;width:.85em;height:.55em;background:#fff;border-radius:999px;
+    transform:rotate(-18deg);margin-left:.25em;
+  }
+
+  /* ---------- stills: dark gallery ---------- */
+  .stills-sec{background:var(--ink);padding:clamp(4.5rem,9vw,7rem) 32px}
+  .stills-sec .label{color:var(--teal)}
+  .stills-sec h2{color:var(--white)}
+  .stills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .stills img{
+    width:100%;height:auto;display:block;border-radius:10px;
+    transition:transform .3s ease;
+  }
+  .stills img:hover{transform:scale(1.03)}
+
+  /* ---------- credits + bottom ---------- */
+  .credits{background:var(--ink);padding:0 32px clamp(4rem,8vw,6rem)}
+  .foot{
+    display:flex;flex-wrap:wrap;gap:1.6rem 4rem;
+    border-top:1px solid rgba(246,244,238,.15);padding-top:2.2rem;
+  }
+  .foot dt{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.22em;
+    text-transform:uppercase;color:rgba(246,244,238,.5);margin-bottom:.3rem;
+  }
+  .foot dd{font-size:.95rem;font-weight:700;color:var(--white)}
+  .bottom{
+    background:var(--yellow);color:var(--ink);
+    padding:56px 32px;text-align:center;
+  }
+  .bottom p{font-weight:700;font-size:clamp(1.2rem,2.6vw,1.6rem);letter-spacing:-.01em;margin-bottom:1.4rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-weight:700;font-size:.93rem;color:var(--ink);
+    border:2px solid var(--ink);border-radius:999px;padding:.68rem 1.55rem;
+    transition:background .25s,color .25s,transform .25s;
+  }
+  .btn:hover{background:var(--ink);color:var(--yellow);transform:translateY(-2px)}
+  .btn.solid{background:var(--ink);color:var(--yellow);margin-right:.8rem}
+  .btn.solid:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+
+  /* reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #e33f8f;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#e33f8f;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  /* small-screen guard */
+  @media (max-width:600px){
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom{padding-inline:20px}
+    .meta{gap:1rem 1.8rem}
+    .foot{gap:1.2rem 2rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .hero{min-height:auto;padding:6rem 1.1rem 4rem}
+    .eye{width:min(230px,62vw)}
+    .mountains{height:18vh}
+    .sun{width:46px;height:46px;bottom:12vh}
+    .moon{width:40px;height:40px;box-shadow:10px 4px 0 0 #fff}
+    .film-frame{border-width:3px}
+    .step{padding:1.6rem 1.3rem}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero" id="main-content" tabindex="-1">
+  <div class="moon" aria-hidden="true"></div>
+
+  <div class="eye-wrap" aria-hidden="true">
+    <!-- The eye follows your cursor. Of course it does. -->
+    <svg class="eye" id="eye" viewBox="0 0 220 100">
+      <defs>
+        <clipPath id="eyeClip">
+          <path d="M10 50 Q 110 -28 210 50 Q 110 128 10 50 Z"/>
+        </clipPath>
+      </defs>
+      <!-- eyeball -->
+      <path d="M10 50 Q 110 -28 210 50 Q 110 128 10 50 Z" fill="#ffffff"/>
+      <g clip-path="url(#eyeClip)">
+        <g class="iris" id="iris">
+          <circle cx="110" cy="50" r="34" fill="#e33f8f"/>
+          <circle cx="110" cy="50" r="30" fill="#c2317a" opacity=".5"/>
+          <circle cx="104" cy="48" r="17" fill="#15151a"/>
+          <circle cx="122" cy="40" r="8" fill="#ffffff"/>
+        </g>
+        <!-- eyelids for blink -->
+        <g class="lids" id="lids">
+          <rect x="-10" y="-60" width="240" height="110" fill="#1c2b4d"/>
+          <rect x="-10" y="50" width="240" height="110" fill="#1c2b4d"/>
+        </g>
+      </g>
+      <!-- upper lid shape (static, like the film) -->
+      <path d="M10 50 Q 110 -28 210 50 Q 110 22 10 50 Z" fill="#141f3a"/>
+    </svg>
+  </div>
+
+  <p class="kicker">Motion study · Layer Lemonade</p>
+  <h1>Eyes, balls<br>&amp; <span class="p">time</span>.</h1>
+  <p class="tagline">A 19-second exercise in storytelling with shapes: a ball becomes a pupil, a pupil becomes a path, and everything rolls toward the logo.</p>
+  <dl class="meta">
+    <div><dt>Project</dt><dd class="c">Motion study</dd></div>
+    <div><dt>Role</dt><dd>Motion Design &amp; Animation</dd></div>
+    <div><dt>Course</dt><dd><span lang="pt-BR">Motion Design Essencial</span> · Layer Lemonade</dd></div>
+    <div><dt>Length</dt><dd>19 seconds</dd></div>
+  </dl>
+  <p class="cue">Watch it roll<span>▼</span></p>
+
+  <div class="sun" aria-hidden="true"></div>
+  <div class="mountains" aria-hidden="true"></div>
+</section>
+
+<!-- ================= FILM ================= -->
+<div class="film">
+  <div class="wrap-wide">
+    <div class="film-frame reveal">
+      <video id="film" src="../assets/eyes/eyes-film.mp4" poster="../assets/eyes/poster.jpg" muted loop playsinline preload="metadata" aria-label="Motion Eyes — full exercise. Click to toggle sound."></video>
+      <div class="film-bar">
+        <span>_FINAL_EX_MODULO_09.mp4 · 00:19 · loop</span>
+        <button id="soundBtn" aria-pressed="false">sound: off</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROCESS ================= -->
+<section class="process">
+  <div class="wrap-wide">
+    <p class="label reveal">Process</p>
+    <h2 class="reveal">Storytelling with shapes.</h2>
+    <div class="steps">
+      <div class="step coral reveal">
+        <p class="num">SCENE 01</p>
+        <h3>It starts with a ball<span class="ball-dot"></span></h3>
+        <p>The whole exercise explores how far you can go with round elements. A simple bouncing ball opens the film — squashing, stretching and leaving trails as it hops between color worlds.</p>
+      </div>
+      <div class="step night reveal">
+        <p class="num">SCENE 02</p>
+        <h3>The ball becomes an eye</h3>
+        <p>The ball evolves into a pupil, then morphs into a path, only to roll back into a ball — guiding the film gracefully toward the grand finale: the logo reveal. Each frame is a new twist in the tale.</p>
+      </div>
+      <div class="step teal reveal">
+        <p class="num">SCENE 03</p>
+        <h3>New tricks unlocked</h3>
+        <p>I learned a lot here: effects like Wave Warp for the ball's trail, and Set Matte for masking — although I still prefer Track Matte, which is easier and simpler. Every scene taught me something.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STILLS ================= -->
+<section class="stills-sec">
+  <div class="wrap-wide">
+    <p class="label reveal">Stills</p>
+    <h2 class="reveal">One ball, many worlds.</h2>
+    <div class="stills">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-01.jpg" alt="Coral scene: white bean-shaped ball bouncing">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-02.jpg" alt="Teal landscape with wave-warp snow trail behind the ball">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-03.jpg" alt="Night sky scene: pink eye between crescent moon and glowing ball">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-04.jpg" alt="Yellow scene: eye inside a circular HUD">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-05.jpg" alt="Beige line-art scene: outlined eye and rolling capsule">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-06.jpg" alt="Beige orbit scene: yellow and black balls circling">
+      <img class="reveal" loading="lazy" src="../assets/eyes/still-07.jpg" alt="End card: Motion Design Essencial logo reveal">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<div class="credits">
+  <div class="wrap-wide">
+    <dl class="foot reveal">
+      <div><dt>Tools</dt><dd>Adobe After Effects</dd></div>
+      <div><dt>Learned</dt><dd>Wave Warp · Set Matte · Morphing</dd></div>
+      <div><dt>Course</dt><dd><span lang="pt-BR">Motion Design Essencial</span> · Layer Lemonade</dd></div>
+    </dl>
+  </div>
+</div>
+
+<div class="bottom">
+  <p>Every master shot begins as an exercise.</p>
+  <a class="btn solid" href="../index.html#contact">Let's talk →</a>
+  <a class="btn" href="../index.html#work">More work</a>
+  <a class="btn" href="logo-animation.html">Next: Logo Animation →</a>
+</div>
+
+<script>
+/* ============================================================
+   STARFIELD — scatter twinkling stars over the night hero
+============================================================ */
+(function () {
+  const hero = document.getElementById('hero');
+  for (let i = 0; i < 46; i++) {
+    const s = document.createElement('span');
+    s.className = 'star';
+    const size = Math.random() * 2.4 + 1;
+    s.style.width = s.style.height = size + 'px';
+    s.style.left = (Math.random() * 100) + '%';
+    s.style.top = (Math.random() * 78) + '%';
+    s.style.opacity = (0.25 + Math.random() * 0.65).toFixed(2);
+    hero.appendChild(s);
+  }
+})();
+
+/* ============================================================
+   THE EYE — pupil follows your cursor; blinks now and then
+============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  const eye = document.getElementById('eye');
+  const iris = document.getElementById('iris');
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+
+  window.addEventListener('pointermove', e => {
+    const r = eye.getBoundingClientRect();
+    const ex = r.left + r.width / 2;
+    const ey = r.top + r.height / 2;
+    const dx = (e.clientX - ex) / (window.innerWidth / 2);
+    const dy = (e.clientY - ey) / (window.innerHeight / 2);
+    tx = Math.max(-1, Math.min(1, dx)) * 38;   /* horizontal range */
+    ty = Math.max(-1, Math.min(1, dy)) * 14;   /* vertical range */
+  }, { passive: true });
+
+  (function tick() {
+    cx += (tx - cx) * 0.08;
+    cy += (ty - cy) * 0.08;
+    iris.setAttribute('transform', 'translate(' + cx.toFixed(2) + ' ' + cy.toFixed(2) + ')');
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* ============================================================
+   FILM — autoplay muted loop; click or chip toggles sound
+============================================================ */
+(function () {
+  const video = document.getElementById('film');
+  const btn = document.getElementById('soundBtn');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      });
+    }, { threshold: 0.25 });
+    io.observe(video);
+  } else {
+    video.controls = true;
+  }
+
+  function setSound(on) {
+    video.muted = !on;
+    if (on && video.paused) video.play().catch(() => {});
+    btn.textContent = 'sound: ' + (on ? 'on' : 'off');
+    btn.setAttribute('aria-pressed', String(on));
+  }
+  btn.addEventListener('click', () => setSound(video.muted));
+  if (!reduceMotion) video.addEventListener('click', () => setSound(video.muted));
+})();
+
+/* ---------- reveal on scroll ---------- */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

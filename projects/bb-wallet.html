@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bB Wallet — Renata Acioli</title>
+<meta name="description" content="Case study: 10 illustrated tips for opening and using the bB Wallet account — illustration and animation by Renata Acioli.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta property="og:title" content="bB Wallet — Renata Acioli">
+<meta property="og:description" content="Case study: 10 illustrated tips for opening and using the bB Wallet account — illustration and animation by Renata Acioli.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/bbwallet/thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/bbwallet/thumb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#f7f223;
+    --magenta:#e5197f;
+    --violet:#7b3fe4;
+    --blue:#2f43e0;
+    --cyan:#67cdf5;
+    --mint:#8ff0c4;
+    --navy:#0d0f4a;
+    --paper:#fbfbf4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Archivo',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--navy);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--magenta);color:#fff}
+  a{text-decoration:none;color:inherit}
+
+  /* subtle grain, like the illustrations' texture */
+  .grain{
+    position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.05rem clamp(1.2rem,4vw,3rem);
+    background:rgba(251,251,244,.94);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:2.5px solid var(--navy);
+  }
+  .back{
+    font-size:.85rem;font-weight:700;color:var(--navy);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--magenta)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:var(--navy);font-weight:700;position:relative}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2.5px;width:0;background:var(--magenta);transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+  /* ---------- hero: yellow, like the opening card ---------- */
+  .hero{
+    position:relative;background:var(--yellow);overflow:hidden;
+    padding:clamp(7rem,14vh,9.5rem) 32px clamp(3rem,7vw,5rem);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-8%;top:-12%;
+    width:min(560px,58vw);aspect-ratio:1;border-radius:50%;
+    background:var(--cyan);opacity:.55;
+  }
+  .wrap{max-width:1140px;margin-inline:auto;position:relative;z-index:2}
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center;
+  }
+  @media (max-width:880px){.hero-grid{grid-template-columns:1fr}}
+  .chip{
+    display:inline-block;background:var(--violet);color:#fff;
+    font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.24em;
+    text-transform:uppercase;border-radius:999px;padding:.5rem 1.2rem;margin-bottom:1.6rem;
+  }
+  h1{
+    font-weight:900;font-size:clamp(3rem,8.5vw,6rem);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;color:var(--violet);
+    margin-bottom:1.1rem;
+  }
+  h1 .ten{
+    display:block;color:var(--magenta);
+    font-size:1.35em;line-height:.86;
+  }
+  .lead{
+    font-size:clamp(1rem,1.9vw,1.18rem);font-weight:600;color:var(--navy);
+    max-width:32rem;margin-bottom:1.8rem;
+  }
+  .lead strong{color:var(--magenta)}
+  .meta{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem 1.6rem;
+    background:var(--paper);border:3px solid var(--navy);border-radius:18px;
+    padding:1.2rem 1.4rem;box-shadow:8px 8px 0 var(--navy);
+  }
+  .meta dt{
+    font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#6d6f9c;margin-bottom:.2rem;
+  }
+  .meta dd{font-size:.92rem;font-weight:800}
+  .meta dd.v{color:var(--violet)}
+  .hero-shot{
+    border-radius:20px;overflow:hidden;border:3px solid var(--navy);
+    box-shadow:10px 10px 0 var(--magenta);
+  }
+  .hero-shot img{width:100%;display:block}
+
+  /* ---------- film ---------- */
+  .film{background:var(--navy);padding:clamp(3.5rem,7vw,5.5rem) 32px}
+  .film-frame{
+    max-width:1000px;margin-inline:auto;border-radius:18px;overflow:hidden;
+    border:3px solid var(--cyan);
+    box-shadow:0 34px 70px -34px rgba(0,0,0,.8);
+  }
+  .film-frame video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover;background:#000}
+  .film-bar{
+    max-width:1000px;margin:1rem auto 0;
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+    font-family:'Space Mono',monospace;font-size:.68rem;color:#9fa3d8;
+  }
+  .film-bar button{
+    background:none;border:1px solid #4b4f96;color:#dfe1ff;
+    font:inherit;border-radius:999px;padding:.2rem .8rem;cursor:pointer;
+    transition:border-color .2s,color .2s;
+  }
+  .film-bar button:hover{border-color:var(--cyan);color:var(--cyan)}
+
+  /* ---------- tips strip: color system ---------- */
+  .strip{padding:clamp(4rem,8vw,6rem) 0 0}
+  .strip-head{max-width:1140px;margin:0 auto clamp(2rem,4vw,3rem);padding:0 32px}
+  .label{
+    font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--magenta);margin-bottom:.9rem;
+  }
+  h2{
+    font-weight:900;font-size:clamp(1.9rem,4.4vw,3rem);
+    letter-spacing:-.02em;line-height:1.05;text-transform:uppercase;
+  }
+  h2 em{font-style:normal;color:var(--violet)}
+  .sub{margin-top:1rem;max-width:40rem;color:#4a4d80;font-weight:500;font-size:.98rem}
+
+  .rail{
+    display:flex;gap:20px;overflow-x:auto;padding:0 32px 1.6rem;
+    scroll-snap-type:x mandatory;scrollbar-width:thin;
+  }
+  .rail::-webkit-scrollbar{height:8px}
+  .rail::-webkit-scrollbar-thumb{background:var(--violet);border-radius:99px}
+  .rail figure{
+    flex:0 0 min(420px,78vw);scroll-snap-align:center;
+    border:3px solid var(--navy);border-radius:18px;overflow:hidden;
+    background:#fff;transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+  }
+  .rail figure:hover{transform:translateY(-6px)}
+  .rail img{width:100%;display:block}
+  .rail figcaption{
+    display:flex;justify-content:space-between;align-items:center;gap:.8rem;
+    padding:.7rem 1rem;border-top:3px solid var(--navy);
+    font-family:'Space Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;
+  }
+  .rail figcaption b{font-weight:700}
+  .swatch{width:.85rem;height:.85rem;border-radius:50%;border:2px solid var(--navy);display:inline-block}
+  .rail-hint{
+    text-align:center;font-family:'Space Mono',monospace;font-size:.66rem;
+    letter-spacing:.2em;text-transform:uppercase;color:#8083b5;padding-bottom:1rem;
+  }
+
+  /* ---------- process ---------- */
+  .process{padding:clamp(4rem,8vw,6.5rem) 32px}
+  .steps{max-width:1140px;margin-inline:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .step{
+    border:3px solid var(--navy);border-radius:18px;padding:1.9rem 1.7rem;background:#fff;
+    box-shadow:8px 8px 0 var(--yellow);
+  }
+  .step:nth-child(2){box-shadow:8px 8px 0 var(--cyan)}
+  .step:nth-child(3){box-shadow:8px 8px 0 var(--mint)}
+  .step:nth-child(4){box-shadow:8px 8px 0 var(--magenta)}
+  .step .num{
+    font-weight:900;font-size:2.2rem;line-height:1;color:var(--violet);margin-bottom:.6rem;
+    letter-spacing:-.04em;
+  }
+  .step h3{font-size:1.12rem;font-weight:800;margin-bottom:.55rem;letter-spacing:-.01em}
+  .step p{font-size:.93rem;color:#4a4d80;font-weight:500}
+
+  /* ---------- outcome + testimonial ---------- */
+  .outcome-grid{
+    max-width:1140px;margin-inline:auto;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:22px;
+  }
+  .outcome{
+    border:3px solid var(--navy);border-radius:18px;padding:1.9rem 1.7rem;background:#fff;
+    box-shadow:8px 8px 0 var(--cyan);
+  }
+  .outcome p{font-size:.98rem;color:#4a4d80;font-weight:500;line-height:1.65}
+  .outcome strong{color:var(--navy);font-weight:800}
+  .quote{
+    border:3px solid var(--navy);border-radius:18px;padding:1.9rem 1.7rem;
+    background:var(--yellow);box-shadow:8px 8px 0 var(--magenta);
+  }
+  .quote blockquote{
+    font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:800;line-height:1.45;
+    color:var(--navy);letter-spacing:-.01em;
+  }
+  .quote .quote-en{
+    font-size:.85rem;color:#4a4d80;font-weight:500;margin-top:.7rem;font-style:italic;
+  }
+  .quote figcaption{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--violet);margin-top:1rem;
+  }
+
+  /* ---------- credits + bottom ---------- */
+  .credits{padding:0 32px clamp(4rem,8vw,6rem)}
+  .foot{
+    max-width:1140px;margin-inline:auto;
+    display:flex;flex-wrap:wrap;gap:1.6rem 4rem;
+    border-top:3px solid var(--navy);padding-top:2.2rem;
+  }
+  .foot dt{
+    font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#6d6f9c;margin-bottom:.2rem;
+  }
+  .foot dd{font-size:.95rem;font-weight:800}
+  .bottom{
+    background:var(--violet);color:#fff;
+    padding:56px 32px;text-align:center;
+  }
+  .bottom p{
+    font-weight:900;font-size:clamp(1.3rem,3vw,2rem);text-transform:uppercase;
+    letter-spacing:-.02em;margin-bottom:1.5rem;
+  }
+  .bottom p span{color:var(--yellow)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;margin:.25rem;
+    font-weight:800;font-size:.93rem;color:#fff;
+    border:2.5px solid #fff;border-radius:999px;padding:.68rem 1.55rem;
+    transition:background .25s,color .25s,transform .25s;
+  }
+  .btn:hover{background:#fff;color:var(--violet);transform:translateY(-2px)}
+  .btn.solid{background:var(--yellow);border-color:var(--yellow);color:var(--navy)}
+  .btn.solid:hover{background:var(--magenta);border-color:var(--magenta);color:#fff}
+
+  /* reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #e5197f;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#e5197f;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  /* small-screen guard */
+  @media (max-width:600px){
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom{padding-inline:20px}
+    .meta{gap:1rem 1.8rem}
+    .foot{gap:1.2rem 2rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .hero::after{width:min(320px,70vw)}
+    .hero-shot{box-shadow:6px 6px 0 var(--magenta)}
+    .meta{box-shadow:5px 5px 0 var(--navy);padding:1rem}
+    .step{box-shadow:5px 5px 0 var(--yellow)}
+    .step:nth-child(2){box-shadow:5px 5px 0 var(--cyan)}
+    .step:nth-child(3){box-shadow:5px 5px 0 var(--mint)}
+    .step:nth-child(4){box-shadow:5px 5px 0 var(--magenta)}
+    .outcome,.quote{box-shadow:5px 5px 0 var(--cyan)}
+    /* tips rail: give it real swipe affordance on touch */
+    .rail{padding-inline:1.1rem;scroll-padding-inline:1.1rem}
+    .rail figure{flex:0 0 82vw}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="main-content" tabindex="-1">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="chip">Illustration · Animation · Explainer</p>
+        <h1><span class="ten">10 tips,</span>zero voice-over</h1>
+        <p class="lead">An illustrated tutorial for <strong>bB Wallet</strong>, Banco do Brasil's digital wallet: ten tips on opening and using the account, told entirely through picture, type and timing — <strong>no narration to lean on</strong>.</p>
+        <dl class="meta">
+          <div><dt>Client</dt><dd class="v">Banco do Brasil</dd></div>
+          <div><dt>Role</dt><dd>Illustration &amp; Animation</dd></div>
+          <div><dt>Script</dt><dd>Written by the client team</dd></div>
+          <div><dt>Length</dt><dd>3'07" · 10 tips</dd></div>
+        </dl>
+      </div>
+      <div class="hero-shot reveal">
+        <img src="../assets/bbwallet/still-01.jpg" alt="Illustrated character with an afro holding a pink phone, tip 01 of the bB Wallet tutorial">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FILM ================= -->
+<div class="film">
+  <div class="film-frame reveal">
+    <video id="film" src="../assets/bbwallet/bbwallet-film.mp4" poster="../assets/bbwallet/poster.jpg" muted loop playsinline preload="metadata" aria-label="bB Wallet tutorial — full film. Click to toggle sound."></video>
+  </div>
+  <div class="film-bar">
+    <span>bB_wallet_10_superdicas.mp4 · 03:07 · loop</span>
+    <button id="soundBtn" aria-pressed="false">sound: off</button>
+  </div>
+</div>
+
+<!-- ================= TIPS RAIL ================= -->
+<div class="strip">
+  <div class="strip-head">
+    <p class="label reveal">The system</p>
+    <h2 class="reveal">One character,<br><em>ten color worlds.</em></h2>
+    <p class="sub reveal">Each tip gets its own palette and staging, so viewers always know when a new one starts — a visual page-turn that replaces the narrator's "next tip".</p>
+  </div>
+
+  <div class="rail" id="rail">
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-open.jpg" alt="Opening card reading “10 superdicas para abrir sua carteira bB” — 10 top tips for opening your bB Wallet">
+      <figcaption><b>Opening</b><span><i class="swatch" style="background:var(--cyan)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-01.jpg" alt="Tip 01: opening hours, character with a phone at night">
+      <figcaption><b>Tip 01 · opening hours</b><span><i class="swatch" style="background:var(--yellow)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-02.jpg" alt="Tip 02: filling in personal data on the app screen">
+      <figcaption><b>Tip 02 · your data</b><span><i class="swatch" style="background:var(--magenta)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-04.jpg" alt="Tip 04: documents on the table, character choosing one">
+      <figcaption><b>Tip 04 · documents</b><span><i class="swatch" style="background:var(--violet)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-06.jpg" alt="Tip 06: character with weak signal icon next to the phone">
+      <figcaption><b>Tip 06 · connection</b><span><i class="swatch" style="background:var(--yellow)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-07.jpg" alt="Tip 07: selfie framing shown inside the phone screen">
+      <figcaption><b>Tip 07 · the selfie</b><span><i class="swatch" style="background:var(--violet)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-08.jpg" alt="Tip 08: three phone cases in different colors">
+      <figcaption><b>Tip 08 · your device</b><span><i class="swatch" style="background:var(--mint)"></i></span></figcaption>
+    </figure>
+    <figure class="reveal">
+      <img loading="lazy" src="../assets/bbwallet/still-10.jpg" alt="Tip 10: character at home thinking of her password">
+      <figcaption><b>Tip 10 · your password</b><span><i class="swatch" style="background:var(--yellow)"></i></span></figcaption>
+    </figure>
+  </div>
+  <p class="rail-hint reveal">← drag to browse the tips →</p>
+</div>
+
+<!-- ================= PROCESS ================= -->
+<div class="process">
+  <div class="strip-head" style="padding:0">
+    <p class="label reveal">Process</p>
+    <h2 class="reveal">Drawing a tutorial<br><em>that has to explain itself.</em></h2>
+  </div>
+  <div class="steps" style="margin-top:2.6rem">
+    <div class="step reveal">
+      <p class="num">01</p>
+      <h3>Illustrating the cast</h3>
+      <p>The script arrived written; the world didn't exist yet. I illustrated the character and her universe from scratch — her afro, her hoop earrings, her rooms, her phones — so the audience would see someone recognizable using the wallet, not an abstract UI.</p>
+    </div>
+    <div class="step reveal">
+      <p class="num">02</p>
+      <h3>Texture against flatness</h3>
+      <p>Flat vector on a three-minute video gets sterile fast. Grain and brush texture on skin, hair, fabric and backgrounds give the frames warmth and depth — the detail your eye keeps discovering while the information sinks in.</p>
+    </div>
+    <div class="step reveal">
+      <p class="num">03</p>
+      <h3>Animating for clarity</h3>
+      <p>Every movement carries meaning: a hand tilts the phone, a number snaps into place, a color sweeps across to end one tip and open the next. Motion is the punctuation of a video that can't say "and now, tip five".</p>
+    </div>
+    <div class="step reveal">
+      <p class="num">04</p>
+      <h3>The silent constraint</h3>
+      <p>No voice-over over three minutes is the real challenge: the image has to hold attention alone. I worked it with pacing — short beats, big numbers, palette changes as chapter marks — so nothing feels long, even when it is.</p>
+    </div>
+  </div>
+
+  <div class="strip-head" style="padding:0;margin-top:clamp(3rem,6vw,4.5rem)">
+    <p class="label reveal">Outcome</p>
+    <h2 class="reveal">It went live —<br><em>and stayed there.</em></h2>
+  </div>
+  <div class="outcome-grid">
+    <div class="outcome reveal">
+      <p>The tutorial was published on <strong>Banco do Brasil's YouTube channel and website</strong>, and stayed in rotation for the entire lifetime of the product — the go-to explainer for anyone opening a bB Wallet account.</p>
+    </div>
+    <figure class="quote reveal">
+      <blockquote lang="pt-BR">“Eu amei a ilustração. O vídeo ficou ótimo! Parabéns ao time.”</blockquote>
+      <p class="quote-en">“I loved the illustration. The video turned out great! Congratulations to the team.”</p>
+      <figcaption>Client feedback · Banco do Brasil</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- ================= CREDITS ================= -->
+<div class="credits">
+  <dl class="foot reveal">
+    <div><dt>Illustration &amp; Animation</dt><dd>Renata Acioli</dd></div>
+    <div><dt>Script</dt><dd>Client team</dd></div>
+    <div><dt>Product</dt><dd>bB Wallet · Banco do Brasil <span style="font-weight:500;color:#6d6f9c">(discontinued)</span></dd></div>
+    <div><dt>Tools</dt><dd>Illustrator · After Effects</dd></div>
+  </dl>
+</div>
+
+<div class="bottom">
+  <p>Need something explained <span>without saying a word?</span></p>
+  <a class="btn solid" href="../index.html#contact">Let's talk →</a>
+  <a class="btn" href="../index.html#work">More work</a>
+  <a class="btn" href="ourocard.html">Next: Ourocard Stories →</a>
+</div>
+
+<script>
+/* film: autoplay muted while visible, click or chip toggles sound */
+(function () {
+  const video = document.getElementById('film');
+  const btn = document.getElementById('soundBtn');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      });
+    }, { threshold: 0.25 });
+    io.observe(video);
+  } else {
+    video.controls = true;
+  }
+
+  function setSound(on) {
+    video.muted = !on;
+    if (on && video.paused) video.play().catch(() => {});
+    btn.textContent = 'sound: ' + (on ? 'on' : 'off');
+    btn.setAttribute('aria-pressed', String(on));
+  }
+  btn.addEventListener('click', () => setSound(video.muted));
+  if (!reduceMotion) video.addEventListener('click', () => setSound(video.muted));
+})();
+
+/* tips rail: drag to scroll with the mouse */
+(function () {
+  const rail = document.getElementById('rail');
+  let down = false, startX = 0, startScroll = 0;
+  rail.addEventListener('pointerdown', e => {
+    down = true; startX = e.clientX; startScroll = rail.scrollLeft;
+    rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', e => {
+    if (!down) return;
+    rail.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  ['pointerup', 'pointercancel'].forEach(ev => rail.addEventListener(ev, () => { down = false; }));
+})();
+
+/* reveal on scroll */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

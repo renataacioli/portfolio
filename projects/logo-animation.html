@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo Animation — Renata Acioli</title>
+<meta name="description" content="Case study: logo animation reel — brand marks brought to life by Renata Acioli. Cine Ninja, Clube Ativista, Ella, CNA and Ninja na Avenida.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta property="og:title" content="Logo Animation — Renata Acioli">
+<meta property="og:description" content="Case study: logo animation reel — brand marks brought to life by Renata Acioli. Cine Ninja, Clube Ativista, Ella, CNA and Ninja na Avenida.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/logos-motion/thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/logos-motion/thumb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stage:#0b0b0d;
+    --panel:#141417;
+    --white:#f5f4f0;
+    --soft:#9a9aa2;
+    --cyan:#2eb6f5;
+    --yellow:#ffd21f;
+    --pink:#f2a0b1;
+    --red:#a82a20;
+    --line:rgba(245,244,240,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Archivo',system-ui,sans-serif;
+    background:var(--stage);
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+  }
+  ::selection{background:var(--yellow);color:var(--stage)}
+  a{text-decoration:none;color:inherit}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.1rem clamp(1.2rem,4vw,3rem);
+    background:rgba(11,11,13,.94);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 1px 0 rgba(0,0,0,.4);
+  }
+  .back{
+    font-size:.85rem;font-weight:700;color:var(--white);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--cyan)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:var(--white);font-weight:600;position:relative}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--cyan);transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(8rem,17vh,10.5rem) 32px 72px;text-align:center;position:relative;overflow:hidden}
+  .wrap{max-width:900px;margin:0 auto;position:relative;z-index:2}
+  .wrap-wide{max-width:1100px;margin-inline:auto}
+  .kicker{
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--cyan);margin-bottom:1.6rem;
+  }
+  h1{
+    font-weight:900;font-size:clamp(2.6rem,7.5vw,5.2rem);
+    line-height:1.0;letter-spacing:-.02em;text-transform:uppercase;
+    margin-bottom:1.4rem;
+  }
+  h1 .c1{color:var(--cyan)}
+  h1 .c2{color:var(--yellow)}
+  h1 .c3{color:var(--pink)}
+  .intro{
+    font-size:clamp(1rem,1.9vw,1.18rem);color:var(--soft);
+    max-width:40rem;margin:0 auto 3rem;font-weight:500;
+  }
+  .intro strong{color:var(--white)}
+  .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1.1rem 3.4rem;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:1.4rem 1rem;margin-bottom:2.6rem;text-align:left;
+  }
+  .meta dt{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--soft);margin-bottom:.3rem;
+  }
+  .meta dd{font-size:.98rem;font-weight:700}
+  .meta dd.c{color:var(--yellow)}
+  .cue{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+  .cue span{display:block;color:var(--cyan);margin-top:.5rem}
+
+  /* ---------- gallery ---------- */
+  section{padding:0 32px clamp(4.5rem,9vw,7rem)}
+  .label{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;
+  }
+  h2{
+    font-weight:900;font-size:clamp(1.9rem,4.4vw,3rem);
+    letter-spacing:-.02em;line-height:1.08;text-transform:uppercase;margin-bottom:2.6rem;
+  }
+  .gallery{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;
+    align-items:start;
+  }
+  .tile{
+    border-radius:14px;overflow:hidden;background:var(--panel);
+    border:1px solid var(--line);
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s ease;
+  }
+  .tile:hover{transform:translateY(-5px);border-color:rgba(245,244,240,.4)}
+  .tile.span2{grid-column:span 2}
+  @media (max-width:700px){.tile.span2{grid-column:span 1}}
+  .tile video{width:100%;display:block}
+  .tile-cap{
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:.8rem 1rem;
+    font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--soft);
+    border-top:1px solid var(--line);
+  }
+  .tile-cap b{color:var(--white);font-weight:700}
+  .dot{width:.6rem;height:.6rem;border-radius:50%;display:inline-block;margin-right:.45rem;vertical-align:middle}
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .step{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:1.9rem 1.7rem;border-top:4px solid var(--cyan);
+  }
+  .step:nth-child(2){border-top-color:var(--yellow)}
+  .step:nth-child(3){border-top-color:var(--pink)}
+  .step .num{
+    font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.24em;
+    color:var(--soft);margin-bottom:.9rem;
+  }
+  .step h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.01em}
+  .step p{font-size:.92rem;color:var(--soft);font-weight:500}
+
+  /* ---------- outcome ---------- */
+  .sub-copy{color:#a9a9b4;max-width:44rem;margin-bottom:2rem;font-size:.98rem}
+  .case{
+    border:1px solid var(--line);border-radius:14px;
+    padding:2rem 1.9rem;background:var(--panel);
+    border-left:4px solid var(--cyan);
+  }
+  .case-t{
+    font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;
+  }
+  .case p:not(.case-t):not(.metric){font-size:.97rem;color:#b9b9c4;margin-bottom:.9rem}
+  .case strong{color:var(--white);font-weight:700}
+  .case .metric{
+    display:flex;align-items:baseline;gap:.7rem;margin-top:1.4rem;
+    padding-top:1.2rem;border-top:1px solid var(--line);
+  }
+  .case .metric b{font-size:2.6rem;font-weight:900;color:var(--yellow);line-height:1;letter-spacing:-.03em}
+  .case .metric span{font-size:.9rem;color:#b9b9c4}
+
+  /* ---------- credits + bottom ---------- */
+  .foot{
+    display:flex;flex-wrap:wrap;gap:1.6rem 4rem;
+    border-top:1px solid var(--line);padding-top:2.2rem;
+  }
+  .foot dt{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--soft);margin-bottom:.3rem;
+  }
+  .foot dd{font-size:.95rem;font-weight:700}
+  .bottom{border-top:1px solid var(--line);padding:56px 32px;text-align:center}
+  .bottom p{
+    font-weight:900;font-size:clamp(1.3rem,3vw,1.9rem);text-transform:uppercase;
+    letter-spacing:-.01em;margin-bottom:1.5rem;
+  }
+  .bottom p span{color:var(--cyan)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;margin:.25rem;
+    font-weight:700;font-size:.93rem;color:var(--white);
+    border:1.5px solid var(--white);border-radius:999px;padding:.7rem 1.6rem;
+    transition:background .25s,color .25s,transform .25s;
+  }
+  .btn:hover{background:var(--white);color:var(--stage);transform:translateY(-2px)}
+  .btn.solid{background:var(--cyan);border-color:var(--cyan);color:var(--stage)}
+  .btn.solid:hover{background:var(--yellow);border-color:var(--yellow)}
+
+  /* reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #2eb6f5;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#2eb6f5;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  /* small-screen guard */
+  @media (max-width:600px){
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom{padding-inline:20px}
+    .meta{gap:1rem 1.8rem}
+    .foot{gap:1.2rem 2rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .gallery{gap:16px}
+    .step{padding:1.6rem 1.3rem}
+    .case{padding:1.6rem 1.3rem}
+    .case .metric{flex-direction:column;align-items:flex-start;gap:.2rem}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="main-content" tabindex="-1">
+  <div class="wrap">
+    <p class="kicker">Brand · Motion</p>
+    <h1>Logos that<br><span class="c1">move</span>, <span class="c2">pulse</span><br>&amp; <span class="c3">misbehave</span>.</h1>
+    <p class="intro">A brand mark is a signature — animating one means making it <strong>talk</strong>. These identities already existed; my job was to give each of them a voice in motion, from activist collectives to carnival stages.</p>
+    <dl class="meta">
+      <div><dt>Role</dt><dd class="c">Logo Animation</dd></div>
+      <div><dt>Brands</dt><dd>5 marks · 7 loops</dd></div>
+      <div><dt>Tool</dt><dd>Adobe After Effects</dd></div>
+      <div><dt>Output</dt><dd>Loops for social &amp; openers</dd></div>
+    </dl>
+    <p class="cue">Watch them move<span>▼</span></p>
+  </div>
+</div>
+
+<!-- ================= GALLERY ================= -->
+<section>
+  <div class="wrap-wide">
+    <div class="gallery">
+      <div class="tile span2 reveal">
+        <video src="../assets/logos-motion/ella.mp4" muted loop playsinline preload="metadata" aria-label="Ella logo animation — pink cursive lettering writing itself on red"></video>
+        <p class="tile-cap"><span><b>Ella</b> · write-on lettering</span><span><i class="dot" style="background:var(--red)"></i>16:9</span></p>
+      </div>
+      <div class="tile reveal">
+        <video src="../assets/logos-motion/cine-ninja.mp4" muted loop playsinline preload="metadata" aria-label="Cine Ninja logo animation — glitchy white type on black"></video>
+        <p class="tile-cap"><span><b>Cine Ninja</b> · glitch type</span><span><i class="dot" style="background:var(--white)"></i>1:1</span></p>
+      </div>
+      <div class="tile reveal">
+        <video src="../assets/logos-motion/ninja-avenida.mp4" muted loop playsinline preload="metadata" aria-label="Ninja na Avenida logo animation — type under the sambadrome arch"></video>
+        <p class="tile-cap"><span><b lang="pt-BR">Ninja na Avenida</b> · carnival 2024</span><span><i class="dot" style="background:var(--cyan)"></i>1:1</span></p>
+      </div>
+      <div class="tile reveal">
+        <video src="../assets/logos-motion/ca-badge.mp4" muted loop playsinline preload="metadata" aria-label="Clube Ativista badge version — blue and pink circular badge"></video>
+        <p class="tile-cap"><span><b>Clube Ativista</b> · badge</span><span><i class="dot" style="background:var(--pink)"></i>4:5</span></p>
+      </div>
+      <div class="tile reveal">
+        <video src="../assets/logos-motion/ca-shield.mp4" muted loop playsinline preload="metadata" aria-label="Clube Ativista shield version — white CA monogram on black"></video>
+        <p class="tile-cap"><span><b>Clube Ativista</b> · shield</span><span><i class="dot" style="background:var(--white)"></i>4:5</span></p>
+      </div>
+      <div class="tile reveal">
+        <video src="../assets/logos-motion/ca-3d.mp4" muted loop playsinline preload="metadata" aria-label="Clube Ativista extruded version — yellow 3D monogram on cyan"></video>
+        <p class="tile-cap"><span><b>Clube Ativista</b> · extruded</span><span><i class="dot" style="background:var(--yellow)"></i>4:5</span></p>
+      </div>
+      <div class="tile reveal">
+        <video src="../assets/logos-motion/cna.mp4" muted loop playsinline preload="metadata" aria-label="CNA monogram animation — colorful segmented letters on white"></video>
+        <p class="tile-cap"><span><b>CNA</b> · segmented mark</span><span><i class="dot" style="background:var(--cyan)"></i>1:1</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Process</p>
+    <h2 class="reveal">The design was done.<br>The motion wasn't.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <p class="num">01</p>
+        <h3>Respect the mark</h3>
+        <p>Each logo arrived finished — designed by someone who made careful decisions. Animation can't break those decisions; it has to reveal them. I start by studying the construction of the mark: its geometry, its weight, its attitude.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">02</p>
+        <h3>Find each voice</h3>
+        <p>No two brands should move the same way. Cine Ninja got a nervous glitch; Ella's lettering writes itself like a signature; Clube Ativista's badge snaps together with activist energy — three versions, three tempos, one system.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">03</p>
+        <h3>Build it to loop</h3>
+        <p>These marks live on social feeds and video openers, so every animation resolves into a clean, seamless loop — tight easing, readable in seconds, exported ready to drop anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTCOME ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Outcome</p>
+    <h2 class="reveal">Still on air.</h2>
+    <p class="sub-copy reveal">These marks are still in use — opening live events, heading YouTube uploads and shorts, and stamping every video the brands publish.</p>
+
+    <div class="case reveal">
+      <p class="case-t">Case · Mídia Ninja video kit</p>
+      <p>One client took it further. Mídia Ninja asked for a full <strong>animated video kit</strong> to speed up and enrich the editing of their journalism pieces: caption presets, transitions, visual effects, animated backgrounds, animated logo, opening and closing vignettes — all built with an <strong>After Effects → Premiere integration</strong>.</p>
+      <p>I delivered it as a fully editable Premiere timeline, so the editor only had to drop in the raw footage and make the cuts.</p>
+      <p class="metric"><b>50%</b><span>faster editing and finishing</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<section>
+  <div class="wrap-wide">
+    <dl class="foot reveal">
+      <div><dt>Role</dt><dd>Logo Animation</dd></div>
+      <div><dt>Brands</dt><dd lang="pt-BR">Cine Ninja · Clube Ativista · Ella · CNA · Ninja na Avenida</dd></div>
+      <div><dt>Tool</dt><dd>Adobe After Effects</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="bottom">
+  <p>Your logo has a voice. <span>Let it speak.</span></p>
+  <a class="btn solid" href="../index.html#contact">Let's talk →</a>
+  <a class="btn" href="../index.html#work">More work</a>
+  <a class="btn" href="awure.html">Next: USE Àwúre →</a>
+</div>
+
+<script>
+/* logo loops: play only while visible */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vids = document.querySelectorAll('.tile video');
+  if (reduceMotion) { vids.forEach(v => v.controls = true); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) en.target.play().catch(() => {});
+      else en.target.pause();
+    });
+  }, { threshold: 0.25 });
+  vids.forEach(v => io.observe(v));
+})();
+
+/* reveal on scroll */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

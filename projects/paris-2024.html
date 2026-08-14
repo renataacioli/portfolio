@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torcida do Brasil · Paris 2024 — Renata Acioli</title>
+<meta name="description" content="Case study: unfolding the Torcida do Brasil campaign (Banco do Brasil · Ourocard · Visa) into dozens of pieces for the Paris 2024 Olympics — design by Renata Acioli, visual concept by PILOTO.TV.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta property="og:title" content="Torcida do Brasil · Paris 2024 — Renata Acioli">
+<meta property="og:description" content="Case study: unfolding the Torcida do Brasil campaign (Banco do Brasil · Ourocard · Visa) into dozens of pieces for the Paris 2024 Olympics — design by Renata Acioli, visual concept by PILOTO.TV.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/paris/square-varejo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/paris/square-varejo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Lora:ital,wght@1,600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f6f2;
+    --yellow:#fdfc32;
+    --blue:#465efe;
+    --navy:#1d2450;
+    --pink:#f06fae;
+    --cyan:#5fe8d2;
+    --ink:#191c2e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--navy);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--yellow);color:var(--navy)}
+  a{text-decoration:none;color:inherit}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.05rem clamp(1.2rem,4vw,3rem);
+    background:rgba(247,246,242,.95);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:2.5px solid var(--navy);
+  }
+  .back{
+    font-size:.85rem;font-weight:700;color:var(--navy);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--blue)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:var(--navy);font-weight:600;position:relative}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2.5px;width:0;background:var(--blue);transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+  /* ---------- hero: Parisian postcard in the KV style ---------- */
+  .hero{
+    position:relative;overflow:hidden;text-align:center;
+    background:var(--yellow);
+    padding:clamp(6.5rem,13vh,8.5rem) 32px 0;
+    border-bottom:4px solid var(--ink);
+  }
+  .wrap{max-width:900px;margin:0 auto;position:relative;z-index:2}
+  .wrap-wide{max-width:1140px;margin-inline:auto;position:relative;z-index:2}
+  .chip{
+    display:inline-block;background:var(--ink);color:#fdfc9c;
+    font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.28em;
+    text-transform:uppercase;border-radius:999px;padding:.55rem 1.4rem;
+    margin-bottom:1.8rem;
+  }
+  .lockup{
+    font-family:'Lora',serif;font-style:italic;font-weight:600;
+    font-size:clamp(1.15rem,2.6vw,1.75rem);color:var(--ink);
+    margin-bottom:.4rem;
+  }
+  h1{
+    font-weight:800;line-height:1;letter-spacing:-.02em;
+    font-size:clamp(3.4rem,10vw,7rem);
+    margin-bottom:1rem;
+  }
+  h1 .paris{color:var(--blue)}
+  h1 .year{color:var(--pink)}
+  .subline{
+    font-weight:700;font-size:clamp(1rem,2.2vw,1.4rem);color:var(--ink);
+    margin-bottom:1.8rem;
+  }
+  .subline em{font-style:normal;color:var(--pink)}
+  .intro{
+    font-size:clamp(1rem,1.9vw,1.18rem);color:#4a4a30;
+    max-width:46rem;margin:0 auto 2.6rem;
+  }
+  .intro strong{color:var(--ink)}
+  .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem 3rem;
+    background:#fff;border:3px solid var(--ink);border-radius:22px;
+    padding:1.3rem 2rem;margin:0 auto;max-width:960px;text-align:left;
+    box-shadow:0 10px 0 rgba(25,28,46,.14);
+  }
+  .meta dt{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#9a9eb8;margin-bottom:.25rem;
+  }
+  .meta dd{font-size:.95rem;font-weight:700;color:var(--ink)}
+  .meta dd.b{color:var(--blue)}
+  .meta dd a{color:var(--pink)}
+  .meta dd a:hover{text-decoration:underline}
+
+  /* Parisian skyline, thick outlines like the KV characters */
+  .skyline{display:block;width:100%;max-height:380px;margin-top:clamp(1.5rem,4vw,3rem)}
+  @media (prefers-reduced-motion: no-preference){
+    .skyline .float{animation:skybob 5s ease-in-out infinite;transform-origin:center bottom}
+    .skyline .float.f2{animation-delay:1.6s}
+    .skyline .float.f3{animation-delay:3.1s}
+    @keyframes skybob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  }
+
+  /* ---------- decks ---------- */
+  section{position:relative;padding:clamp(4rem,8vw,6.5rem) 32px}
+  .label{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:1rem;
+  }
+  h2{
+    font-weight:800;font-size:clamp(1.9rem,4.4vw,3rem);
+    letter-spacing:-.02em;line-height:1.06;margin-bottom:1rem;
+  }
+  .sub{color:#4a4f6e;max-width:38rem;margin-bottom:3.2rem;font-size:.98rem}
+  .decks{
+    display:flex;flex-wrap:wrap;gap:clamp(2.5rem,6vw,4.5rem);
+    justify-content:center;align-items:flex-end;
+  }
+  .deck-wrap{text-align:center}
+  .deck{
+    position:relative;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .deck.banners{width:min(430px,86vw);aspect-ratio:550/330}
+  .deck.squares{width:min(320px,80vw);aspect-ratio:1/1}
+  .deck.stories{width:min(230px,62vw);aspect-ratio:1080/1920}
+  /* colored card backs peeking out — "there's more under here" */
+  .deck::before,.deck::after{
+    content:"";position:absolute;inset:0;border-radius:12px;z-index:0;
+    border:2.5px solid var(--navy);
+  }
+  .deck::before{background:var(--yellow);transform:rotate(6.5deg) translate(10px,8px)}
+  .deck::after{background:var(--pink);transform:rotate(-5deg) translate(-9px,12px)}
+  .pc{
+    position:absolute;inset:0;border-radius:12px;overflow:hidden;
+    border:2.5px solid var(--navy);background:#fff;
+    box-shadow:0 16px 34px -16px rgba(29,36,80,.4);
+    transition:transform .45s cubic-bezier(.34,1.56,.64,1), opacity .35s ease;
+    z-index:1;
+  }
+  .pc img{width:100%;height:100%;object-fit:cover;display:block}
+  .pc:nth-child(1){z-index:5;transform:rotate(-1deg)}
+  .pc:nth-child(2){z-index:4;transform:rotate(3.5deg) translate(7px,-7px)}
+  .pc:nth-child(3){z-index:3;transform:rotate(-4.5deg) translate(-8px,-11px)}
+  .pc:nth-child(4){z-index:2;transform:rotate(6deg) translate(11px,-15px)}
+  .deck:hover .pc:nth-child(1){transform:rotate(-1.5deg) translateY(-8px) scale(1.015)}
+  .pc.flying{transform:translateY(-46%) rotate(10deg) !important;opacity:0;z-index:8 !important}
+  .deck-cap{
+    margin-top:1.6rem;font-weight:700;font-size:1.02rem;color:var(--navy);
+  }
+  .deck-cap .count{
+    display:inline-block;background:var(--blue);color:#fff;border-radius:999px;
+    font-size:.72rem;font-weight:700;padding:.1rem .6rem;margin-left:.45rem;vertical-align:middle;
+  }
+  .deck-sub{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#7a7f9e;margin-top:.2rem}
+  .shuffle-hint{
+    text-align:center;margin-top:3rem;
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--blue);
+  }
+
+  /* ---------- stats band ---------- */
+  .stats{
+    background:var(--blue);color:#fff;
+    padding:clamp(3rem,6vw,4.5rem) 32px;
+  }
+  .stats-grid{
+    max-width:1000px;margin-inline:auto;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2rem;
+    text-align:center;
+  }
+  .stat b{display:block;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1;color:var(--yellow)}
+  .stat span{font-size:.85rem;opacity:.9}
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:1140px;margin-inline:auto}
+  .step{
+    background:#fff;border:2.5px solid var(--navy);border-radius:16px;
+    padding:1.9rem 1.7rem;box-shadow:7px 8px 0 var(--yellow);
+  }
+  .step:nth-child(2){box-shadow:7px 8px 0 var(--pink)}
+  .step:nth-child(3){box-shadow:7px 8px 0 var(--cyan)}
+  .step .num{
+    font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.22em;
+    color:var(--blue);margin-bottom:.9rem;
+  }
+  .step h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem}
+  .step p{font-size:.92rem;color:#4a4f6e}
+
+  /* ---------- outcome ---------- */
+  .channels{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:20px;
+    margin-bottom:22px;
+  }
+  .chan{
+    background:#fff;border:2.5px solid var(--navy);border-radius:16px;
+    padding:1.6rem 1.5rem;box-shadow:6px 7px 0 var(--yellow);
+  }
+  .chan:nth-child(2){box-shadow:6px 7px 0 var(--pink)}
+  .chan:nth-child(3){box-shadow:6px 7px 0 var(--cyan)}
+  .chan-t{
+    font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;
+  }
+  .chan p:not(.chan-t){font-size:.93rem;color:#4a4f6e;font-weight:500}
+  .next-brief{
+    background:var(--blue);color:#fff;border-radius:16px;
+    padding:1.7rem 1.6rem;border:2.5px solid var(--navy);
+  }
+  .next-brief p{font-size:1rem;font-weight:500}
+  .next-brief strong{color:var(--yellow);font-weight:800}
+
+  /* ---------- credits + bottom ---------- */
+  .foot{
+    display:flex;flex-wrap:wrap;gap:1.6rem 4rem;max-width:1140px;margin-inline:auto;
+    border-top:2px solid var(--navy);padding-top:2.2rem;
+  }
+  .foot dt{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#7a7f9e;margin-bottom:.25rem;
+  }
+  .foot dd{font-size:.95rem;font-weight:700}
+  .bottom{
+    background:var(--yellow);
+    padding:56px 32px;text-align:center;
+    border-top:2.5px solid var(--navy);
+  }
+  .bottom p{font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-.01em;margin-bottom:1.5rem;color:var(--navy)}
+  .bottom p span{color:var(--blue)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;margin:.25rem;
+    font-weight:700;font-size:.93rem;color:var(--navy);
+    border:2.5px solid var(--navy);border-radius:999px;padding:.68rem 1.55rem;
+    background:transparent;
+    transition:transform .2s, box-shadow .2s, background .25s, color .25s;
+  }
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--navy)}
+  .btn.solid{background:var(--blue);border-color:var(--navy);color:#fff}
+
+  /* reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #465efe;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#465efe;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  @media (max-width:600px){
+    section, .film, .hero{padding-inline:20px}
+    .decks{gap:3.2rem}
+    .stats-grid{gap:1.4rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .skyline{max-height:200px}
+    .meta{display:flex !important;flex-wrap:wrap;gap:1rem 1.6rem;padding:1rem 1.2rem;border-radius:16px}
+    .decks{gap:3.4rem}
+    .deck.banners{width:84vw}
+    .deck.squares{width:76vw}
+    .deck.stories{width:58vw}
+    .deck::before{transform:rotate(5deg) translate(7px,6px)}
+    .deck::after{transform:rotate(-4deg) translate(-6px,9px)}
+    .chan,.next-brief{padding:1.4rem 1.2rem}
+    .stats{padding:2.6rem 1.1rem}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="hero" id="main-content" tabindex="-1">
+  <div class="wrap">
+    <p class="chip">Key Visual · Campaign Sprint</p>
+    <p class="lockup" lang="pt-BR">O banco da Torcida do Brasil</p>
+    <h1><span class="paris">Paris</span> <span class="year">2024</span></h1>
+    <p class="subline">50+ assets · delivered in <em>just two days</em></p>
+    <p class="intro">Banco do Brasil's Olympic campaign with Ourocard Visa. After receiving the official key visual from PILOTO.TV (astonishing work, by the way), it was our time to get the job done: <strong>a true sprint against the clock.</strong></p>
+    <dl class="meta">
+      <div><dt>Client</dt><dd class="b">Banco do Brasil · Ourocard Visa</dd></div>
+      <div><dt>Official KV</dt><dd>PILOTO.TV</dd></div>
+      <div><dt>Output</dt><dd>50+ assets in 48h</dd></div>
+      <div><dt>Below</dt><dd><a href="#pieces">See the campaign ▼</a></dd></div>
+    </dl>
+  </div>
+
+  <!-- Parisian skyline in the KV's thick-outline style -->
+  <svg class="skyline" viewBox="0 0 1400 380" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+    <!-- ground -->
+    <rect x="0" y="372" width="1400" height="8" fill="#191c2e"/>
+
+    <!-- left townhouses -->
+    <g class="float" stroke="#191c2e" stroke-width="7" stroke-linejoin="round">
+      <rect x="40" y="150" width="150" height="224" fill="#eda43b"/>
+      <path d="M32 150 h166 l-14 -44 h-138 Z" fill="#191c2e" stroke="none"/>
+      <rect x="100" y="70" width="12" height="40" fill="#eda43b"/>
+      <circle cx="82" cy="130" r="7" fill="#fdfc32" stroke="none"/>
+      <circle cx="148" cy="130" r="7" fill="#fdfc32" stroke="none"/>
+      <g fill="#fdfc32" stroke="#191c2e" stroke-width="5">
+        <rect x="66" y="186" width="26" height="42" rx="13"/>
+        <rect x="102" y="186" width="26" height="42" rx="13"/>
+        <rect x="138" y="186" width="26" height="42" rx="13"/>
+        <rect x="66" y="252" width="26" height="42" rx="13"/>
+        <rect x="102" y="252" width="26" height="42" rx="13"/>
+        <rect x="138" y="252" width="26" height="42" rx="13"/>
+        <rect x="66" y="318" width="26" height="42" rx="13"/>
+        <rect x="138" y="318" width="26" height="42" rx="13"/>
+      </g>
+    </g>
+    <g class="float f2" stroke="#191c2e" stroke-width="7" stroke-linejoin="round">
+      <rect x="210" y="120" width="160" height="254" fill="#f6a8c9"/>
+      <path d="M200 120 h180 l-22 -50 h-136 Z" fill="#191c2e" stroke="none"/>
+      <rect x="282" y="34" width="12" height="40" fill="#f6a8c9"/>
+      <circle cx="246" cy="96" r="7" fill="#fdfc32" stroke="none"/>
+      <circle cx="290" cy="96" r="7" fill="#fdfc32" stroke="none"/>
+      <circle cx="334" cy="96" r="7" fill="#fdfc32" stroke="none"/>
+      <g fill="#fdfc32" stroke="#191c2e" stroke-width="5">
+        <rect x="234" y="156" width="26" height="42" rx="13"/>
+        <rect x="270" y="156" width="26" height="42" rx="13"/>
+        <rect x="306" y="156" width="26" height="42" rx="13"/>
+        <rect x="234" y="222" width="26" height="42" rx="13"/>
+        <rect x="270" y="222" width="26" height="42" rx="13"/>
+        <rect x="306" y="222" width="26" height="42" rx="13"/>
+        <rect x="234" y="288" width="26" height="42" rx="13"/>
+        <rect x="270" y="288" width="26" height="42" rx="13"/>
+        <rect x="306" y="288" width="26" height="42" rx="13"/>
+      </g>
+    </g>
+    <g class="float f3" stroke="#191c2e" stroke-width="7" stroke-linejoin="round">
+      <rect x="390" y="200" width="120" height="174" fill="#5fe8d2"/>
+      <path d="M382 200 h136 l-16 -36 h-104 Z" fill="#191c2e" stroke="none"/>
+      <circle cx="450" cy="182" r="7" fill="#fdfc32" stroke="none"/>
+      <g fill="#fdfc32" stroke="#191c2e" stroke-width="5">
+        <rect x="412" y="236" width="26" height="42" rx="13"/>
+        <rect x="452" y="236" width="26" height="42" rx="13"/>
+        <rect x="412" y="302" width="26" height="42" rx="13"/>
+        <rect x="452" y="302" width="26" height="42" rx="13"/>
+      </g>
+    </g>
+
+    <!-- Arc de Triomphe -->
+    <g class="float f2" stroke="#191c2e" stroke-width="7" stroke-linejoin="round">
+      <rect x="640" y="128" width="330" height="60" rx="26" fill="#eda43b"/>
+      <g fill="#fdfc32" stroke="#191c2e" stroke-width="5">
+        <circle cx="678" cy="158" r="13"/><circle cx="722" cy="158" r="13"/>
+        <circle cx="766" cy="158" r="13"/><circle cx="810" cy="158" r="13"/>
+        <circle cx="854" cy="158" r="13"/><circle cx="898" cy="158" r="13"/>
+        <circle cx="938" cy="158" r="13"/>
+      </g>
+      <rect x="660" y="188" width="290" height="186" fill="#eda43b"/>
+      <path d="M735 374 v-100 a70 70 0 0 1 140 0 v100" fill="#fdfc32"/>
+      <rect x="682" y="216" width="40" height="52" rx="8" fill="#fdfc32"/>
+      <rect x="888" y="216" width="40" height="52" rx="8" fill="#fdfc32"/>
+    </g>
+
+    <!-- Eiffel Tower -->
+    <g class="float" stroke="#191c2e" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+      <line x1="1235" y1="30" x2="1235" y2="66" stroke-width="8"/>
+      <circle cx="1235" cy="24" r="9" fill="#f06fae"/>
+      <path d="M1218 66 h34 l4 38 h-42 Z" fill="#f06fae"/>
+      <path d="M1210 104 h50 l14 66 h-78 Z" fill="#f06fae"/>
+      <path d="M1188 170 h94 M1178 190 h114" stroke-width="8"/>
+      <rect x="1186" y="170" width="98" height="22" rx="11" fill="#f06fae"/>
+      <path d="M1196 192 C 1198 262, 1170 330, 1128 374 h60 C 1216 320, 1224 260, 1226 216 Z" fill="#f06fae"/>
+      <path d="M1274 192 C 1272 262, 1300 330, 1342 374 h-60 C 1254 320, 1246 260, 1244 216 Z" fill="#f06fae"/>
+      <path d="M1206 374 a30 30 0 0 1 58 0" fill="none" stroke-width="8"/>
+      <path d="M1200 240 l70 60 M1270 240 l-70 60" stroke-width="6"/>
+      <path d="M1206 300 l58 52 M1264 300 l-58 52" stroke-width="6"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ================= DECKS ================= -->
+<section id="pieces">
+  <div class="wrap-wide">
+    <p class="label reveal">The pieces</p>
+    <h2 class="reveal">One campaign, every format.</h2>
+    <p class="sub reveal">Banners, feed posts, stories, WhatsApp cards — each one adapted for a different audience line — retail, premium, consumer and business — while keeping the party intact. Click a deck to shuffle through.</p>
+
+    <div class="decks">
+      <div class="deck-wrap reveal">
+        <div class="deck banners" role="button" tabindex="0" aria-label="Banner pieces — click to shuffle">
+          <div class="pc"><img loading="lazy" src="../assets/paris/banner-estilo.jpg" alt="Torcida do Brasil banner — premium card line, with QR code"></div>
+          <div class="pc"><img loading="lazy" src="../assets/paris/banner-varejo.jpg" alt="Torcida do Brasil banner — retail version"></div>
+          <div class="pc"><img loading="lazy" src="../assets/paris/banner-pj.jpg" alt="Torcida do Brasil banner — business version with CTA button"></div>
+          <div class="pc"><img loading="lazy" src="../assets/paris/banner-estilo-2.jpg" alt="Torcida do Brasil banner — premium version without the card"></div>
+        </div>
+        <p class="deck-cap">Banners 550×330<span class="count">×4</span></p>
+        <p class="deck-sub">Consumer · Business · Premium · Retail · QR</p>
+      </div>
+
+      <div class="deck-wrap reveal">
+        <div class="deck squares" role="button" tabindex="0" aria-label="Square feed pieces — click to shuffle">
+          <div class="pc"><img loading="lazy" src="../assets/paris/square-varejo.jpg" alt="Torcida do Brasil square feed piece — retail version"></div>
+          <div class="pc"><img loading="lazy" src="../assets/paris/square-whatsapp.jpg" alt="Torcida do Brasil square WhatsApp piece"></div>
+        </div>
+        <p class="deck-cap">Feed 1:1<span class="count">×2</span></p>
+        <p class="deck-sub">Instagram · WhatsApp</p>
+      </div>
+
+      <div class="deck-wrap reveal">
+        <div class="deck stories" role="button" tabindex="0" aria-label="Story pieces — click to shuffle">
+          <div class="pc"><img loading="lazy" src="../assets/paris/story-estilo.jpg" alt="Torcida do Brasil story — premium version, with Caramelo the dog holding the black card"></div>
+          <div class="pc"><img loading="lazy" src="../assets/paris/story-whatsapp.jpg" alt="Torcida do Brasil story — WhatsApp version"></div>
+        </div>
+        <p class="deck-cap">Stories 9:16<span class="count">×2</span></p>
+        <p class="deck-sub">Premium · WhatsApp</p>
+      </div>
+    </div>
+
+    <p class="shuffle-hint reveal">↻ click a pile — there's always another piece underneath</p>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal"><b>1</b><span>key visual from PILOTO.TV</span></div>
+    <div class="stat reveal"><b>50+</b><span>assets delivered</span></div>
+    <div class="stat reveal"><b>48h</b><span>from briefing to delivery</span></div>
+  </div>
+</div>
+
+<!-- ================= PROCESS ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Process</p>
+    <h2 class="reveal">Volume is a design problem too.</h2>
+    <div class="steps" style="margin-top:2.4rem">
+      <div class="step reveal">
+        <p class="num">01</p>
+        <h3>The concept lands</h3>
+        <p>PILOTO.TV delivered a joyful world: Caramelo the dog, vuvuzelas, the Arc de Triomphe in campaign colors. My work started there — understanding the system inside the KV so every adaptation would still feel like the original party.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">02</p>
+        <h3>Unfold, fast</h3>
+        <p>Each format has its own logic: banners need hierarchy in 550×330 pixels, stories breathe vertically, WhatsApp cards carry QR codes, and every audience line — retail, premium, consumer, business — swaps cards, offers and CTAs. The volume was big; the deadline wasn't.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">03</p>
+        <h3>Strategy beats hurry</h3>
+        <p>The real design tool here was time management: master files built for quick swaps, pieces batched by format, priorities set by delivery date. That's how a mountain of pieces ships without losing consistency — or sleep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTCOME ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Outcome</p>
+    <h2 class="reveal">It ran everywhere.</h2>
+    <p class="sub reveal">Approved with only minor copy tweaks, the campaign went live across digital and out-of-home — and earned the team the next Olympic-sized brief.</p>
+
+    <div class="channels">
+      <div class="chan reveal">
+        <p class="chan-t">Digital</p>
+        <p>Social media · Google &amp; Meta Ads · YouTube · homepage · landing pages</p>
+      </div>
+      <div class="chan reveal">
+        <p class="chan-t">Out of home</p>
+        <p>Digital totems · mega banners · billboards · digital elevators · street clocks · mega LED (Highline)</p>
+      </div>
+      <div class="chan reveal">
+        <p class="chan-t">Broadcast</p>
+        <p>Merchandising spots on national television</p>
+      </div>
+    </div>
+
+    <div class="next-brief reveal">
+      <p><strong>And then came the sequel:</strong> after this campaign, our team was trusted with Banco do Brasil's <strong>FIFA World Cup 2026</strong> campaign — again with a PILOTO key visual, again with a large volume of adaptations handled by the dedicated team I'm part of.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<section style="padding-top:0">
+  <dl class="foot reveal">
+    <div><dt>Client</dt><dd>Banco do Brasil · Ourocard · Visa</dd></div>
+    <div><dt>Visual concept</dt><dd>PILOTO.TV</dd></div>
+    <div><dt>Role</dt><dd>Design · Adaptations · Time strategy</dd></div>
+    <div><dt>Campaign</dt><dd>Torcida do Brasil · Paris 2024</dd></div>
+  </dl>
+</section>
+
+<div class="bottom">
+  <p>Got a mountain of pieces? <span>I brought a shovel.</span></p>
+  <a class="btn solid" href="../index.html#contact">Let's talk →</a>
+  <a class="btn" href="../index.html#work">More work</a>
+  <a class="btn" href="routo.html">Next: Routo Launch Film →</a>
+</div>
+
+<script>
+/* ============================================================
+   CARD DECKS — click to send the top piece to the bottom
+============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.deck').forEach(deck => {
+    let busy = false;
+    function shuffle() {
+      if (busy) return;
+      const top = deck.querySelector('.pc');
+      if (!top) return;
+      busy = true;
+      if (reduceMotion) {
+        deck.appendChild(top);
+        busy = false;
+        return;
+      }
+      top.classList.add('flying');
+      setTimeout(() => {
+        top.classList.remove('flying');
+        deck.appendChild(top);      /* nth-child transforms re-fan the pile */
+        setTimeout(() => { busy = false; }, 200);
+      }, 300);
+    }
+    deck.addEventListener('click', shuffle);
+    deck.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); shuffle(); }
+    });
+  });
+})();
+
+/* ---------- reveal on scroll ---------- */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

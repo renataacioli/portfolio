@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USE Àwúre — Renata Acioli</title>
+<meta name="description" content="Case study: USE Àwúre, design for a natural cosmetics brand rooted in Afro-Brazilian culture — by Renata Acioli.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta property="og:title" content="USE Àwúre — Renata Acioli">
+<meta property="og:description" content="Case study: USE Àwúre, design for a natural cosmetics brand rooted in Afro-Brazilian culture — by Renata Acioli.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/awure/art-kv.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/awure/art-kv.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --earth:#3d3110;
+    --earth-2:#4a3c1a;
+    --band:#241c0d;
+    --gold:#e8b83a;
+    --amber:#cf6b35;
+    --cream:#f3ead6;
+    --soft:#c9b98d;
+    --line:rgba(232,184,58,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Lato',system-ui,sans-serif;
+    background:linear-gradient(175deg, var(--earth) 0%, var(--earth-2) 60%, var(--earth) 100%);
+    color:var(--soft);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.7;
+  }
+  ::selection{background:var(--gold);color:var(--band)}
+  a{color:var(--gold);text-decoration:none}
+
+  /* ---------- ethnic pattern bands ---------- */
+  .band{
+    height:66px;background-color:var(--band);
+    background-image:
+      url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='66' viewBox='0 0 96 66'%3E%3Cpath d='M0 30 L24 6 L48 30 Z' fill='%23e8b83a'/%3E%3Cpath d='M48 30 L72 6 L96 30 Z' fill='%23cf6b35'/%3E%3Crect x='14' y='40' width='16' height='16' transform='rotate(45 22 48)' fill='none' stroke='%23e8b83a' stroke-width='2.4'/%3E%3Crect x='62' y='40' width='16' height='16' transform='rotate(45 70 48)' fill='none' stroke='%23e8b83a' stroke-width='2.4'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;background-position:center;
+    border-block:3px solid var(--gold);
+  }
+  .band.flip{transform:scaleY(-1)}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.05rem clamp(1.2rem,4vw,3rem);
+    background:rgba(36,28,13,.95);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 1px 0 rgba(0,0,0,.3);
+  }
+  .back{
+    font-size:.85rem;font-weight:700;color:var(--cream);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--gold)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:var(--cream);font-weight:700;position:relative}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--gold);transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:clamp(6.5rem,13vh,9rem) 32px 72px;text-align:center;overflow:hidden}
+  .wrap{max-width:880px;margin:0 auto;position:relative;z-index:2}
+  .wrap-wide{max-width:1080px;margin-inline:auto}
+  .kicker{
+    font-size:.76rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:2.2rem;
+  }
+  .use{
+    font-family:'Lora',serif;font-weight:500;letter-spacing:.55em;text-indent:.55em;
+    font-size:clamp(1.4rem,3.4vw,2.2rem);color:var(--cream);
+  }
+  h1{
+    font-family:'Lora',serif;font-weight:700;
+    font-size:clamp(3.6rem,10vw,6.4rem);line-height:1.02;
+    color:var(--gold);margin-bottom:1.6rem;letter-spacing:-.01em;
+  }
+  .glyph{margin:0 auto 1.1rem;width:44px;display:block}
+  .yoruba{
+    font-family:'Lora',serif;font-style:italic;font-size:clamp(1rem,2vw,1.25rem);
+    color:var(--amber);margin-bottom:2.6rem;
+  }
+  .intro{
+    font-size:clamp(1rem,1.9vw,1.18rem);max-width:44rem;margin:0 auto 3rem;
+  }
+  .intro strong{color:var(--cream);font-weight:700}
+  .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem 3.4rem;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:1.5rem 1rem;margin-bottom:2.8rem;text-align:left;
+  }
+  .meta dt{
+    font-size:.64rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(201,185,141,.7);margin-bottom:.3rem;
+  }
+  .meta dd{font-size:.98rem;font-weight:700;color:var(--cream)}
+  .meta dd.g{color:var(--gold)}
+  .cue{font-size:.76rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,185,141,.8)}
+  .cue span{color:var(--gold);margin-left:.5rem}
+
+  /* wheat decorations */
+  .wheat{position:absolute;width:56px;opacity:.6;pointer-events:none;stroke:var(--gold)}
+  .wheat.l{left:8%;top:38%}
+  .wheat.r{right:8%;top:38%;transform:scaleX(-1)}
+  @media (max-width:760px){.wheat{display:none}}
+
+  /* ---------- gallery ---------- */
+  section{padding:clamp(4rem,8vw,6.5rem) 32px}
+  .label{
+    font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1rem;
+  }
+  h2{
+    font-family:'Lora',serif;font-weight:700;color:var(--gold);
+    font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.01em;line-height:1.1;margin-bottom:2.8rem;
+  }
+
+  /* full-bleed brand banner — image always shown whole */
+  .kv-banner{
+    position:relative;
+    border-block:3px solid var(--gold);
+  }
+  .kv-banner img{width:100%;display:block}
+  .kv-banner .kv-tag{
+    position:absolute;left:50%;bottom:1.4rem;translate:-50% 0;
+    font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--cream);background:rgba(36,28,13,.72);backdrop-filter:blur(3px);
+    padding:.5rem 1.2rem;border-radius:999px;border:1px solid var(--line);
+    white-space:nowrap;
+  }
+
+  /* dynamic gallery: portraits side by side + wide feedback */
+  .art{max-width:1080px;margin-inline:auto;display:grid;gap:24px;grid-template-columns:1fr 1fr}
+  .art .wide{grid-column:1/-1}
+  @media (max-width:760px){.art{grid-template-columns:1fr}.art .wide{grid-column:auto}}
+  .art figure{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:rgba(243,234,214,.04);
+    transform-style:preserve-3d;perspective:800px;
+    transition:box-shadow .3s ease;
+  }
+  .art figure:hover{box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+  .art .tilt{display:block;transition:transform .18s ease-out;will-change:transform}
+  .art img{width:100%;display:block}
+  .art figcaption{
+    font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(201,185,141,.75);padding:.7rem 1rem;
+    border-top:1px solid var(--line);
+  }
+  /* staggered reveals inside gallery */
+  @media (prefers-reduced-motion: no-preference){
+    .art figure:nth-child(2).reveal{transition-delay:.15s}
+    .art figure:nth-child(3).reveal{transition-delay:.25s}
+  }
+
+  /* ---------- outcome + quote ---------- */
+  .quote{
+    max-width:1080px;margin:0 auto 22px;
+    border:1px solid var(--line);border-radius:16px;
+    padding:2.4rem 2rem 1.6rem;position:relative;
+    background:linear-gradient(150deg, rgba(232,184,58,.10), rgba(207,107,53,.07));
+  }
+  .quote::before{
+    content:"”";position:absolute;top:.5rem;left:1.3rem;
+    font-family:'Lora',serif;font-size:4.5rem;line-height:1;color:var(--gold);opacity:.35;
+  }
+  .quote blockquote p{
+    font-family:'Lora',serif;font-style:italic;
+    font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.6;color:var(--cream);
+    position:relative;
+  }
+  .quote blockquote .inner{
+    display:block;margin:.6rem 0 .2rem;padding-left:1rem;
+    border-left:2px solid var(--gold);color:var(--gold);
+  }
+  .quote blockquote em{font-style:italic;color:var(--gold)}
+  .quote figcaption{
+    font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin-top:1.2rem;
+  }
+  .quote .quote-pt{
+    font-size:.82rem;line-height:1.6;color:rgba(201,185,141,.75);
+    margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);
+  }
+  .outcome{
+    max-width:1080px;margin-inline:auto;
+    border:1px solid var(--line);border-radius:16px;
+    padding:1.9rem 1.8rem;background:rgba(243,234,214,.035);
+  }
+  .outcome p{font-size:.98rem}
+  .outcome .epilogue{
+    margin-top:1rem;padding-top:1rem;font-size:.9rem;
+    border-top:1px solid var(--line);color:rgba(201,185,141,.85);
+  }
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1080px;margin-inline:auto}
+  .step{
+    border:1px solid var(--line);border-radius:14px;
+    padding:2.2rem 2rem;background:rgba(243,234,214,.035);
+    position:relative;
+  }
+  .step .num{
+    font-family:'Lora',serif;font-size:1.4rem;font-weight:600;color:var(--amber);
+    margin-bottom:1rem;
+  }
+  .step h3{
+    font-family:'Lora',serif;font-size:1.4rem;font-weight:600;color:var(--cream);
+    margin-bottom:.8rem;
+  }
+  .step p{font-size:.95rem}
+
+  /* ---------- credits ---------- */
+  .foot{
+    display:flex;flex-wrap:wrap;gap:1.6rem 4rem;max-width:1080px;margin-inline:auto;
+    border-top:1px solid var(--line);padding-top:2.4rem;
+  }
+  .foot dt{
+    font-size:.64rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(201,185,141,.7);margin-bottom:.3rem;
+  }
+  .foot dd{font-size:.95rem;font-weight:700;color:var(--cream)}
+  .foot dd.g{color:var(--gold)}
+
+  /* ---------- bottom ---------- */
+  .bottom{padding:56px 32px 64px;text-align:center}
+  .bottom p{
+    font-family:'Lora',serif;font-style:italic;
+    font-size:clamp(1.3rem,3vw,1.8rem);color:var(--gold);margin-bottom:1.6rem;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;margin:.25rem;
+    font-weight:700;font-size:.93rem;color:var(--cream);
+    border:1.5px solid var(--cream);border-radius:999px;padding:.7rem 1.6rem;
+    transition:background .25s,color .25s,transform .25s;
+  }
+  .btn:hover{background:var(--cream);color:var(--band);transform:translateY(-2px)}
+  .btn.solid{background:var(--gold);border-color:var(--gold);color:var(--band)}
+  .btn.solid:hover{background:var(--amber);border-color:var(--amber);color:var(--cream)}
+
+  /* reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #e8b83a;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#e8b83a;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  /* small-screen guard */
+  @media (max-width:600px){
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom{padding-inline:20px}
+    .meta{gap:1rem 1.8rem}
+    .foot{gap:1.2rem 2rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .band{height:44px;background-size:66px 44px}
+    .use{letter-spacing:.36em;text-indent:.36em}
+    .kv-banner .kv-tag{font-size:.6rem;letter-spacing:.16em;padding:.4rem .9rem;bottom:.8rem}
+    .quote{padding:2rem 1.2rem 1.2rem}
+    .quote::before{font-size:3.2rem;left:.7rem}
+    .quote blockquote .inner{padding-left:.7rem}
+    .step{padding:1.7rem 1.3rem}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+
+<div class="band" aria-hidden="true"></div>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="main-content" tabindex="-1">
+  <svg class="wheat l" viewBox="0 0 40 90" fill="none" stroke-width="2" aria-hidden="true">
+    <path d="M20 88 V14"/><path d="M20 24 C 12 20, 8 12, 10 4"/><path d="M20 24 C 28 20, 32 12, 30 4"/>
+    <path d="M20 42 C 12 38, 8 30, 10 22"/><path d="M20 42 C 28 38, 32 30, 30 22"/>
+    <path d="M20 60 C 12 56, 8 48, 10 40"/><path d="M20 60 C 28 56, 32 48, 30 40"/>
+  </svg>
+  <svg class="wheat r" viewBox="0 0 40 90" fill="none" stroke-width="2" aria-hidden="true">
+    <path d="M20 88 V14"/><path d="M20 24 C 12 20, 8 12, 10 4"/><path d="M20 24 C 28 20, 32 12, 30 4"/>
+    <path d="M20 42 C 12 38, 8 30, 10 22"/><path d="M20 42 C 28 38, 32 30, 30 22"/>
+    <path d="M20 60 C 12 56, 8 48, 10 40"/><path d="M20 60 C 28 56, 32 48, 30 40"/>
+  </svg>
+
+  <div class="wrap">
+    <p class="kicker">Design · Brand · Natural Cosmetics</p>
+    <p class="use">USE</p>
+    <h1 lang="yo">Àwúre</h1>
+    <svg class="glyph" viewBox="0 0 44 26" fill="none" aria-hidden="true">
+      <path d="M6 22 C 6 10, 16 4, 26 6" stroke="#e8b83a" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="36" cy="7" r="4" fill="#cf6b35"/>
+    </svg>
+    <p class="yoruba">blessing, good fortune — from Yoruba</p>
+    <p class="intro">Design for USE Àwúre, a natural cosmetics brand rooted in Afro-Brazilian culture. Àwúre comes from Yoruba and speaks of blessings and good fortune, and the visuals had to <strong>carry that meaning with pride</strong>.</p>
+    <dl class="meta">
+      <div><dt>Client</dt><dd class="g">USE Àwúre</dd></div>
+      <div><dt>Role</dt><dd>Design</dd></div>
+      <div><dt>Field</dt><dd>Natural cosmetics</dd></div>
+      <div><dt>Tools</dt><dd>Photoshop · Illustrator</dd></div>
+    </dl>
+    <p class="cue">See the work<span>▼</span></p>
+  </div>
+</div>
+
+<!-- ================= BRAND BANNER ================= -->
+<div class="kv-banner" id="kvBanner">
+  <img src="../assets/awure/art-kv.jpg" alt="USE Àwúre brand image — woman in a golden head wrap with the brand logotype">
+  <span class="kv-tag">Brand creation · USE Àwúre</span>
+</div>
+
+<!-- ================= ARTWORK ================= -->
+<section id="work-gallery">
+  <div class="wrap-wide">
+    <p class="label reveal">The work</p>
+    <h2 class="reveal">Blessed by design.</h2>
+    <div class="art">
+      <figure class="reveal"><span class="tilt"><img loading="lazy" src="../assets/awure/art-spray.jpg" alt="USE Àwúre Sinergias spray bottle photographed with fresh rosemary on jute fabric"></span><figcaption>Product · Sinergias</figcaption></figure>
+      <figure class="reveal"><span class="tilt"><img loading="lazy" src="../assets/awure/art-dropper.jpg" alt="Hand with red nails holding a golden dropper over the USE Àwúre Sinergias amber bottle with dried orange flowers"></span><figcaption>Product · Sinergias drop</figcaption></figure>
+      <figure class="reveal wide"><span class="tilt"><img loading="lazy" src="../assets/awure/art-feedback.jpg" alt="Brand reception piece: customer testimonial about feeling represented, next to USE Àwúre bottles and botanical illustrations"></span><figcaption>Brand reception · real customer feedback</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Process</p>
+    <h2 class="reveal">How I built it.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <p class="num">I</p>
+        <h3>Understanding the voice</h3>
+        <p>Before designing anything, I immersed myself in the brand's universe: its Yoruba name, its natural ingredients, its celebration of Black beauty. The story came first; the layouts came after.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">II</p>
+        <h3>Letting photography lead</h3>
+        <p>The brand's imagery is rich: golden fabrics, warm skin tones, linen and botanical textures. My design frames that beauty instead of competing with it, with typography and color pulled from the photographs themselves.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">III</p>
+        <h3>Consistency builds recognition</h3>
+        <p>From product shots to social pieces, every layout follows the same warm, earthy logic, so wherever the brand shows up, it's unmistakably USE Àwúre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTCOME ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Outcome</p>
+    <h2 class="reveal">Seen, and felt.</h2>
+    <figure class="quote reveal">
+      <blockquote>
+        <p>“The nicest feedback I got was from an older Black woman who said: <span class="inner">‘Bruna, do you know what I liked most about your product? It's that I look at it and I know it's for me. Because I don't feel represented by any other natural cosmetics brand.’</span></p>
+        <p>That was <em>exactly</em> what I wanted, Rê! I'm so happy! Thank you so much, again!”</p>
+      </blockquote>
+      <figcaption>Bruna, founder of USE Àwúre — sharing what a customer told her</figcaption>
+      <p class="quote-pt" lang="pt-BR">Original: “O feedback mais legal que eu tive foi o de uma senhora negra que disse — Bruna, sabe o que eu mais gostei do seu produto? É que eu olho pra ele e sei que é pra mim. Porque eu não me sinto representada por nenhuma outra marca de cosmético natural. — Era exatamente isso que eu queria, Rê! Estou tão feliz! Mais uma vez muito obrigada!!!”</p>
+    </figure>
+    <div class="outcome reveal">
+      <p>The brand launched with this identity, and the proof came back through the founder: a customer recognizing herself in the product <strong>before reading a single word</strong>. That's the job of an identity — and representation wasn't a talking point in the brief, it was the whole point of the design.</p>
+      <p class="epilogue">USE Àwúre has since closed — the founder couldn't keep the operation running alongside life and the difficulty of hiring people to maintain the quality of handmade natural products. The work stands as a record of a brand that knew exactly who it was talking to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<section>
+  <dl class="foot reveal">
+    <div><dt>Client</dt><dd class="g">USE Àwúre</dd></div>
+    <div><dt>Role</dt><dd>Design</dd></div>
+    <div><dt>Field</dt><dd>Natural cosmetics · Afro-Brazilian roots</dd></div>
+  </dl>
+</section>
+
+<div class="bottom">
+  <p>Good design is its own kind of blessing.</p>
+  <a class="btn solid" href="../index.html#contact">Let's talk →</a>
+  <a class="btn" href="../index.html#work">More work</a>
+  <a class="btn" href="paris-2024.html">Next: Torcida do Brasil →</a>
+</div>
+
+<div class="band flip" aria-hidden="true"></div>
+
+<script>
+/* ============================================================
+   GALLERY — 3D tilt toward the cursor
+============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  document.querySelectorAll('.art figure').forEach(fig => {
+    const tilt = fig.querySelector('.tilt');
+    if (!tilt) return;
+    fig.addEventListener('pointermove', e => {
+      const r = fig.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      tilt.style.transform = 'rotateY(' + (px * 7) + 'deg) rotateX(' + (-py * 7) + 'deg) scale(1.02)';
+    });
+    fig.addEventListener('pointerleave', () => { tilt.style.transform = 'none'; });
+  });
+})();
+
+/* reveal on scroll */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
