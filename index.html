@@ -154,11 +154,27 @@
     background:none;border:none;width:auto;height:auto;
   }
 
-  /* ---------- playground band ---------- */
-  .playground{
-    position:relative;z-index:1;flex:1;min-height:min(38vh,340px);
+  /* ---------- playground band ----------
+     Lives in the hero on desktop; JS moves it above the contact block on mobile,
+     so the phone hero stays short and the work shows up sooner. */
+  .playground-band{
+    position:relative;
+    border-top:1px solid var(--line);
+    background-image:radial-gradient(var(--line) 1.2px, transparent 1.2px);
+    background-size:26px 26px;
   }
-  #stage{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
+  /* inside the hero the dotted background and rule already exist */
+  .playground-band.in-hero{
+    flex:1;display:flex;border-top:none;background-image:none;
+  }
+  .playground{
+    position:relative;z-index:1;height:min(38vh,340px);
+  }
+  .playground-band.in-hero .playground{
+    flex:1;width:100%;height:auto;min-height:min(38vh,340px);
+  }
+  /* pan-y keeps vertical scrolling with the browser, so the canvas never traps the page */
+  #stage{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
   #stage.grabbing{cursor:grabbing}
   .hud{
     position:absolute;z-index:3;left:clamp(1.2rem,5vw,4rem);bottom:1.2rem;
@@ -366,7 +382,7 @@
     .hero{min-height:auto}
     .hero-top{padding:5.2rem 1.1rem 1.2rem;gap:2rem}
     .hero-ctas .btn{width:100%;justify-content:center;padding-block:.85rem}
-    .playground{min-height:44vh}
+    .playground{height:38vh}
     .hud{gap:.45rem;font-size:.62rem;left:1.1rem;right:1.1rem;bottom:.9rem}
     .hud .chip{padding:.4rem .6rem}
     .hero-hint{font-size:.66rem;left:1.1rem;right:1.1rem}
@@ -454,17 +470,8 @@
     </div>
   </div>
 
-  <!-- ======== bouncing ball playground ======== -->
-  <div class="playground">
-    <canvas id="stage" aria-label="Interactive bouncing ball — grab it and throw it" data-i18n-aria="ball.aria"></canvas>
-    <p class="hero-hint"><span class="pulse"></span><span data-i18n="hero.hint">grab the ball &amp; throw it</span></p>
-
-    <div class="hud">
-      <button class="chip" id="onionBtn" aria-pressed="true" data-i18n="hud.onion.on">onion skin: on</button>
-      <button class="chip" id="fpsBtn" aria-pressed="false" data-i18n="hud.fps.12">animate on 12s</button>
-      <button class="chip" id="resetBtn" data-i18n="hud.reset">reset</button>
-    </div>
-  </div>
+  <!-- desktop home for the ball playground (JS moves it on small screens) -->
+  <div id="playSlotHero"></div>
 </section>
 
 <!-- ================= QUICK FACTS (recruiter strip) ================= -->
@@ -648,6 +655,9 @@
   </div>
 </section>
 
+<!-- mobile home for the ball playground (JS moves it here on small screens) -->
+<div id="playSlotMobile"></div>
+
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
   <div class="reveal">
@@ -663,6 +673,20 @@
     </div>
   </div>
 </section>
+
+<!-- ======== bouncing ball playground ======== -->
+<div class="playground-band">
+  <div class="playground">
+    <canvas id="stage" aria-label="Interactive bouncing ball — grab it and throw it" data-i18n-aria="ball.aria"></canvas>
+    <p class="hero-hint"><span class="pulse"></span><span data-i18n="hero.hint">grab the ball &amp; throw it</span></p>
+
+    <div class="hud">
+      <button class="chip" id="onionBtn" aria-pressed="true" data-i18n="hud.onion.on">onion skin: on</button>
+      <button class="chip" id="fpsBtn" aria-pressed="false" data-i18n="hud.fps.12">animate on 12s</button>
+      <button class="chip" id="resetBtn" data-i18n="hud.reset">reset</button>
+    </div>
+  </div>
+</div>
 
 <footer>
   <span>© <span id="year"></span> Renata Acioli — <span data-i18n="footer.rights">all frames reserved.</span></span>
@@ -680,6 +704,26 @@
   const ctx = canvas.getContext('2d');
   const band = canvas.parentElement;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- responsive placement ----------
+     Desktop: the playground closes the hero, where it earns its keep.
+     Mobile: it moves above the contact block, so the hero stays short
+     and the work grid shows up sooner. Same element, no duplicate canvas. */
+  const wrapper   = band.parentElement;              /* .playground-band */
+  const slotHero  = document.getElementById('playSlotHero');
+  const slotPhone = document.getElementById('playSlotMobile');
+  const smallScreen = window.matchMedia('(max-width:640px)');
+
+  function place(isSmall) {
+    const target = isSmall ? slotPhone : slotHero;
+    if (wrapper.parentElement !== target) target.appendChild(wrapper);
+    wrapper.classList.toggle('in-hero', !isSmall);
+    requestAnimationFrame(() => {
+      resize();
+      if (ball) { ball.y = Math.min(ball.y, floorY() - ball.r); ball.x = Math.min(ball.x, W - ball.r); }
+      if (reduceMotion) render();
+    });
+  }
 
   const FLOOR_PAD = 64;
   let DPR = 1, W = 0, H = 0;
@@ -808,12 +852,19 @@
     drawBall(ball);
   }
 
+  let onScreen = true, rafId = null;
   function loop() {
     frame++;
     const stepHold = steppedMode ? 5 : 1;
     physics(ball);
     if (frame % stepHold === 0) render();
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
+  }
+  function startLoop() {
+    if (rafId === null && !reduceMotion) rafId = requestAnimationFrame(loop);
+  }
+  function stopLoop() {
+    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
   }
 
   /* ---------- pointer interaction (single ball, no spawning) ---------- */
@@ -877,12 +928,21 @@
     if (reduceMotion) render();
   });
 
+  place(smallScreen.matches);
+  smallScreen.addEventListener('change', e => place(e.matches));
+
   resize();
   resetScene();
   if (reduceMotion) {
     render();
+  } else if ('IntersectionObserver' in window) {
+    /* the band sits at the end of the page — only animate while it's actually in view */
+    new IntersectionObserver(entries => {
+      onScreen = entries[0].isIntersecting;
+      if (onScreen) { resize(); startLoop(); } else { stopLoop(); }
+    }, { threshold: 0 }).observe(band);
   } else {
-    requestAnimationFrame(loop);
+    startLoop();
   }
 })();
 
