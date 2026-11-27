@@ -3,1157 +3,349 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Renata Acioli — Motion Design & Art Direction</title>
-<meta name="description" content="Renata Acioli is a Brazilian art director and motion designer — brand launch films, campaigns and animated storytelling, from concept to final frame.">
-<meta property="og:title" content="Renata Acioli — Art Direction & Motion Design">
-<meta property="og:description" content="I direct, design and animate — from the first sketch to the final frame.">
+<title>Renata Acioli — Creative Strategy, Art Direction & Motion Design</title>
+<meta name="description" content="Renata Acioli plans the idea, designs it and animates it: creative strategy, art direction and motion design for brands like Banco do Brasil and Visa.">
+<meta property="og:title" content="Renata Acioli — Creative Strategy, Art Direction & Motion Design">
+<meta property="og:description" content="Renata Acioli plans the idea, designs it and animates it: creative strategy, art direction and motion design for brands like Banco do Brasil and Visa.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://renataacioli.com/assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/og-home.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="assets/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#faf7f2;
-    --ink:#191919;
-    --ink-soft:#5c5852;
-    --ball:#ff4b2e;
-    --ai-blue:#2e6bff;          /* illustrator-selection blue */
-    --line:#e4ded4;
-    --radius:18px;
-    --font-display:"Poppins",system-ui,sans-serif;
-    --font-mono:"Space Mono",ui-monospace,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--font-display);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{background:var(--ball);color:#fff}
+:root{--g:48px;--box:64px}
+@media (max-width: 700px){:root{--g:20px;--box:28px}}
+img{max-width:100%}
+video{display:block;width:100%}
 
-  /* ---------- nav ---------- */
-  header{
-    position:fixed;inset:0 0 auto 0;z-index:50;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:1.1rem clamp(1.2rem,4vw,3rem);
-    background:rgba(250,247,242,.92);
-    backdrop-filter:saturate(1.4) blur(10px);
-    -webkit-backdrop-filter:saturate(1.4) blur(10px);
-    border-bottom:1px solid var(--line);
-    box-shadow:0 1px 0 rgba(25,25,25,.04);
-  }
-  .logo{font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
-  .logo .dot{display:inline-block;width:.55em;height:.55em;border-radius:50%;background:var(--ball);margin-left:.15em}
-  nav{display:flex;gap:clamp(.8rem,2.5vw,2rem);font-size:.9rem}
-  nav a{color:var(--ink);text-decoration:none;position:relative}
-  nav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--ball);transition:width .25s ease}
-  nav a:hover::after{width:100%}
-  /* language toggle */
-  .lang-toggle{
-    display:inline-flex;align-items:center;gap:.3rem;
-    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;
-    background:none;border:1px solid var(--ink);border-radius:999px;
-    padding:.22rem .5rem;cursor:pointer;color:var(--ink);
-    transition:border-color .2s,background .2s;
-  }
-  .lang-toggle:hover{border-color:var(--ball)}
-  .lang-toggle .on{background:var(--ink);color:var(--paper);border-radius:999px;padding:.05rem .38rem}
-  .lang-toggle .off{opacity:.5;padding:.05rem .22rem}
-
-  /* ---------- hero ---------- */
-  .hero{
-    position:relative;
-    min-height:100svh;
-    display:flex;flex-direction:column;
-    overflow:hidden;
-    background-image:radial-gradient(var(--line) 1.2px, transparent 1.2px);
-    background-size:26px 26px;
-  }
-  .hero-top{
-    position:relative;z-index:2;
-    display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);
-    align-items:center;
-    padding:clamp(6.5rem,13vh,9rem) clamp(1.2rem,5vw,4rem) 1.5rem;
-    max-width:1320px;width:100%;margin-inline:auto;
-  }
-  @media (max-width:900px){
-    .hero-top{grid-template-columns:1fr;padding-top:5.5rem}
-  }
-  .kicker{
-    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--ink-soft);margin-bottom:1rem;
-  }
-  h1{
-    font-size:clamp(2.1rem,4.6vw,3.7rem);
-    line-height:1.08;letter-spacing:-.02em;font-weight:600;
-  }
-  h1 .accent{color:var(--ball)}
-  .hero-sub{
-    margin-top:1.3rem;max-width:30rem;font-size:clamp(.98rem,1.4vw,1.1rem);color:var(--ink-soft);
-  }
-  .hero-ctas{margin-top:1.9rem;display:flex;gap:.9rem;flex-wrap:wrap}
-
-  /* ---------- showreel framed like an AE comp panel ---------- */
-  .reel-wrap{position:relative}
-  .reel{
-    position:relative;
-    background:#1e1e1e;border-radius:14px;overflow:hidden;
-    box-shadow:0 24px 60px -24px rgba(25,25,25,.45);
-    border:1px solid #111;
-  }
-  .reel-bar{
-    display:flex;align-items:center;gap:.55rem;
-    background:#2a2a2a;padding:.55rem .9rem;
-    font-family:var(--font-mono);font-size:.68rem;color:#b9b4aa;
-  }
-  .reel-bar .dots{display:flex;gap:.32rem}
-  .reel-bar .dots i{width:.6rem;height:.6rem;border-radius:50%;display:block}
-  .reel-bar .dots i:nth-child(1){background:#ff5f57}
-  .reel-bar .dots i:nth-child(2){background:#febc2e}
-  .reel-bar .dots i:nth-child(3){background:#28c840}
-  .reel-bar .fname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
-  .reel-bar .sound{
-    background:none;border:1px solid #4a4a4a;color:#b9b4aa;border-radius:999px;
-    font:inherit;font-size:.62rem;padding:.14rem .55rem;cursor:pointer;white-space:nowrap;
-    transition:border-color .2s,color .2s;
-  }
-  .reel-bar .sound:hover{border-color:#ff4b2e;color:#fff}
-  .reel-video{aspect-ratio:16/9;background:#191919}
-  .reel-video video{width:100%;height:100%;display:block;object-fit:cover;cursor:pointer}
-  /* illustrator-style selection handles around the reel */
-  .sel{position:absolute;inset:-7px;pointer-events:none;z-index:3}
-  .sel::before{content:"";position:absolute;inset:0;border:1.5px solid var(--ai-blue);border-radius:4px;opacity:.85}
-  .sel i{
-    position:absolute;width:9px;height:9px;background:#fff;border:1.5px solid var(--ai-blue);
-  }
-  .sel i:nth-child(1){left:-5px;top:-5px}
-  .sel i:nth-child(2){left:50%;top:-5px;translate:-50% 0}
-  .sel i:nth-child(3){right:-5px;top:-5px}
-  .sel i:nth-child(4){right:-5px;top:50%;translate:0 -50%}
-  .sel i:nth-child(5){right:-5px;bottom:-5px}
-  .sel i:nth-child(6){left:50%;bottom:-5px;translate:-50% 0}
-  .sel i:nth-child(7){left:-5px;bottom:-5px}
-  .sel i:nth-child(8){left:-5px;top:50%;translate:0 -50%}
-  .sel .anchor-label{
-    position:absolute;right:0;top:-1.7rem;
-    font-family:var(--font-mono);font-size:.62rem;color:var(--ai-blue);
-    background:none;border:none;width:auto;height:auto;
-  }
-
-  /* ---------- playground band ---------- */
-  .playground{
-    position:relative;z-index:1;flex:1;min-height:min(38vh,340px);
-  }
-  #stage{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
-  #stage.grabbing{cursor:grabbing}
-  .hud{
-    position:absolute;z-index:3;left:clamp(1.2rem,5vw,4rem);bottom:1.2rem;
-    display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;
-    font-family:var(--font-mono);font-size:.7rem;color:var(--ink-soft);
-  }
-  .hud .chip{
-    border:1px solid var(--line);background:rgba(255,255,255,.65);backdrop-filter:blur(4px);
-    padding:.32rem .65rem;border-radius:999px;white-space:nowrap;
-  }
-  .hud button.chip{cursor:pointer;color:var(--ink);font:inherit;transition:border-color .2s}
-  .hud button.chip:hover{border-color:var(--ball)}
-  .hud button.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-  .hero-hint{
-    position:absolute;z-index:3;left:clamp(1.2rem,5vw,4rem);top:.4rem;
-    font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);
-    display:inline-flex;align-items:center;gap:.5rem;pointer-events:none;
-  }
-  .hero-hint .pulse{width:.55rem;height:.55rem;border-radius:50%;background:var(--ball);animation:pulse 1.6s ease-in-out infinite}
-  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
-  @media (prefers-reduced-motion: reduce){.hero-hint .pulse{animation:none}}
-
-  /* ---------- quick facts strip (recruiter kit) ---------- */
-  .facts-strip{padding:0 clamp(1.2rem,5vw,4rem);margin-top:clamp(2rem,5vw,3.5rem)}
-  .facts{
-    max-width:1200px;margin-inline:auto;
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));
-    gap:1.4rem clamp(1.2rem,3vw,2.4rem);align-items:center;
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:1.35rem clamp(1.2rem,3vw,2rem);
-  }
-  .facts dt{
-    font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--ink-soft);margin-bottom:.3rem;
-  }
-  .facts dd{font-size:.92rem;font-weight:600;line-height:1.45}
-  .facts .tz{
-    font-family:var(--font-mono);font-size:.62rem;font-weight:400;color:var(--ink-soft);
-    border:1px solid var(--line);border-radius:999px;padding:.05rem .4rem;margin-left:.3rem;
-    white-space:nowrap;
-  }
-  .cv-cell{display:flex;justify-content:flex-end}
-  @media (max-width:900px){.cv-cell{justify-content:flex-start}}
-  .cv-btn{
-    display:inline-flex;align-items:center;gap:.5rem;
-    font-weight:600;font-size:.88rem;color:#fff;text-decoration:none;
-    background:var(--ink);border:1.5px solid var(--ink);border-radius:999px;
-    padding:.6rem 1.15rem;white-space:nowrap;
-    transition:background .25s,transform .25s;
-  }
-  .cv-btn:hover{background:var(--ball);border-color:var(--ball);transform:translateY(-2px)}
-  .cv-btn svg{width:1.05em;height:1.05em;flex:none}
-
-  /* availability pill in the contact block */
-  .avail{
-    display:inline-flex;align-items:center;gap:.55rem;
-    font-size:.85rem;font-weight:600;
-    border:1px solid var(--line);background:#fff;border-radius:999px;
-    padding:.45rem 1rem;margin-bottom:1.4rem;
-  }
-  .avail .dot-live{
-    width:.5rem;height:.5rem;border-radius:50%;background:#1a9e60;flex:none;
-  }
-  @media (prefers-reduced-motion: no-preference){
-    .avail .dot-live{animation:live 2.4s ease-in-out infinite}
-    @keyframes live{0%,100%{box-shadow:0 0 0 0 rgba(26,158,96,.5)}70%{box-shadow:0 0 0 6px rgba(26,158,96,0)}}
-  }
-
-  /* ---------- sections ---------- */
-  section{padding:clamp(4rem,9vw,7.5rem) clamp(1.2rem,5vw,4rem)}
-  .section-head{margin-bottom:2.6rem;max-width:1200px;margin-inline:auto}
-  .section-head .kicker{margin-bottom:.55rem}
-  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:-.02em;font-weight:600}
-  .num{color:var(--ball)}
-
-  /* work grid */
-  .grid{
-    max-width:1200px;margin-inline:auto;
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:1.6rem;
-  }
-  .card{
-    display:block;text-decoration:none;color:var(--ink);
-    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;
-    transition:transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, border-color .3s ease;
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -18px rgba(25,25,25,.28);border-color:var(--ink)}
-  .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--ink)}
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-  .card:hover .thumb img{transform:scale(1.05)}
-  .thumb video{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    opacity:0;transition:opacity .25s ease;pointer-events:none;
-  }
-  .thumb video.playing{opacity:1}
-  /* graceful fallback when a remote thumbnail fails to load */
-  .thumb.noimg{background:linear-gradient(135deg,#f4efe6,#e7e0d2)}
-  .thumb.noimg img{display:none}
-  .thumb.noimg::before{
-    content:"";position:absolute;left:50%;top:44%;translate:-50% -50%;
-    width:44px;height:44px;border-radius:50%;background:var(--ball);
-    box-shadow:0 14px 10px -8px rgba(25,25,25,.25);
-  }
-  .thumb.noimg::after{
-    content:"";position:absolute;left:20%;right:20%;top:68%;height:1.5px;background:var(--ink);opacity:.55;
-  }
-  .card-body{padding:1.1rem 1.2rem 1.3rem}
-  .card-body h3{font-size:1.05rem;letter-spacing:-.01em;margin-bottom:.25rem;font-weight:600}
-  .card-body p{font-size:.85rem;color:var(--ink-soft)}
-  .tag{
-    display:inline-block;font-family:var(--font-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;
-    color:var(--ball);margin-bottom:.55rem;
-  }
-  .more-row{max-width:1200px;margin:2.4rem auto 0;display:flex;gap:1rem;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:.5rem;
-    text-decoration:none;font-weight:500;font-size:.93rem;
-    border:1.5px solid var(--ink);color:var(--ink);border-radius:999px;padding:.68rem 1.5rem;
-    transition:background .25s,color .25s,transform .25s;
-    background:none;cursor:pointer;font-family:inherit;
-  }
-  .btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
-  .btn.solid{background:var(--ball);border-color:var(--ball);color:#fff}
-  .btn.solid:hover{background:var(--ink);border-color:var(--ink)}
-
-  /* clients — deliberately quiet, logos drift right to left */
-  .clients{padding-block:clamp(2.4rem,5vw,4rem)}
-  .clients > p{
-    text-align:center;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--ink-soft);margin-bottom:2rem;
-  }
-  .logo-marquee{overflow:hidden}
-  .logo-track{
-    display:flex;align-items:center;gap:clamp(3rem,6vw,5.5rem);
-    width:max-content;padding-inline:2rem;
-    animation:logoslide 42s linear infinite;
-    will-change:transform;
-  }
-  .logo-track img{height:clamp(30px,4.2vw,46px);width:auto;opacity:.15;transition:none}
-  @keyframes logoslide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion: reduce){
-    .logo-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}
-    .logo-track img{opacity:.75}
-  }
-
-  /* about */
-  .about{border-block:1px solid var(--line);background:#fff}
-  .about-inner{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-  @media (max-width:820px){.about-inner{grid-template-columns:1fr}}
-  .about h2{font-size:clamp(1.8rem,3.8vw,2.8rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:1.4rem;font-weight:600}
-  .about h2 em{font-style:normal;color:var(--ball)}
-  .about p{color:var(--ink-soft);margin-bottom:1rem;max-width:36rem}
-  .about-facts{display:grid;gap:1rem}
-  .fact{border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem 1.4rem;background:var(--paper)}
-  .fact b{display:block;font-size:.98rem;margin-bottom:.15rem;font-weight:600}
-  .fact span{font-size:.84rem;color:var(--ink-soft)}
-
-  /* contact */
-  .contact{text-align:center}
-  .contact h2{font-size:clamp(2rem,5.4vw,3.8rem);letter-spacing:-.025em;line-height:1.08;font-weight:600}
-  .contact h2 span{color:var(--ball)}
-  .contact p{color:var(--ink-soft);margin:1.2rem auto 2.2rem;max-width:30rem}
-  .socials{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-
-  footer{
-    border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-    padding:1.4rem clamp(1.2rem,5vw,4rem);
-    font-family:var(--font-mono);font-size:.7rem;color:var(--ink-soft);
-  }
-
-  /* reveal on scroll (progressive enhancement) */
-  @media (prefers-reduced-motion: no-preference){
-    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-    .reveal.in{opacity:1;transform:none}
-  }
-
-  /* ---------- keyboard focus & tap targets ---------- */
-  :focus-visible{
-    outline:3px solid #ff4b2e;outline-offset:3px;border-radius:6px;
-  }
-  .topnav a, nav a, .back, .btn{padding-block:.4rem}
-  .skip{
-    position:absolute;left:-999px;top:0;z-index:100;
-    background:#ff4b2e;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
-    font-weight:700;font-size:.9rem;
-  }
-  .skip:focus{left:0}
-
-  @media (max-width:600px){
-    section{padding-inline:20px}
-    nav{gap:1rem;font-size:.85rem}
-    .hud{gap:.5rem;font-size:.66rem}
-    .grid{gap:1.1rem}
-  }
-
-  /* ============ MOBILE ============ */
-  @media (max-width:640px){
-    header{padding:.8rem 1rem;gap:.6rem}
-    .logo{font-size:.95rem}
-    nav{gap:.7rem;font-size:.8rem}
-    nav a{padding-block:.55rem}
-    .lang-toggle{font-size:.62rem;padding:.2rem .42rem}
-
-    /* hero: reel first is fine, but keep the ball playground usable */
-    .hero{min-height:auto}
-    .hero-top{padding:5.2rem 1.1rem 1.2rem;gap:2rem}
-    .hero-ctas .btn{width:100%;justify-content:center;padding-block:.85rem}
-    .playground{min-height:44vh}
-    .hud{gap:.45rem;font-size:.62rem;left:1.1rem;right:1.1rem;bottom:.9rem}
-    .hud .chip{padding:.4rem .6rem}
-    .hero-hint{font-size:.66rem;left:1.1rem;right:1.1rem}
-    .sel{display:none}                 /* illustrator handles are decorative */
-    .reel-bar .fname{font-size:.6rem}
-
-    /* quick facts: two columns, CV button full width */
-    .facts{grid-template-columns:1fr 1fr;gap:1.1rem;padding:1.1rem 1.2rem}
-    .cv-cell{grid-column:1/-1;justify-content:stretch;margin-top:.2rem}
-    .cv-btn{width:100%;justify-content:center;padding-block:.8rem}
-
-    section{padding:3.2rem 1.1rem}
-    .section-head{margin-bottom:1.8rem}
-    .grid{grid-template-columns:1fr;gap:1.1rem}
-    .more-row .btn{width:100%;justify-content:center;padding-block:.85rem}
-    .about-inner{gap:2rem}
-    .fact{padding:1.1rem 1.2rem}
-    .avail{font-size:.78rem;padding:.5rem .9rem;line-height:1.4;text-align:left}
-    .socials{flex-direction:column}
-    .socials .btn{width:100%;justify-content:center;padding-block:.85rem}
-    footer{flex-direction:column;gap:.4rem;font-size:.66rem;padding:1.4rem 1.1rem}
-    .clients img{max-width:100%}
-    .logo-track{gap:2.4rem}
-    .logo-track img{height:26px}
-  }
-  @media (max-width:400px){
-    .facts{grid-template-columns:1fr}
-    nav{gap:.55rem;font-size:.74rem}
-  }
-
-  /* touch devices: card previews can't rely on hover */
-  @media (hover:none){
-    .thumb video{display:none}
-    .card:hover{transform:none}
-  }
+html,body{margin:0;background:#fcfcfb}
+a{color:#1b1b1f}a:hover{color:#1f4fd1}
+@keyframes wfA{0%{transform:translate(0,0)}25%{transform:translate(36px,-28px)}55%{transform:translate(-20px,30px)}80%{transform:translate(-44px,-8px)}100%{transform:translate(0,0)}}
+@keyframes wfB{0%{transform:translate(0,0)}30%{transform:translate(-60px,18px)}60%{transform:translate(-24px,-30px)}100%{transform:translate(0,0)}}
+@keyframes wfC{0%{transform:translate(0,0)}35%{transform:translate(30px,34px)}70%{transform:translate(52px,-14px)}100%{transform:translate(0,0)}}
+@keyframes wfWig{0%,100%{transform:rotate(-1.2deg) translateY(0)}50%{transform:rotate(1.2deg) translateY(-4px)}}
+@keyframes wfWave{0%,60%,100%{transform:rotate(0deg)}10%{transform:rotate(16deg)}20%{transform:rotate(-10deg)}30%{transform:rotate(16deg)}40%{transform:rotate(-6deg)}50%{transform:rotate(12deg)}}
+@keyframes easeBall{from{transform:translateX(0)}to{transform:translateX(92px)}}
+.fanbox:hover .fan-l{transform:rotate(-13deg) translate(-22px,-4px) !important}
+.fanbox:hover .fan-r{transform:rotate(13deg) translate(22px,-4px) !important}
+.fanbox:hover .fan-c{transform:translateY(-10px) !important}
+@keyframes mqSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq:hover .mq-track{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.wf-move,.mq-track{animation:none !important}}
+@media (max-width: 1100px){.wf-float{display:none !important}}
+@media (hover: hover) and (pointer: fine){.cv-live,.cv-live a,.cv-live button{cursor:none}}
+@media (hover: none), (pointer: coarse){.cur{display:none !important}}
 </style>
+<style>
+@keyframes mA{0%{transform:translate(0,0)}30%{transform:translate(-22px,10px)}65%{transform:translate(-8px,-12px)}100%{transform:translate(0,0)}}
+@keyframes mB{0%{transform:translate(0,0)}35%{transform:translate(20px,-14px)}70%{transform:translate(34px,8px)}100%{transform:translate(0,0)}}
+@keyframes mC{0%{transform:translate(0,0)}40%{transform:translate(-18px,-10px)}75%{transform:translate(-30px,6px)}100%{transform:translate(0,0)}}
+@keyframes mWave{0%,60%,100%{transform:rotate(0deg)}10%{transform:rotate(16deg)}20%{transform:rotate(-10deg)}30%{transform:rotate(16deg)}40%{transform:rotate(-6deg)}50%{transform:rotate(12deg)}}
+@keyframes mWigL{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(-3deg) translateY(-3px)}}
+@keyframes mWigM{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg) translateY(-3px)}}
+@keyframes mWigR{0%,100%{transform:rotate(5deg)}50%{transform:rotate(3deg) translateY(-3px)}}
+@keyframes mqSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.m-move,.mq-track{animation:none !important}}
+.m-only{display:none}
+@media (max-width: 700px){.fan-l,.fan-r{width:132px !important;height:184px !important;top:46px !important}.fan-l{left:0 !important}.fan-r{right:0 !important}.fan-c{width:156px !important;height:220px !important;margin-left:-78px !important}}
+@media (max-width: 1100px){.m-only{display:block}}
+</style>
+<meta name="twitter:image" content="https://renataacioli.com/assets/og-home.png">
 </head>
 <body>
-<a class="skip" href="#work" data-i18n="skip">Skip to content</a>
+<div id="page" style="position: relative; overflow-x: hidden; background: #fcfcfb; color: #1b1b1f; font-family: Inter, system-ui, sans-serif; line-height: 1.5">
 
-<header>
-  <a class="logo" href="#top">renata acioli<span class="dot"></span></a>
-  <nav>
-    <a href="#work" data-i18n="nav.work">Work</a>
-    <a href="#about" data-i18n="nav.about">About</a>
-    <a href="#contact" data-i18n="nav.contact">Contact</a>
-    <button class="lang-toggle" id="langToggle" type="button" aria-label="Mudar para português">
-      <span class="on">EN</span><span class="off">PT</span>
-    </button>
-  </nav>
+<div id="you-cursor" class="cur" aria-hidden="true" style="position: absolute; left: 0; top: 0; z-index: 50; pointer-events: none; opacity: 0; display: flex; align-items: flex-start; gap: 2px; transition: opacity 0.2s ease">
+<svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#1b1b1f" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+<span style="margin-top: 16px; background: #1b1b1f; color: #ffffff; font-weight: 600; font-size: 13px; line-height: 1.3; padding: 4px 9px; border-radius: 4px; white-space: nowrap">You</span>
+</div>
+
+<section id="top" style="position: relative; overflow: hidden; min-height: 780px; box-sizing: border-box; display: flex; flex-direction: column; background-color: #fcfcfb; background-image: linear-gradient(#efefec 1px, transparent 1px), linear-gradient(90deg, #efefec 1px, transparent 1px); background-size: 44px 44px">
+<div id="grid-trail" aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none">
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+<div style="position: absolute; left: 0; top: 0; width: 44px; height: 44px; background: rgba(27, 27, 31, 0.045); opacity: 0"></div>
+</div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 220px; z-index: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(252, 252, 251, 0), #fcfcfb)"></div>
+
+<header style="position: relative; z-index: 3; max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding: 22px var(--g); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<a href="#top" style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Renata Acioli</a>
+<nav style="display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 15px; font-weight: 500">
+<a href="#work" style="text-decoration: none; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center">Cases</a>
+<a href="#about" style="text-decoration: none; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center">About</a>
+<a href="#about" style="text-decoration: none; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center">CV</a>
+<a href="#contact" style="text-decoration: none; min-height: 44px; padding: 0 22px; display: inline-flex; align-items: center; background: #1b1b1f; color: #ffffff; border-radius: 999px; font-weight: 600">Contact</a>
+</nav>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="top">
-
-  <div class="hero-top">
-    <div class="hero-copy">
-      <p class="kicker" data-i18n="hero.kicker">Art Direction &amp; Motion Design</p>
-      <h1 data-i18n-html="hero.h1">I direct, design and animate — <span class="accent">from the first sketch to the final frame.</span></h1>
-      <p class="hero-sub" data-i18n="hero.sub">Hi, I'm Renata Acioli, a Brazilian art director and motion designer. I've directed an animated series pilot, built launch films and campaigns for brands like Banco do Brasil, and I still believe animation is the best way to tell a story. Literally.</p>
-      <div class="hero-ctas">
-        <a class="btn solid" href="#work" data-i18n="hero.cta1">See selected work →</a>
-        <a class="btn" href="#contact" data-i18n="hero.cta2">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="reel-wrap">
-      <div class="sel" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        <span class="anchor-label" data-i18n="reel.label">showreel · 1920×1080</span>
-      </div>
-      <div class="reel">
-        <div class="reel-bar">
-          <span class="dots"><i></i><i></i><i></i></span>
-          <span class="fname">showreel_2026_final_FINAL_v3.mp4</span>
-          <button class="sound" id="soundBtn" aria-pressed="false" data-i18n="reel.sound.off">sound: off</button>
-        </div>
-        <div class="reel-video">
-          <video id="reelVideo" src="assets/showreel.mp4" poster="assets/showreel_poster.jpg"
-                 muted loop playsinline preload="metadata"
-                 aria-label="Renata Acioli — showreel. Click to toggle sound." data-i18n-aria="reel.aria"></video>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======== bouncing ball playground ======== -->
-  <div class="playground">
-    <canvas id="stage" aria-label="Interactive bouncing ball — grab it and throw it" data-i18n-aria="ball.aria"></canvas>
-    <p class="hero-hint"><span class="pulse"></span><span data-i18n="hero.hint">grab the ball &amp; throw it</span></p>
-
-    <div class="hud">
-      <button class="chip" id="onionBtn" aria-pressed="true" data-i18n="hud.onion.on">onion skin: on</button>
-      <button class="chip" id="fpsBtn" aria-pressed="false" data-i18n="hud.fps.12">animate on 12s</button>
-      <button class="chip" id="resetBtn" data-i18n="hud.reset">reset</button>
-    </div>
-  </div>
-</section>
-
-<!-- ================= QUICK FACTS (recruiter strip) ================= -->
-<div class="facts-strip">
-  <dl class="facts reveal">
-    <div>
-      <dt data-i18n="qf.based.t">Based in</dt>
-      <dd><span data-i18n="qf.based.d">Brasília, Brazil</span> <span class="tz">GMT-3</span></dd>
-    </div>
-    <div>
-      <dt data-i18n="qf.avail.t">Available for</dt>
-      <dd data-i18n="qf.avail.d">Full-time &amp; contract · remote worldwide</dd>
-    </div>
-    <div>
-      <dt data-i18n="qf.lang.t">Languages</dt>
-      <dd data-i18n="qf.lang.d">Portuguese (native) · English (professional)</dd>
-    </div>
-    <div>
-      <dt data-i18n="qf.tools.t">Toolkit</dt>
-      <dd data-i18n="qf.tools.d">Adobe Creative Cloud · AI creative workflow</dd>
-    </div>
-    <div class="cv-cell">
-      <a class="cv-btn" href="assets/Renata-Acioli-CV.pdf" download>
-        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5v10m0 0 3.5-3.5M10 12.5 6.5 9M3.5 14.5v1.5a1.5 1.5 0 0 0 1.5 1.5h10a1.5 1.5 0 0 0 1.5-1.5v-1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span data-i18n="qf.cv">Download CV</span>
-      </a>
-    </div>
-  </dl>
+<a class="wf-float" href="projects.html" style="position: absolute; z-index: 1; left: 3%; top: 21%; width: 214px; height: 142px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08); transform: rotate(-4deg); display: block">
+<img src="assets/ourocard/thumb.jpg" alt="Ourocard Stories: hand-drawn character with yellow hair" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; border-radius: 7px; display: block">
+</a>
+<a class="wf-float" href="projects.html" style="position: absolute; z-index: 1; left: 6%; bottom: 12%; width: 240px; height: 156px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08); transform: rotate(3deg); display: block">
+<img src="assets/quem-partiu/thumb.jpg" alt="Quem partiu é amor de alguém: a red heart balloon on blue" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 7px; display: block">
+</a>
+<a class="wf-float" href="projects.html" style="position: absolute; z-index: 1; right: 3%; top: 19%; width: 232px; height: 146px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08); transform: rotate(4deg); display: block">
+<img src="assets/eyes/still-03.jpg" alt="Motion Eyes: an eye inside a target on yellow" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 7px; display: block">
+</a>
+<a class="wf-float" href="projects.html" style="position: absolute; z-index: 1; right: 7%; bottom: 11%; width: 178px; height: 226px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08); transform: rotate(-3deg); display: block">
+<img src="assets/afropunk/frame.jpg" alt="Afropunk festival screen for Banco do Brasil and Visa" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 7px; display: block">
+</a>
+<div class="wf-float" aria-hidden="true" style="position: absolute; z-index: 2; left: 4%; top: 47%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px">
+<span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #15803d; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Creative Strategist</span><span style="font-size: 13px; color: #63636b">What is this for, exactly?</span></span>
+</div>
+<div class="wf-float" aria-hidden="true" style="position: absolute; z-index: 2; right: 4%; top: 48%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px">
+<span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #c2410c; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Motion Designer</span><span style="font-size: 13px; color: #63636b">It already moves in my head.</span></span>
+</div>
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 4; left: 16%; top: 40%; display: flex; align-items: flex-start; gap: 2px; pointer-events: none; animation: wfA 15s ease-in-out infinite">
+<svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#15803d" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+<span style="margin-top: 16px; background: #15803d; color: #ffffff; font-weight: 600; font-size: 13px; line-height: 1.3; padding: 4px 9px; border-radius: 4px; white-space: nowrap">Creative Strategist</span>
+</div>
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 4; right: 30%; top: 13%; display: flex; align-items: flex-start; gap: 2px; pointer-events: none; animation: wfB 18s ease-in-out infinite">
+<svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#6d3fd1" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+<span style="margin-top: 16px; background: #6d3fd1; color: #ffffff; font-weight: 600; font-size: 13px; line-height: 1.3; padding: 4px 9px; border-radius: 4px; white-space: nowrap">Art Director</span>
+</div>
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 4; right: 15%; top: 41%; display: flex; align-items: flex-start; gap: 2px; pointer-events: none; animation: wfC 21s ease-in-out infinite">
+<svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#c2410c" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+<span style="margin-top: 16px; background: #c2410c; color: #ffffff; font-weight: 600; font-size: 13px; line-height: 1.3; padding: 4px 9px; border-radius: 4px; white-space: nowrap">Motion Designer</span>
 </div>
 
-<!-- ================= WORK ================= -->
-<section id="work">
-  <div class="section-head reveal">
-    <p class="kicker"><span class="num">01</span> · <span data-i18n="sec1.kicker">film, brand &amp; everything between</span></p>
-    <h2 data-i18n="sec1.title">Selected work</h2>
-  </div>
-
-  <div class="grid">
-    <a class="card reveal" href="projects/routo.html">
-      <div class="thumb"><img loading="lazy" src="assets/routo/poster.jpg" alt="Routo launch film — dark UI scene with electric blue accents"><video muted loop playsinline preload="none" data-src="assets/previews/routo.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.routo-launch-film.tag">Launch film · Case study</span>
-        <h3>Routo Launch Film</h3>
-        <p data-i18n="card.routo-launch-film.desc">A 34-second launch film for Routo.IO — concept, script, design and animation, from first sketch to final render.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/clarice.html">
-      <div class="thumb"><img loading="lazy" src="assets/clarice/poster-seq50.jpg" alt="Still frame from the animated film Clarice's Dream"><video muted loop playsinline preload="none" data-src="assets/previews/clarice.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.clarice-s-dream.tag">Feature film · Animation</span>
-        <h3>Clarice's Dream</h3>
-        <p data-i18n="card.clarice-s-dream.desc">Cut-out animation for an award-winning feature — Grande Otelo 2025 for Best Children's Feature, plus three wins in Brasília.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/bb-wallet.html">
-      <div class="thumb"><img loading="lazy" src="assets/bbwallet/thumb.jpg" alt="Illustrated character holding a phone in the bB Wallet tutorial"><video muted loop playsinline preload="none" data-src="assets/previews/bbwallet.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.bb-wallet.tag">Explainer · Illustration</span>
-        <h3>bB Wallet</h3>
-        <p data-i18n="card.bb-wallet.desc">Ten illustrated tips on opening a digital wallet account — a three-minute tutorial that explains itself without a single word of narration.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/ourocard.html">
-      <div class="thumb"><img loading="lazy" src="assets/ourocard/thumb.jpg" alt="Animated stories for the Ourocard brand"><video muted loop playsinline preload="none" data-src="assets/previews/ourocard.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.ourocard-stories.tag">Branded content · Series</span>
-        <h3>Ourocard Stories</h3>
-        <p data-i18n="card.ourocard-stories.desc">A series of animated social stories bringing a bank card to life, piece by piece.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/quem-partiu.html">
-      <div class="thumb"><img loading="lazy" src="assets/quem-partiu/thumb.jpg" alt="Coral heart balloon floating in a light blue sky — Quem partiu é amor de alguém"></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.quem-partiu-amor-de-algu.tag">Personal · Animation</span>
-        <h3 lang="pt-BR">Quem partiu é amor de alguém</h3>
-        <p data-i18n="card.quem-partiu-amor-de-algu.desc">An animated tribute — art as memory and collective mourning during the pandemic.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/motion-monster.html">
-      <div class="thumb"><img loading="lazy" src="assets/monster/thumb.jpg" alt="Vaporwave collage: classical statue holding a glowing orb over mountains"><video muted loop playsinline preload="none" data-src="assets/previews/monster.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.motion-monster-o-desafio.tag">Exercise · Animation</span>
-        <h3>Motion Monster · <span lang="pt-BR">O Desafio</span></h3>
-        <p data-i18n="card.motion-monster-o-desafio.desc">A Layer Lemonade challenge: vaporwave collage, layered effects, and transitions that carry you between worlds.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/eyes.html">
-      <div class="thumb"><img loading="lazy" src="assets/eyes/still-03.jpg" alt="Night scene with a pink eye between the moon and a glowing ball"><video muted loop playsinline preload="none" data-src="assets/previews/eyes.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.motion-eyes.tag">Motion study · Personal</span>
-        <h3>Motion Eyes</h3>
-        <p data-i18n="card.motion-eyes.desc">An exercise about eyes, balls and time — one ball rolling through many color worlds, from Layer Lemonade's course.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/logo-animation.html">
-      <div class="thumb"><img loading="lazy" src="assets/logos-motion/thumb.jpg" alt="Ella animated logo — pink cursive lettering on red"><video muted loop playsinline preload="none" data-src="assets/previews/logo-animation.mp4" aria-hidden="true"></video></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.logo-animation.tag">Brand · Motion</span>
-        <h3>Logo Animation</h3>
-        <p data-i18n="card.logo-animation.desc">Logos that don't just sit there — identity in movement for brands of all sizes.</p>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="more-row reveal">
-    <a class="btn solid" href="https://renataacioli.com/animacao" target="_blank" rel="noopener" data-i18n="sec1.more">All animation →</a>
-  </div>
-
-  <div class="section-head reveal" style="margin-top:clamp(4rem,8vw,6.5rem)">
-    <p class="kicker"><span class="num">02</span> · <span data-i18n="sec2.kicker">pretty things that hold still</span></p>
-    <h2 data-i18n="sec2.title">Brand &amp; Design</h2>
-  </div>
-
-  <div class="grid">
-    <a class="card reveal" href="projects/awure.html">
-      <div class="thumb"><img loading="lazy" src="assets/awure/art-kv.jpg" alt="USE Àwúre brand image — woman in a golden head wrap with the brand logotype"></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.use-w-re.tag">Brand · Design</span>
-        <h3>USE Àwúre</h3>
-        <p data-i18n="card.use-w-re.desc">Design for a natural cosmetics brand rooted in Afro-Brazilian culture — a name that means blessing, visuals that carry it with pride.</p>
-      </div>
-    </a>
-
-    <a class="card reveal" href="projects/paris-2024.html">
-      <div class="thumb"><img loading="lazy" src="assets/paris/square-varejo.jpg" alt="Torcida do Brasil campaign piece — Caramelo the dog with a vuvuzela"></div>
-      <div class="card-body">
-        <span class="tag" data-i18n="card.torcida-do-brasil-paris-.tag">Campaign · Design</span>
-        <h3><span lang="pt-BR">Torcida do Brasil</span> · Paris 2024</h3>
-        <p data-i18n="card.torcida-do-brasil-paris-.desc">Unfolding an Olympic campaign into an army of pieces — every format, every audience, one very tight deadline.</p>
-      </div>
-    </a>
-  </div>
-
-  <div class="more-row reveal">
-    <a class="btn solid" href="https://renataacioli.com/work" target="_blank" rel="noopener" data-i18n="sec2.more">All Brand &amp; Design →</a>
-  </div>
-</section>
-
-<!-- ================= CLIENTS (quiet) ================= -->
-<div class="clients reveal">
-  <p data-i18n="clients">Brands &amp; agencies I've worked with</p>
-  <div class="logo-marquee">
-    <div class="logo-track" id="logoTrack">
-      <img src="assets/logos/dreamfactory.png" alt="Dream Factory" loading="lazy">
-      <img src="assets/logos/banco-do-brasil.png" alt="Banco do Brasil" loading="lazy">
-      <img src="assets/logos/olga-eva.png" alt="Olga Eva" loading="lazy">
-      <img src="assets/logos/giz.png" alt="GIZ — Deutsche Gesellschaft für Internationale Zusammenarbeit" loading="lazy">
-      <img src="assets/logos/paraiso-animal.png" alt="Paraíso Animal" loading="lazy">
-      <img src="assets/logos/youeduc.png" alt="YouEduc" loading="lazy">
-      <img src="assets/logos/valparaiso.png" alt="Valparaíso" loading="lazy">
-      <img src="assets/logos/embrapa.png" alt="Embrapa" loading="lazy">
-      <img src="assets/logos/alice-carolina.png" alt="Alice Carolina Babyshop" loading="lazy">
-      <img src="assets/logos/centro-estudos.png" alt="Centro de Estudos e Assessoria" loading="lazy">
-      <img src="assets/logos/cebraspe.png" alt="Cebraspe" loading="lazy">
-    </div>
-  </div>
+<div style="position: relative; z-index: 3; flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 32px 24px 110px; text-align: center">
+<h1 style="margin: 0; max-width: 760px; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(42px, 5.4vw, 80px); line-height: 1.1; font-weight: 700; letter-spacing: -0.035em">I make ideas move. Then I <span style="position: relative; display: inline-block; background: #d6e4ff; border-left: 3px solid #1f4fd1; border-right: 3px solid #1f4fd1; padding: 0 6px">make sure<span aria-hidden="true" style="position: absolute; left: -9px; top: -8px; width: 14px; height: 14px; border-radius: 50%; background: #1f4fd1"></span><span aria-hidden="true" style="position: absolute; right: -9px; bottom: -8px; width: 14px; height: 14px; border-radius: 50%; background: #1f4fd1"></span></span> they work.</h1>
+<p style="margin: 0; font-size: 19px; color: #63636b; max-width: 520px">I plan the idea, design it and animate it myself.</p>
+<a href="#work" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">See the cases</a>
 </div>
-
-<!-- ================= ABOUT ================= -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="reveal">
-      <p class="kicker"><span class="num">03</span> · <span data-i18n="about.kicker">the person behind the work</span></p>
-      <h2 data-i18n-html="about.title">me: <em>motion empowering</em></h2>
-      <p data-i18n="about.p1">I'm a Brazilian art director and motion designer, and I treat animation as a language — one that can sell an idea, teach a process, or hold space for grief and joy alike. Whatever the brief is, my job is to make it land.</p>
-      <p data-i18n-html="about.p2">I've directed the pilot of an animated series, carried brand films from concept to final render for clients like Routo.IO and Banco do Brasil, and animated on festival shorts. I'm as comfortable leading a look as I am delivering fifty assets before a deadline.</p>
-    </div>
-    <div class="about-facts reveal">
-      <div class="fact"><b data-i18n="fact1.t">Direction &amp; art direction</b><span data-i18n="fact1.d">Concept, script, storyboard and styleframes — owning the vision and leading it to the final render.</span></div>
-      <div class="fact"><b data-i18n="fact2.t">2D, cut-out &amp; illustration</b><span data-i18n="fact2.d">After Effects, Illustrator and Toon Boom Harmony — character animation, explainers and hand-drawn work.</span></div>
-      <div class="fact"><b data-i18n="fact3.t">Motion for brands</b><span data-i18n="fact3.d">Launch films, campaigns, logo animation and social content, delivered at scale and on schedule.</span></div>
-    </div>
-  </div>
+<div class="m-only">
+<div style="position: relative; z-index: 2; height: 236px; margin-top: 12px">
+<a href="projects.html" style="position: absolute; left: -26px; top: 36px; width: 150px; height: 102px; background: #ffffff; padding: 5px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 10px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08); transform: rotate(-5deg); display: block"><img src="assets/ourocard/thumb.jpg" alt="Ourocard Stories character" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; border-radius: 6px; display: block"></a>
+<a href="projects.html" style="position: absolute; right: -22px; top: 72px; width: 150px; height: 102px; background: #ffffff; padding: 5px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 10px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08); transform: rotate(4deg); display: block"><img src="assets/eyes/still-03.jpg" alt="Motion Eyes frame" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block"></a>
+<div aria-hidden="true" style="position: absolute; left: 104px; top: 10px; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 16px 16px 16px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 9px 12px; display: flex; gap: 8px; align-items: flex-start; text-align: left">
+<span style="flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #15803d; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700">Creative Strategist</span><span style="font-size: 12px; color: #63636b">What is this for, exactly?</span></span>
+</div>
+<div class="m-move" aria-hidden="true" style="position: absolute; z-index: 4; left: 84px; top: 136px; display: flex; align-items: flex-start; gap: 1px; pointer-events: none; animation: mB 16s ease-in-out infinite">
+<svg width="18" height="18" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#15803d" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+<span style="margin-top: 13px; background: #15803d; color: #ffffff; font-weight: 600; font-size: 11px; line-height: 1.3; padding: 3px 7px; border-radius: 4px; white-space: nowrap">Creative Strategist</span>
+</div>
+<div class="m-move" aria-hidden="true" style="position: absolute; z-index: 4; right: 30px; top: 178px; display: flex; align-items: flex-start; gap: 1px; pointer-events: none; animation: mC 18s ease-in-out infinite">
+<svg width="18" height="18" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#c2410c" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+<span style="margin-top: 13px; background: #c2410c; color: #ffffff; font-weight: 600; font-size: 11px; line-height: 1.3; padding: 3px 7px; border-radius: 4px; white-space: nowrap">Motion Designer</span>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section class="contact" id="contact">
-  <div class="reveal">
-    <p class="kicker"><span class="num">04</span> · <span data-i18n="contact.kicker">let's animate it</span></p>
-    <p class="avail"><span class="dot-live"></span><span data-i18n="contact.avail">Open to full-time roles and contract work · usually replies within 24h</span></p>
-    <h2 data-i18n-html="contact.title">Got a story that<br>needs to <span>move</span>?</h2>
-    <p data-i18n="contact.p">I'm open to full-time roles, freelance projects and collaborations — and always up for good animation talk.</p>
-    <div class="socials">
-      <a class="btn solid" href="mailto:hello@renataacioli.com">hello@renataacioli.com →</a>
-      <a class="btn" href="https://www.linkedin.com/in/renatacioli/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://www.instagram.com/renataaacioli/" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn" href="assets/Renata-Acioli-CV.pdf" download data-i18n="qf.cv">Download CV</a>
-    </div>
-  </div>
+<section style="max-width: 1200px; margin: 0 auto; padding: 28px var(--g) 36px; display: flex; flex-direction: column; gap: 22px; align-items: center">
+<span style="font-size: 13px; color: #63636b">Brands and agencies I've worked with</span>
+<div class="mq" style="overflow: hidden; width: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000000 10%, #000000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000000 10%, #000000 90%, transparent)">
+<div class="mq-track" style="display: flex; width: max-content; animation: mqSlide 55s linear infinite">
+<div style="display: flex; gap: 56px; padding-right: 56px; align-items: center">
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Banco do Brasil</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Visa</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">GIZ</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Embrapa</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Cebraspe</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Routo.IO</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Dream Factory</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Paraíso Animal</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">YouEduc</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Valparaíso</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Olga / Eva</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Alice Carolina</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Centro de Estudos</span>
+</div>
+<div aria-hidden="true" style="display: flex; gap: 56px; padding-right: 56px; align-items: center">
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Banco do Brasil</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Visa</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">GIZ</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Embrapa</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Cebraspe</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Routo.IO</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Dream Factory</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Paraíso Animal</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">YouEduc</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Valparaíso</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Olga / Eva</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Alice Carolina</span>
+<span style="flex: 0 0 auto; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #63636b; white-space: nowrap">Centro de Estudos</span>
+</div>
+</div>
+</div>
 </section>
 
-<footer>
-  <span>© <span id="year"></span> Renata Acioli — <span data-i18n="footer.rights">all frames reserved.</span></span>
-  <span data-i18n="footer.tag">animated by hand · squash &amp; stretch included</span>
-</footer>
+<section id="work" style="max-width: 1200px; margin: 0 auto; padding: 72px var(--g) 40px; display: flex; flex-direction: column; gap: 36px">
+<h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(34px, 5.5vw, 48px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Cases</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 28px">
+<a id="case-1" href="projects/na-praia.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+<img src="assets/napraia/central-3.jpg" alt="Na Praia Festival: frame of the Colecione momentos promotion, two friends at a festival" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block">
+<span style="font-size: 13px; color: #63636b">Na Praia Festival · Concept and motion system</span>
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">A whole stage in sync.</h3>
+<span style="font-size: 15px; color: #63636b">Banco do Brasil's campaign across 18 screens.</span>
+</a>
+<a id="case-2" href="projects/paris-2024.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+<img src="assets/paris/square-varejo.jpg" alt="Torcida do Brasil campaign piece for Paris 2024" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 35%; border-radius: 14px; display: block">
+<span style="font-size: 13px; color: #63636b">Banco do Brasil · Visa · Design system</span>
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">50+ pieces in 48 hours.</h3>
+<span style="font-size: 15px; color: #63636b">Paris 2024 and World Cup 2026.</span>
+</a>
+<a id="case-3" href="projects/routo.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+<img src="assets/routo/poster.jpg" alt="Frame from the Routo launch film" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block">
+<span style="font-size: 13px; color: #63636b">Routo.IO · Concept, script and motion</span>
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">A launch film investors watched.</h3>
+<span style="font-size: 15px; color: #63636b">34 seconds, from script to final render.</span>
+</a>
+<a id="case-4" href="projects/awure.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+<img src="assets/awure/art-kv.jpg" alt="USE Àwúre key visual: woman in profile wearing a patterned headwrap" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% 50%; border-radius: 14px; display: block">
+<span style="font-size: 13px; color: #63636b">USE Àwúre · Brand design</span>
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">"It's for me," she said.</h3>
+<span style="font-size: 15px; color: #63636b">A customer, about the packaging.</span>
+</a>
+</div>
+</section>
 
+<section id="more" style="max-width: 1200px; margin: 0 auto; padding: 32px 48px 88px">
+<div class="fanbox" style="background: #f4f4f1; border-radius: 28px; padding: var(--box); display: flex; flex-wrap: wrap; gap: 48px; align-items: center; overflow: hidden">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px; align-items: flex-start">
+<span style="font-size: 13px; color: #63636b">Also: craft</span>
+<h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(34px, 5.5vw, 48px); line-height: 1.04; font-weight: 700; letter-spacing: -0.03em">There's more where that came from.</h2>
+<p style="margin: 0; font-size: 17px; color: #63636b; max-width: 440px">Illustration, 2D animation, logo motion and the experiments I do for fun. The full archive is one click away.</p>
+<a href="projects.html" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">See all projects</a>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; position: relative; height: 370px">
+<img src="assets/bbwallet/poster.jpg" alt="bB Wallet: illustrated tutorial frame" class="fan-l" style="transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); position: absolute; left: 6%; top: 50px; width: 200px; height: 270px; object-fit: cover; border-radius: 18px; transform: rotate(-8deg); box-shadow: 0 14px 34px rgba(27, 27, 31, 0.14)">
+<img src="assets/monster/thumb.jpg" alt="Motion Monster: course exercise frame" class="fan-r" style="transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); position: absolute; right: 6%; top: 50px; width: 200px; height: 270px; object-fit: cover; border-radius: 18px; transform: rotate(8deg); box-shadow: 0 14px 34px rgba(27, 27, 31, 0.14)">
+<img src="assets/clarice/poster-film.jpg" alt="Clarice's Dream poster" class="fan-c" style="transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); position: absolute; left: 50%; top: 14px; width: 232px; height: 326px; margin-left: -116px; object-fit: cover; object-position: 50% 30%; border-radius: 18px; box-shadow: 0 18px 44px rgba(27, 27, 31, 0.2)">
+<div class="" aria-hidden="true" style="position: absolute; z-index: 2; right: 0; bottom: 0; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px">
+<span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #6d3fd1; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Art Director</span><span style="font-size: 13px; color: #63636b">Keep the weird ones in.</span></span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="about" style="position: relative; overflow: hidden; min-height: 780px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 110px 24px; text-align: center; background-color: #fcfcfb; background-image: linear-gradient(#efefec 1px, transparent 1px), linear-gradient(90deg, #efefec 1px, transparent 1px); background-size: 44px 44px">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 180px; pointer-events: none; background: linear-gradient(to top, rgba(252, 252, 251, 0), #fcfcfb)"></div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 180px; pointer-events: none; background: linear-gradient(to bottom, rgba(252, 252, 251, 0), #fcfcfb)"></div>
+<div class="wf-float wf-move" style="animation: wfWig 6s ease-in-out infinite; position: absolute; left: 9%; top: 17%; display: flex; flex-direction: column; gap: 8px; align-items: flex-start">
+<div style="width: 156px; height: 138px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08)"><div style="width: 100%; height: 100%; border-radius: 7px; background: #fafaf8; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="Line chart rising after a launch marker" width="138" height="120" viewBox="0 0 120 104" fill="none"><path d="M8 24 H112 M8 52 H112 M8 80 H112" stroke="#e7e7e3" stroke-width="1"></path><path d="M66 12 V88" stroke="#63636b" stroke-width="1" stroke-dasharray="3 3"></path><path d="M8 84 L28 70 L46 74 L66 48 L86 40 L110 16 V88 H8 Z" fill="#15803d" opacity="0.1"></path><path d="M8 84 L28 70 L46 74 L66 48 L86 40 L110 16" stroke="#15803d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="28" cy="70" r="3" fill="#15803d"></circle><circle cx="46" cy="74" r="3" fill="#15803d"></circle><circle cx="66" cy="48" r="3.5" fill="#ffffff" stroke="#15803d" stroke-width="2"></circle><circle cx="86" cy="40" r="3" fill="#15803d"></circle><circle cx="110" cy="16" r="3" fill="#15803d"></circle><text x="70" y="98" font-family="Inter, sans-serif" font-size="8" fill="#63636b">launch</text></svg></div></div>
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em">CREATIVE STRATEGIST</span>
+</div>
+<div class="wf-float wf-move" style="animation: wfWig 7s ease-in-out -2s infinite; position: absolute; right: 10%; top: 21%; display: flex; flex-direction: column; gap: 8px; align-items: flex-start">
+<div style="width: 156px; height: 138px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08)"><div style="width: 100%; height: 100%; border-radius: 7px; background: #fafaf8; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="Image inside a transform box with scale handles" width="138" height="120" viewBox="0 0 120 104" fill="none"><rect x="30" y="24" width="60" height="56" rx="6" fill="#ede7fb"></rect><circle cx="47" cy="41" r="7" fill="#6d3fd1" opacity="0.5"></circle><path d="M30 72 L50 54 L64 66 L76 56 L90 68 V74 a6 6 0 0 1 -6 6 H36 a6 6 0 0 1 -6 -6 Z" fill="#6d3fd1" opacity="0.35"></path><rect x="22" y="16" width="76" height="72" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="18.5" y="12.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="18.5" y="48.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="18.5" y="84.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="56.5" y="12.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="56.5" y="84.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="94.5" y="12.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="94.5" y="48.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><rect x="94.5" y="84.5" width="7" height="7" fill="#ffffff" stroke="#6d3fd1" stroke-width="1.5"></rect><circle cx="60" cy="52" r="3" stroke="#6d3fd1" stroke-width="1.5"></circle><path d="M60 45 V59 M53 52 H67" stroke="#6d3fd1" stroke-width="1"></path></svg></div></div>
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em">ART DIRECTOR</span>
+</div>
+<div class="wf-float wf-move" style="animation: wfWig 6.5s ease-in-out -4s infinite; position: absolute; left: 14%; bottom: 15%; display: flex; flex-direction: column; gap: 8px; align-items: flex-start">
+<div style="width: 156px; height: 138px; background: #ffffff; padding: 6px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 10px 30px rgba(27, 27, 31, 0.08)"><div style="width: 100%; height: 100%; border-radius: 7px; background: #fafaf8; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="Easy ease curve in a graph editor, with a ball easing along a track" width="138" height="120" viewBox="0 0 120 104" fill="none"><rect x="14" y="8" width="92" height="68" stroke="#e7e7e3" stroke-width="1"></rect><path d="M14 42 H106 M60 8 V76" stroke="#e7e7e3" stroke-width="1"></path><path d="M14 76 H52 M106 8 H68" stroke="#63636b" stroke-width="1"></path><path d="M14 76 C 52 76, 68 8, 106 8" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round"></path><circle cx="52" cy="76" r="3.5" fill="#ffffff" stroke="#c2410c" stroke-width="1.5"></circle><circle cx="68" cy="8" r="3.5" fill="#ffffff" stroke="#c2410c" stroke-width="1.5"></circle><rect x="10.5" y="72.5" width="7" height="7" transform="rotate(45 14 76)" fill="#c2410c"></rect><rect x="102.5" y="4.5" width="7" height="7" transform="rotate(45 106 8)" fill="#c2410c"></rect><path d="M14 94 H106" stroke="#e7e7e3" stroke-width="2" stroke-linecap="round"></path><circle class="wf-move" cx="14" cy="94" r="5" fill="#c2410c" style="animation: easeBall 1.6s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate"></circle></svg></div></div>
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em">MOTION DESIGNER</span>
+</div>
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 2; right: 5%; bottom: 22%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px; animation: wfWig 7.5s ease-in-out -1s infinite">
+<span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Brasília · GMT-3</span><span style="font-size: 13px; color: #63636b">6+ years in campaigns and live events</span></span>
+</div>
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 2; left: 4%; top: 52%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px; animation: wfWig 8s ease-in-out -3s infinite">
+<span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Postgraduate</span><span style="font-size: 13px; color: #63636b">Studying Revenue Operations</span></span>
+</div>
+<div class="m-only" style="position: relative">
+<div style="position: relative; display: flex; gap: 10px; justify-content: center; align-items: flex-start">
+<div class="m-move" style="display: flex; flex-direction: column; gap: 6px; align-items: center; transform: rotate(-4deg); animation: mWigL 6s ease-in-out infinite">
+<div style="width: 104px; height: 96px; background: #ffffff; padding: 5px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 8px 24px rgba(27, 27, 31, 0.08)"><div style="width: 100%; height: 100%; border-radius: 7px; background: #fafaf8; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="Line chart rising after a launch marker" width="92" height="80" viewBox="0 0 120 104" fill="none"><path d="M8 24 H112 M8 52 H112 M8 80 H112" stroke="#e7e7e3" stroke-width="1"></path><path d="M66 12 V88" stroke="#63636b" stroke-width="1" stroke-dasharray="3 3"></path><path d="M8 84 L28 70 L46 74 L66 48 L86 40 L110 16 V88 H8 Z" fill="#15803d" opacity="0.1"></path><path d="M8 84 L28 70 L46 74 L66 48 L86 40 L110 16" stroke="#15803d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="66" cy="48" r="4" fill="#ffffff" stroke="#15803d" stroke-width="2.5"></circle><circle cx="110" cy="16" r="4" fill="#15803d"></circle></svg></div></div>
+<span style="font-size: 9px; font-weight: 600; letter-spacing: 0.06em">CREATIVE STRATEGIST</span>
+</div>
+<div class="m-move" style="display: flex; flex-direction: column; gap: 6px; align-items: center; margin-top: 14px; animation: mWigM 7s ease-in-out -2s infinite">
+<div style="width: 104px; height: 96px; background: #ffffff; padding: 5px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 8px 24px rgba(27, 27, 31, 0.08)"><div style="width: 100%; height: 100%; border-radius: 7px; background: #fafaf8; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="Image inside a transform box with scale handles" width="92" height="80" viewBox="0 0 120 104" fill="none"><rect x="30" y="24" width="60" height="56" rx="6" fill="#ede7fb"></rect><circle cx="47" cy="41" r="7" fill="#6d3fd1" opacity="0.5"></circle><path d="M30 72 L50 54 L64 66 L76 56 L90 68 V74 a6 6 0 0 1 -6 6 H36 a6 6 0 0 1 -6 -6 Z" fill="#6d3fd1" opacity="0.35"></path><rect x="22" y="16" width="76" height="72" stroke="#6d3fd1" stroke-width="2"></rect><rect x="18" y="12" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="18" y="48" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="18" y="84" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="56" y="12" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="56" y="84" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="94" y="12" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="94" y="48" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect><rect x="94" y="84" width="8" height="8" fill="#ffffff" stroke="#6d3fd1" stroke-width="2"></rect></svg></div></div>
+<span style="font-size: 9px; font-weight: 600; letter-spacing: 0.06em">ART DIRECTOR</span>
+</div>
+<div class="m-move" style="display: flex; flex-direction: column; gap: 6px; align-items: center; transform: rotate(4deg); animation: mWigR 6.5s ease-in-out -4s infinite">
+<div style="width: 104px; height: 96px; background: #ffffff; padding: 5px; box-sizing: border-box; border: 1px solid #e7e7e3; border-radius: 12px; box-shadow: 0 8px 24px rgba(27, 27, 31, 0.08)"><div style="width: 100%; height: 100%; border-radius: 7px; background: #fafaf8; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="Easy ease curve with a ball easing along a track" width="92" height="80" viewBox="0 0 120 104" fill="none"><rect x="14" y="8" width="92" height="68" stroke="#e7e7e3" stroke-width="1"></rect><path d="M14 76 H52 M106 8 H68" stroke="#63636b" stroke-width="1"></path><path d="M14 76 C 52 76, 68 8, 106 8" stroke="#c2410c" stroke-width="3" stroke-linecap="round"></path><circle cx="52" cy="76" r="4" fill="#ffffff" stroke="#c2410c" stroke-width="2"></circle><circle cx="68" cy="8" r="4" fill="#ffffff" stroke="#c2410c" stroke-width="2"></circle><path d="M14 94 H106" stroke="#e7e7e3" stroke-width="2" stroke-linecap="round"></path><circle class="m-move" cx="14" cy="94" r="5" fill="#c2410c" style="animation: easeBall 1.6s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate"></circle></svg></div></div>
+<span style="font-size: 9px; font-weight: 600; letter-spacing: 0.06em">MOTION DESIGNER</span>
+</div>
+</div>
+</div>
+<span style="position: relative; font-size: 13px; color: #63636b">About</span>
+<h2 style="position: relative; margin: 0; max-width: 760px; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(42px, 5.4vw, 76px); line-height: 1.02; font-weight: 700; letter-spacing: -0.035em">One person.<br>Three job titles.</h2>
+<p style="position: relative; margin: 0; font-size: 19px; color: #63636b; max-width: 540px">Brazilian, Latina and archer on Fridays.<br>Still dreaming of perfect briefs.</p>
+<div style="position: relative; display: flex; flex-direction: column; gap: 16px; align-items: center; margin-top: 28px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 30px; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em">Take <span style="position: relative; display: inline-block; background: #d6e4ff; border-left: 2px solid #1f4fd1; border-right: 2px solid #1f4fd1; padding: 0 6px">the CV<span aria-hidden="true" style="position: absolute; left: -7px; top: -6px; width: 10px; height: 10px; border-radius: 50%; background: #1f4fd1"></span><span aria-hidden="true" style="position: absolute; right: -7px; bottom: -6px; width: 10px; height: 10px; border-radius: 50%; background: #1f4fd1"></span></span>. It's free.</span>
+<span style="font-size: 16px; color: #63636b">PDF, in English or in Portuguese.</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+<a href="assets/Renata-Acioli-CV.pdf" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">Download CV (EN)</a>
+<a href="assets/Renata-Acioli-CV-PT.pdf" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; border: 1.5px solid #1b1b1f; background: #fcfcfb; font-weight: 600; font-size: 17px; text-decoration: none">Baixar CV (PT)</a>
+</div>
+<div class="m-only">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px">
+<div aria-hidden="true" style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 16px 16px 16px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 9px 12px; display: flex; gap: 8px; align-items: flex-start; text-align: left">
+<span style="flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700">Brasília · GMT-3</span><span style="font-size: 12px; color: #63636b">6+ years in campaigns and live events</span></span>
+</div>
+<div aria-hidden="true" style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 16px 16px 16px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 9px 12px; display: flex; gap: 8px; align-items: flex-start; text-align: left">
+<span style="flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700">Postgraduate</span><span style="font-size: 12px; color: #63636b">Studying Revenue Operations</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 24px 48px 0">
+<div style="background: #1b1b1f; color: #ffffff; border-radius: 28px; padding: var(--box); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-end">
+<h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(36px, 6.5vw, 60px); line-height: 1.02; font-weight: 700; letter-spacing: -0.03em">Say hi. I reply faster<br>than I render.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center">
+<a href="mailto:hello@renataacioli.com" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; border-radius: 999px; background: #ffffff; color: #1b1b1f; font-weight: 600; font-size: 17px; text-decoration: none">hello@renataacioli.com</a>
+<a href="https://www.linkedin.com/in/renatacioli/" style="color: #ffffff; font-weight: 600; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center">LinkedIn</a>
+<a href="https://www.instagram.com/renataaacioli/" style="color: #ffffff; font-weight: 600; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center">Instagram</a>
+<a href="https://www.tiktok.com/@renataaacioli" style="color: #ffffff; font-weight: 600; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center">TikTok</a>
+</div>
+</div>
+</section>
+
+<section style="padding: 64px 24px 80px; display: flex; justify-content: center">
+<svg class="wf-move" aria-hidden="true" width="72" height="72" viewBox="0 0 64 64" fill="none" stroke="#1b1b1f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform-origin: 70% 90%; animation: wfWave 2.4s ease-in-out infinite"><path d="M22 30 V12 a4 4 0 0 1 8 0 V28"></path><path d="M30 28 V8 a4 4 0 0 1 8 0 V28"></path><path d="M38 28 V11 a4 4 0 0 1 8 0 V32"></path><path d="M46 32 V18 a4 4 0 0 1 8 0 V40 c0 12 -8 20 -18 20 c-8 0 -13 -4 -17 -11 L8 42 a4 4 0 0 1 7 -4 l7 9 V30"></path></svg>
+</section>
+
+</div>
 <script>
-/* ============================================================
-   BOUNCING BALL PLAYGROUND
-   One ball, real gravity, gentle squash & stretch,
-   onion-skin ghosts, drag & throw.
-============================================================ */
-(function () {
-  const canvas = document.getElementById('stage');
-  const ctx = canvas.getContext('2d');
-  const band = canvas.parentElement;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const FLOOR_PAD = 64;
-  let DPR = 1, W = 0, H = 0;
-  let ball = null;
-  let onionSkin = true;
-  let steppedMode = false;
-  let frame = 0;
-  let dragging = false;
-  let pointer = { x: 0, y: 0, px: 0, py: 0 };
-
-  function resize() {
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = band.clientWidth; H = band.clientHeight;
-    canvas.width = W * DPR; canvas.height = H * DPR;
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+(function(){
+  var root=document.getElementById('page'), cur=document.getElementById('you-cursor'), trail=document.getElementById('grid-trail');
+  if(!root) return;
+  var fine=window.matchMedia&&window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var last='',ti=0;
+  function light(x,y){
+    if(!trail||!trail.children.length) return;
+    if(y<0||y>trail.offsetHeight||x<0) return;
+    var cx=Math.floor(x/44),cy=Math.floor(y/44),key=cx+','+cy;
+    if(key===last) return; last=key;
+    var el=trail.children[ti%trail.children.length]; ti++;
+    el.style.transition='none'; el.style.left=(cx*44)+'px'; el.style.top=(cy*44)+'px'; el.style.opacity='1';
+    void el.offsetWidth; el.style.transition='opacity 1.4s ease'; el.style.opacity='0';
   }
-
-  function floorY() { return H - FLOOR_PAD; }
-
-  function resetScene() {
-    ball = {
-      x: W * 0.5, y: H * 0.2,
-      vx: reduceMotion ? 0 : 2.4, vy: 0,
-      r: 26,
-      color: '#ff4b2e',
-      squash: 1,
-      trail: [],
-      restitution: 0.8,
-    };
-    if (reduceMotion) ball.y = floorY() - ball.r;
-  }
-
-  function physics(b) {
-    if (dragging) { b.trail.length = 0; return; }
-    b.vy += 0.55;
-    b.x += b.vx;
-    b.y += b.vy;
-    b.vx *= 0.999;
-
-    if (b.x - b.r < 0) { b.x = b.r; b.vx = Math.abs(b.vx) * 0.9; }
-    if (b.x + b.r > W) { b.x = W - b.r; b.vx = -Math.abs(b.vx) * 0.9; }
-    if (b.y - b.r < 0) { b.y = b.r; b.vy = Math.abs(b.vy) * 0.9; }
-
-    if (b.y + b.r > floorY()) {
-      b.y = floorY() - b.r;
-      if (Math.abs(b.vy) > 1.2) {
-        b.squash = Math.max(0.8, 1 - Math.abs(b.vy) * 0.018);   /* gentle squash */
-        b.vy = -b.vy * b.restitution;
-      } else {
-        b.vy = 0;
-        b.vx *= 0.96;
-      }
-    }
-
-    const speed = Math.hypot(b.vx, b.vy);
-    if (b.y + b.r < floorY() - 2 && speed > 9) {
-      b.squash = Math.min(1.1, 1 + (speed - 9) * 0.01);          /* gentle stretch */
-    }
-    b.squash += (1 - b.squash) * 0.18;
-
-    if (onionSkin && speed > 1.5 && frame % 4 === 0) {
-      b.trail.push({ x: b.x, y: b.y, r: b.r, squash: b.squash, angle: Math.atan2(b.vy, b.vx), life: 1 });
-      if (b.trail.length > 7) b.trail.shift();
-    }
-    b.trail.forEach(t => t.life -= 0.02);
-    b.trail = b.trail.filter(t => t.life > 0);
-  }
-
-  function drawBall(b) {
-    /* onion-skin ghosts */
-    b.trail.forEach(t => {
-      ctx.save();
-      ctx.translate(t.x, t.y);
-      ctx.rotate(t.angle);
-      ctx.scale(1 / t.squash, t.squash);
-      ctx.beginPath();
-      ctx.arc(0, 0, t.r, 0, Math.PI * 2);
-      ctx.strokeStyle = b.color;
-      ctx.globalAlpha = t.life * 0.28;
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([5, 5]);
-      ctx.stroke();
-      ctx.restore();
-    });
-
-    /* contact shadow */
-    const distToFloor = Math.max(0, floorY() - (b.y + b.r));
-    const shScale = Math.max(0.25, 1 - distToFloor / 300);
-    ctx.save();
-    ctx.globalAlpha = 0.16 * shScale;
-    ctx.beginPath();
-    ctx.ellipse(b.x, floorY() + 6, b.r * shScale * 1.15, b.r * 0.22 * shScale, 0, 0, Math.PI * 2);
-    ctx.fillStyle = '#191919';
-    ctx.fill();
-    ctx.restore();
-
-    /* the ball */
-    const angle = (b.y + b.r > floorY() - 4) ? 0 : Math.atan2(b.vy, b.vx) - Math.PI / 2;
-    ctx.save();
-    ctx.translate(b.x, b.y);
-    ctx.rotate(angle);
-    ctx.scale(1 / b.squash, b.squash);
-    ctx.beginPath();
-    ctx.arc(0, 0, b.r, 0, Math.PI * 2);
-    ctx.fillStyle = b.color;
-    ctx.fill();
-    ctx.beginPath();
-    ctx.arc(-b.r * 0.32, -b.r * 0.36, b.r * 0.2, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255,255,255,.55)';
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function drawFloor() {
-    ctx.strokeStyle = '#191919';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(0, floorY() + 0.5);
-    ctx.lineTo(W, floorY() + 0.5);
-    ctx.stroke();
-  }
-
-  function render() {
-    ctx.clearRect(0, 0, W, H);
-    drawFloor();
-    drawBall(ball);
-  }
-
-  function loop() {
-    frame++;
-    const stepHold = steppedMode ? 5 : 1;
-    physics(ball);
-    if (frame % stepHold === 0) render();
-    requestAnimationFrame(loop);
-  }
-
-  /* ---------- pointer interaction (single ball, no spawning) ---------- */
-  function localPos(e) {
-    const rect = canvas.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
-  }
-
-  canvas.addEventListener('pointerdown', e => {
-    const p = localPos(e);
-    pointer.x = pointer.px = p.x;
-    pointer.y = pointer.py = p.y;
-    if (Math.hypot(ball.x - p.x, ball.y - p.y) < ball.r + 18) {
-      dragging = true;
-      canvas.classList.add('grabbing');
-      canvas.setPointerCapture(e.pointerId);
-    }
+  function at(e){var r=root.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+  root.addEventListener('mousemove',function(e){
+    var p=at(e);
+    if(fine&&cur){root.classList.add('cv-live');cur.style.transform='translate('+(p.x-3)+'px,'+(p.y-2)+'px)';cur.style.opacity='1';}
+    light(p.x,p.y);
   });
-
-  canvas.addEventListener('pointermove', e => {
-    const p = localPos(e);
-    pointer.px = pointer.x; pointer.py = pointer.y;
-    pointer.x = p.x; pointer.y = p.y;
-    if (dragging) {
-      ball.x = Math.min(Math.max(p.x, ball.r), W - ball.r);
-      ball.y = Math.min(p.y, floorY() - ball.r);
-      if (reduceMotion) { render(); }
-    }
-  });
-
-  function release() {
-    if (!dragging) return;
-    ball.vx = (pointer.x - pointer.px) * 1.15;
-    ball.vy = (pointer.y - pointer.py) * 1.15;
-    dragging = false;
-    canvas.classList.remove('grabbing');
-  }
-  canvas.addEventListener('pointerup', release);
-  canvas.addEventListener('pointercancel', release);
-
-  /* ---------- HUD controls ---------- */
-  document.getElementById('onionBtn').addEventListener('click', function () {
-    onionSkin = !onionSkin;
-    if (!onionSkin && ball) ball.trail.length = 0;
-    this.textContent = window.i18nLabel(onionSkin ? 'hud.onion.on' : 'hud.onion.off');
-    this.setAttribute('aria-pressed', String(onionSkin));
-  });
-  document.getElementById('fpsBtn').addEventListener('click', function () {
-    steppedMode = !steppedMode;
-    this.textContent = window.i18nLabel(steppedMode ? 'hud.fps.1' : 'hud.fps.12');
-    this.setAttribute('aria-pressed', String(steppedMode));
-  });
-  document.getElementById('resetBtn').addEventListener('click', function () {
-    resetScene();
-    if (reduceMotion) render();
-  });
-
-  window.addEventListener('resize', () => {
-    resize();
-    if (ball) { ball.y = Math.min(ball.y, floorY() - ball.r); ball.x = Math.min(ball.x, W - ball.r); }
-    if (reduceMotion) render();
-  });
-
-  resize();
-  resetScene();
-  if (reduceMotion) {
-    render();
-  } else {
-    requestAnimationFrame(loop);
-  }
-})();
-
-/* ============================================================
-   SHOWREEL
-   Autoplays muted in the comp frame; click (or the sound chip)
-   toggles audio. Respects prefers-reduced-motion.
-============================================================ */
-(function () {
-  const video = document.getElementById('reelVideo');
-  const btn = document.getElementById('soundBtn');
-  if (!video) return;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (!reduceMotion) {
-    /* start only when visible, pause offscreen — saves battery & bandwidth */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) { video.play().catch(() => {}); }
-        else { video.pause(); }
-      });
-    }, { threshold: 0.25 });
-    io.observe(video);
-  } else {
-    video.controls = true;         // reduced motion: no autoplay, native controls
-  }
-
-  function setSound(on) {
-    video.muted = !on;
-    if (on && video.paused) video.play().catch(() => {});
-    btn.textContent = window.i18nLabel(on ? 'reel.sound.on' : 'reel.sound.off');
-    btn.setAttribute('aria-pressed', String(on));
-  }
-  btn.addEventListener('click', () => setSound(video.muted));
-  if (!reduceMotion) video.addEventListener('click', () => setSound(video.muted));
-})();
-
-/* ============================================================
-   CLIENT LOGO MARQUEE
-   Drifts right → left; each logo fades in toward the center
-   of the screen and fades out as it leaves.
-============================================================ */
-(function () {
-  const track = document.getElementById('logoTrack');
-  if (!track) return;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;                 // static, evenly visible row
-
-  track.innerHTML += track.innerHTML;       // duplicate for a seamless loop
-  const logos = track.querySelectorAll('img');
-
-  let running = false;
-  function tick() {
-    if (!running) return;
-    const vw = window.innerWidth;
-    const cx = vw / 2;
-    logos.forEach(img => {
-      const r = img.getBoundingClientRect();
-      if (r.right < 0 || r.left > vw) { img.style.opacity = 0.05; return; }
-      const dist = Math.abs((r.left + r.width / 2) - cx) / cx;   // 0 center → 1 edge
-      const t = Math.max(0, 1 - dist);
-      img.style.opacity = (0.08 + 0.92 * t * t).toFixed(3);
-    });
-    requestAnimationFrame(tick);
-  }
-
-  /* only compute opacities while the strip is on screen */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting && !running) { running = true; requestAnimationFrame(tick); }
-      else if (!en.isIntersecting) { running = false; }
-    });
-  });
-  io.observe(track.parentElement);
-})();
-
-/* ============================================================
-   WORK CARDS — video preview on hover (MezzoLab-style)
-   Plays assets/previews/<slug>.mp4 when hovering a card;
-   silently falls back to the animated thumbnail if missing.
-============================================================ */
-(function () {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
-  document.querySelectorAll('.card').forEach(card => {
-    const v = card.querySelector('.thumb video');
-    if (!v) return;
-    let failed = false;
-    card.addEventListener('mouseenter', () => {
-      if (failed) return;
-      if (!v.src) {
-        v.addEventListener('error', () => { failed = true; v.classList.remove('playing'); }, { once: true });
-        v.src = v.dataset.src;
-      }
-      v.play().then(() => v.classList.add('playing')).catch(() => { failed = true; });
-    });
-    card.addEventListener('mouseleave', () => {
-      v.pause();
-      v.currentTime = 0;
-      v.classList.remove('playing');
-    });
-  });
-})();
-
-/* ---------- broken remote thumbnails → styled placeholder ---------- */
-(function () {
-  document.querySelectorAll('.thumb img').forEach(img => {
-    const mark = () => img.parentElement.classList.add('noimg');
-    if (img.complete && img.naturalWidth === 0) mark();
-    img.addEventListener('error', mark);
-  });
-})();
-
-/* ---------- reveal on scroll (respects prefers-reduced-motion via CSS) ---------- */
-(function () {
-  const els = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-  els.forEach(el => io.observe(el));
-})();
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* ============================================================
-   EN / PT-BR — swaps every [data-i18n] node, remembers the choice
-============================================================ */
-(function () {
-  const PT = {
-    'skip': 'Pular para o conteúdo',
-    'nav.work': 'Projetos', 'nav.about': 'Sobre', 'nav.contact': 'Contato',
-
-    'hero.kicker': 'Direção de Arte &amp; Motion Design',
-    'hero.h1': 'Eu dirijo, desenho e animo — <span class="accent">do primeiro rascunho ao frame final.</span>',
-    'hero.sub': 'Oi, eu sou a Renata Acioli, diretora de arte e motion designer brasileira. Dirigi o piloto de uma série animada, criei filmes de lançamento e campanhas para marcas como o Banco do Brasil, e sigo acreditando que animação é a melhor forma de contar uma história. Literalmente.',
-    'hero.cta1': 'Ver projetos →',
-    'hero.cta2': 'Falar comigo',
-    'hero.hint': 'pegue a bola e arremesse',
-    'hud.reset': 'recomeçar',
-
-    'sec1.kicker': 'cinema, marca &amp; tudo o que houver no meio',
-    'sec1.title': 'Projetos selecionados',
-    'sec1.more': 'Toda a animação →',
-
-    'sec2.kicker': 'coisas bonitas que ficam quietinhas',
-    'sec2.title': 'Marca &amp; Design',
-    'sec2.more': 'Ver tudo de Marca &amp; Design →',
-
-    'qf.based.t': 'Baseada em',
-    'qf.based.d': 'Brasília, Brasil',
-    'reel.label': 'showreel · 1920×1080',
-    'reel.sound.off': 'som: desligado',
-    'reel.sound.on': 'som: ligado',
-    'reel.aria': 'Renata Acioli — showreel. Clique para ligar o som.',
-    'ball.aria': 'Bola interativa — pegue e arremesse',
-    'hud.onion.on': 'papel cebola: on',
-    'hud.onion.off': 'papel cebola: off',
-    'hud.fps.12': 'animar em 12s',
-    'hud.fps.1': 'animar em 1s',
-    'meta.title': 'Renata Acioli — Direção de Arte &amp; Motion Design',
-    'meta.desc': 'Renata Acioli é diretora de arte e motion designer brasileira — filmes de marca, campanhas e narrativas animadas, do conceito ao frame final.',
-    'qf.avail.t': 'Disponível para',
-    'qf.avail.d': 'Efetivo &amp; contrato · remoto no mundo todo',
-    'qf.lang.t': 'Idiomas',
-    'qf.lang.d': 'Português (nativo) · Inglês (profissional)',
-    'qf.tools.t': 'Ferramentas',
-    'qf.tools.d': 'Adobe Creative Cloud · workflow criativo com IA',
-    'qf.cv': 'Baixar CV',
-    'contact.avail': 'Aberta a vagas efetivas e contratos · costumo responder em 24h',
-
-    'clients': 'Marcas e agências com as quais já trabalhei',
-
-    'about.kicker': 'quem está por trás do trabalho',
-    'about.title': 'eu: <em>motion empowering</em>',   /* brand line, stays in EN by design */
-    'about.p1': 'Sou diretora de arte e motion designer brasileira, e trato animação como uma linguagem — capaz de vender uma ideia, ensinar um processo ou acolher luto e alegria com o mesmo cuidado. Seja qual for o briefing, meu trabalho é fazer a mensagem chegar.',
-    'about.p2': 'Dirigi o piloto de uma série animada, conduzi filmes de marca do conceito ao render final para clientes como Routo.IO e Banco do Brasil, e animei em curtas de festival. Me sinto tão à vontade liderando uma direção visual quanto entregando cinquenta peças antes do prazo.',
-
-    'fact1.t': 'Direção e direção de arte',
-    'fact1.d': 'Conceito, roteiro, storyboard e styleframes — assumindo a visão e conduzindo até o render final.',
-    'fact2.t': '2D, cut-out &amp; ilustração',
-    'fact2.d': 'After Effects, Illustrator e Toon Boom Harmony — animação de personagem, explainers e trabalho desenhado à mão.',
-    'fact3.t': 'Motion para marcas',
-    'fact3.d': 'Filmes de lançamento, campanhas, animação de logo e conteúdo social, entregues em escala e no prazo.',
-
-    'contact.kicker': 'bora animar isso',
-    'contact.title': 'Tem uma história que<br>precisa se <span>mover</span>?',
-    'contact.p': 'Estou aberta a vagas fixas, projetos freelance e colaborações — e sempre disponível para uma boa conversa sobre animação.',
-
-    'footer.rights': 'todos os frames reservados.',
-    'footer.tag': 'animado à mão · squash &amp; stretch incluídos',
-
-    'card.routo-launch-film.tag': 'Filme de lançamento · Case',
-    'card.routo-launch-film.desc': 'Um filme de lançamento de 34 segundos para a Routo.IO — conceito, roteiro, design e animação, do primeiro rascunho ao render final.',
-    'card.bb-wallet.tag': 'Explainer · Ilustração',
-    'card.bb-wallet.desc': 'Dez dicas ilustradas sobre como abrir uma conta na carteira digital — um tutorial de três minutos que se explica sozinho, sem uma palavra de locução.',
-    'card.clarice-s-dream.tag': 'Longa-metragem · Animação',
-    'card.clarice-s-dream.desc': 'Animação cut-out para um longa premiado — Grande Otelo 2025 de Melhor Longa Infantil, além de três prêmios em Brasília.',
-    'card.ourocard-stories.tag': 'Branded content · Série',
-    'card.ourocard-stories.desc': 'Uma série de stories animados dando vida a um cartão de banco, desenho por desenho.',
-    'card.quem-partiu-amor-de-algu.tag': 'Pessoal · Animação',
-    'card.quem-partiu-amor-de-algu.desc': 'Um tributo animado — arte como memória e luto coletivo durante a pandemia.',
-    'card.motion-monster-o-desafio.tag': 'Exercício · Animação',
-    'card.motion-monster-o-desafio.desc': 'Um desafio da Layer Lemonade: colagem vaporwave, efeitos em camadas e transições que levam você de um mundo a outro.',
-    'card.motion-eyes.tag': 'Estudo de motion · Pessoal',
-    'card.motion-eyes.desc': 'Um exercício sobre olhos, bolas e tempo — uma bola rolando por vários mundos de cor, do curso da Layer Lemonade.',
-    'card.logo-animation.tag': 'Marca · Motion',
-    'card.logo-animation.desc': 'Logos que não ficam parados — identidade em movimento para marcas de todos os tamanhos.',
-    'card.use-w-re.tag': 'Marca · Design',
-    'card.use-w-re.desc': 'Design para uma marca de cosméticos naturais enraizada na cultura afro-brasileira — um nome que significa bênção, visuais que a carregam com orgulho.',
-    'card.torcida-do-brasil-paris-.tag': 'Campanha · Design',
-    'card.torcida-do-brasil-paris-.desc': 'Desdobrando uma campanha olímpica em um exército de peças — todo formato, todo público, um prazo apertadíssimo.',
-  };
-
-  /* labels used by JS-driven buttons */
-  const EN_LABELS = {
-    'reel.sound.off': 'sound: off', 'reel.sound.on': 'sound: on',
-    'hud.onion.on': 'onion skin: on', 'hud.onion.off': 'onion skin: off',
-    'hud.fps.12': 'animate on 12s', 'hud.fps.1': 'animate on 1s',
-  };
-  let activeLang = 'en';
-  window.i18nLabel = key => (activeLang === 'pt' ? PT[key] : EN_LABELS[key]) || EN_LABELS[key] || key;
-
-  const btn = document.getElementById('langToggle');
-  const nodes = [...document.querySelectorAll('[data-i18n], [data-i18n-html]')];
-  const EN = new Map();
-  const ARIA_EN = new Map();
-  document.querySelectorAll('[data-i18n-aria]').forEach(n => ARIA_EN.set(n.dataset.i18nAria, n.getAttribute('aria-label')));
-  const EN_TITLE = document.title;
-  const EN_DESC = (document.querySelector('meta[name="description"]') || {}).content || '';
-  nodes.forEach(n => {
-    const key = n.dataset.i18n || n.dataset.i18nHtml;
-    EN.set(key, n.innerHTML);
-  });
-
-  function apply(lang) {
-    activeLang = lang;
-    nodes.forEach(n => {
-      const key = n.dataset.i18n || n.dataset.i18nHtml;
-      const value = lang === 'pt' ? PT[key] : EN.get(key);
-      if (value != null) n.innerHTML = value;
-    });
-    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    /* aria labels */
-    document.querySelectorAll('[data-i18n-aria]').forEach(n => {
-      const key = n.dataset.i18nAria;
-      const value = lang === 'pt' ? PT[key] : ARIA_EN.get(key);
-      if (value) n.setAttribute('aria-label', value);
-    });
-    /* tab title + meta description */
-    document.title = lang === 'pt' ? PT['meta.title'].replace('&amp;', '&') : EN_TITLE;
-    const md = document.querySelector('meta[name="description"]');
-    if (md) md.setAttribute('content', lang === 'pt' ? PT['meta.desc'] : EN_DESC);
-    /* serve the CV in the language the visitor is reading */
-    document.querySelectorAll('a[href$="-CV.pdf"], a[href$="-CV-PT.pdf"]').forEach(a => {
-      a.href = lang === 'pt' ? 'assets/Renata-Acioli-CV-PT.pdf' : 'assets/Renata-Acioli-CV.pdf';
-    });
-    btn.querySelector('.on').textContent = lang === 'pt' ? 'PT' : 'EN';
-    btn.querySelector('.off').textContent = lang === 'pt' ? 'EN' : 'PT';
-    btn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-  }
-
-  let current = 'en';
-  try {
-    const saved = localStorage.getItem('lang');
-    if (saved) current = saved;
-    else if ((navigator.language || '').toLowerCase().startsWith('pt')) current = 'pt';
-  } catch (e) {}
-  if (current === 'pt') apply('pt');
-
-  btn.addEventListener('click', () => {
-    current = current === 'pt' ? 'en' : 'pt';
-    apply(current);
-  });
+  root.addEventListener('mouseleave',function(){if(cur)cur.style.opacity='0';});
+  root.addEventListener('touchmove',function(e){var t=e.touches&&e.touches[0];if(t){var p=at(t);light(p.x,p.y);}},{passive:true});
 })();
 </script>
 </body>

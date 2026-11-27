@@ -3,3 +3,16 @@
 Landing Pages - imagens/
 LINKEDIN-KIT.md
 DEPLOY.md
+
+# Arquivos pessoais e de trabalho (não vão para o site)
+Claude outputs/
+_backup-site-*/
+_novos/
+_stage/
+index.backup-*.html
+*.md
+!README.md
+Renata-Acioli-CV-Creative-Strategist.pdf
+Renata Acioli_AI Creative Designer.pdf
+Renata-Acioli-Email-Design-Portfolio*.pdf
+Renata-Acioli-Selected-Work*.pdf

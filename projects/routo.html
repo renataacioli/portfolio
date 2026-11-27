@@ -4,440 +4,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Routo Launch Film — Renata Acioli</title>
-<meta name="description" content="Case study: a 34-second launch film for Routo.IO — concept, script, design and animation by Renata Acioli.">
+<meta name="description" content="A 34-second launch film for Routo.IO, from concept and script to final render.">
+<meta property="og:title" content="Routo Launch Film — Renata Acioli">
+<meta property="og:description" content="A 34-second launch film for Routo.IO, from concept and script to final render.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://renataacioli.com/assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
-<meta property="og:title" content="Routo Launch Film — Renata Acioli">
-<meta property="og:description" content="Case study: a 34-second launch film for Routo.IO — concept, script, design and animation by Renata Acioli.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="../assets/routo/poster.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="../assets/routo/poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0d0d0f;
-    --ink:#f4f6f8;
-    --soft:#aeb6bf;
-    --dim:#5b6470;
-    --blue:#35b6f0;
-    --violet:#8b5cf6;
-    --line:rgba(255,255,255,.09);
-    --card:rgba(255,255,255,.028);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{
-    font-family:'Manrope',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
-    background-color:var(--bg);
-    background-image:
-      linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
-    background-size:44px 44px;
-    color:var(--ink);
-    -webkit-font-smoothing:antialiased;
-    line-height:1.6;
-  }
-  ::selection{background:var(--blue);color:#0d0d0f}
-  a{color:var(--blue);text-decoration:none}
+:root{--g:48px;--box:64px}
+@media (max-width: 700px){:root{--g:20px;--box:28px}}
+img{max-width:100%}
+video{display:block;width:100%}
 
-  /* ---------- nav ---------- */
-  header{
-    position:fixed;inset:0 0 auto 0;z-index:50;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:1.1rem clamp(1.2rem,4vw,3rem);
-    background:rgba(13,13,15,.92);
-    backdrop-filter:saturate(1.4) blur(10px);
-    -webkit-backdrop-filter:saturate(1.4) blur(10px);
-    border-bottom:1px solid var(--line);
-    box-shadow:0 1px 0 rgba(0,0,0,.4);
-  }
-  .back{
-    font-size:.85rem;font-weight:700;color:var(--ink);
-    display:inline-flex;align-items:center;gap:.5rem;
-  }
-  .back:hover .arrow{transform:translateX(-4px)}
-  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--blue)}
-  .crumb{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
-  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
-  .topnav a{color:#f4f6f8;font-weight:600;position:relative;text-decoration:none}
-  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:#35b6f0;transition:width .25s ease}
-  .topnav a:hover::after{width:100%}
-
-
-  /* ---------- hero ---------- */
-  .hero{padding:clamp(7rem,16vh,10rem) 32px 64px;text-align:center}
-  .wrap{max-width:880px;margin:0 auto}
-  .wrap-wide{max-width:1040px;margin:0 auto}
-  .overline{
-    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.28em;
-    text-transform:uppercase;color:var(--blue);
-    border:1px solid rgba(53,182,240,.35);border-radius:100px;
-    padding:8px 18px;margin-bottom:36px;
-  }
-  h1{
-    font-size:clamp(40px,7vw,72px);font-weight:800;line-height:1.05;
-    letter-spacing:-.02em;margin-bottom:28px;
-  }
-  .grad{
-    background:linear-gradient(90deg, var(--blue) 20%, var(--violet) 100%);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:transparent;
-  }
-  .intro{
-    font-size:clamp(16px,2.2vw,19px);line-height:1.65;color:var(--soft);
-    max-width:640px;margin:0 auto 48px;
-  }
-  .intro strong{color:var(--ink);font-weight:700}
-  .meta{
-    display:flex;flex-wrap:wrap;justify-content:center;gap:12px 48px;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    padding:22px 12px;margin-bottom:56px;
-  }
-  .meta div{text-align:left}
-  .meta dt{
-    font-size:10.5px;font-weight:700;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--dim);margin-bottom:5px;
-  }
-  .meta dd{font-size:15px;font-weight:700;color:var(--ink)}
-  .cue{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
-  .cue span{display:block;color:var(--blue);font-size:16px;margin-top:10px}
-
-  /* ---------- film ---------- */
-  .film{padding:0 32px 104px}
-  .film-frame{
-    position:relative;border-radius:16px;overflow:hidden;
-    border:1px solid var(--line);
-    box-shadow:0 40px 90px -40px rgba(53,182,240,.25);
-    background:#000;
-  }
-  .film-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-  .play-btn{
-    position:absolute;inset:0;width:100%;height:100%;
-    display:flex;align-items:center;justify-content:center;
-    background:rgba(13,13,15,.25);border:0;cursor:pointer;
-    transition:background .25s ease;
-  }
-  .play-btn:hover{background:rgba(13,13,15,.05)}
-  .play-btn i{
-    width:84px;height:84px;border-radius:50%;
-    background:linear-gradient(135deg, var(--blue), var(--violet));
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 12px 40px -8px rgba(53,182,240,.6);
-    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
-  }
-  .play-btn:hover i{transform:scale(1.08)}
-  .play-btn svg{margin-left:5px}
-  .play-btn.hidden{display:none}
-
-  /* ---------- sections ---------- */
-  section{padding:0 32px 104px}
-  .label{
-    font-size:12px;font-weight:700;letter-spacing:.28em;
-    text-transform:uppercase;color:var(--blue);margin-bottom:16px;
-  }
-  h2{
-    font-size:clamp(30px,4.5vw,46px);font-weight:800;
-    letter-spacing:-.02em;line-height:1.1;margin-bottom:56px;
-  }
-  .steps{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;
-  }
-  .step{
-    background:var(--card);border:1px solid rgba(255,255,255,.08);
-    border-radius:14px;padding:30px 26px;
-  }
-  .step .num{font-size:13px;font-weight:800;letter-spacing:.18em;color:var(--blue);margin-bottom:16px}
-  .step h3{font-size:19px;font-weight:800;margin-bottom:12px;letter-spacing:-.01em}
-  .step p{font-size:14.5px;line-height:1.65;color:var(--soft)}
-
-  .stills{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;
-  }
-  .stills img{
-    width:100%;height:auto;display:block;border-radius:12px;
-    border:1px solid var(--line);
-    transition:transform .35s ease,border-color .35s ease;
-  }
-  .stills img:hover{transform:scale(1.02);border-color:rgba(53,182,240,.5)}
-
-  .foot{
-    display:flex;flex-wrap:wrap;gap:32px 64px;justify-content:space-between;
-    border-top:1px solid var(--line);padding-top:44px;
-  }
-  .foot dt{
-    font-size:10.5px;font-weight:700;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--dim);margin-bottom:8px;
-  }
-  .foot dd{font-size:15px;font-weight:700;line-height:1.7}
-
-  /* outcome + testimonial */
-  .outcome{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:1.8rem 1.7rem;margin-bottom:22px;
-  }
-  .outcome p{font-size:1rem;line-height:1.7;color:var(--soft)}
-  .outcome strong{color:var(--ink);font-weight:700}
-  .quote{
-    position:relative;border-radius:14px;padding:2.4rem 2rem 1.6rem;
-    background:linear-gradient(150deg, rgba(53,182,240,.10), rgba(139,92,246,.08));
-    border:1px solid rgba(53,182,240,.35);
-  }
-  .quote::before{
-    content:"”";position:absolute;top:.4rem;left:1.2rem;
-    font-size:4.5rem;line-height:1;color:var(--blue);opacity:.3;
-  }
-  .quote blockquote p{
-    font-size:clamp(15px,1.9vw,17px);line-height:1.75;color:var(--ink);
-    margin-bottom:.9rem;position:relative;
-  }
-  .quote figcaption{
-    font-size:10.5px;font-weight:700;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--blue);margin-top:.6rem;
-  }
-
-  /* ---------- bottom nav ---------- */
-  .bottom{
-    border-top:1px solid var(--line);
-    padding:56px 32px;text-align:center;
-  }
-  .bottom p{color:var(--dim);font-size:.85rem;margin-bottom:1.4rem}
-  .btn{
-    display:inline-flex;align-items:center;gap:.5rem;
-    font-weight:700;font-size:.95rem;color:var(--ink);
-    border:1.5px solid var(--ink);border-radius:999px;padding:.7rem 1.6rem;
-    transition:background .25s,color .25s,transform .25s;
-  }
-  .btn:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
-  .btn.solid{
-    background:linear-gradient(90deg,var(--blue),var(--violet));
-    border:none;color:#fff;padding:.8rem 1.7rem;margin-right:.8rem;
-  }
-  .btn.solid:hover{filter:brightness(1.12);background:linear-gradient(90deg,var(--blue),var(--violet));color:#fff}
-
-  /* reveal (progressive enhancement) */
-  @media (prefers-reduced-motion: no-preference){
-    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-    .reveal.in{opacity:1;transform:none}
-  }
-
-  /* ---------- keyboard focus & tap targets ---------- */
-  :focus-visible{
-    outline:3px solid #35b6f0;outline-offset:3px;border-radius:6px;
-  }
-  .topnav a, nav a, .back, .btn{padding-block:.4rem}
-  .skip{
-    position:absolute;left:-999px;top:0;z-index:100;
-    background:#35b6f0;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
-    font-weight:700;font-size:.9rem;
-  }
-  .skip:focus{left:0}
-
-  /* small-screen guard */
-  @media (max-width:600px){
-    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom{padding-inline:20px}
-    .meta{gap:1rem 1.8rem}
-    .foot{gap:1.2rem 2rem}
-  }
-
-  /* ============ MOBILE ============ */
-  @media (max-width:640px){
-    /* nav: keep the back link, shrink the menu, guarantee tap targets */
-    header{padding:.8rem 1rem}
-    .back{font-size:.8rem}
-    .topnav{gap:.85rem;font-size:.8rem}
-    .topnav a{padding-block:.55rem}
-    .back{padding-block:.55rem}
-
-    /* generic rhythm */
-    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
-      padding-inline:1.1rem;
-    }
-    .hero{padding-top:5.5rem}
-
-    /* meta blocks stack into two readable columns */
-    .meta{
-      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
-      text-align:left;
-    }
-    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
-
-    /* every multi-column grid becomes a single column */
-    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
-      grid-template-columns:1fr !important;
-    }
-    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
-
-    /* buttons: full width, comfortable height */
-    .btn{width:100%;justify-content:center;padding-block:.85rem}
-    .bottom .btn{margin:.3rem 0}
-  }
-  @media (max-width:400px){
-    .topnav{gap:.6rem;font-size:.74rem}
-    .meta{grid-template-columns:1fr !important}
-  }
-
-  @media (max-width:640px){
-    .hero{padding:5.5rem 1.1rem 3rem}
-    .quote{padding:1.9rem 1.2rem 1.2rem}
-    .quote::before{font-size:3rem;left:.8rem}
-    .outcome{padding:1.5rem 1.2rem}
-    .play-btn i{width:64px;height:64px}
-    .film-frame{padding:7px}
-  }
+html,body{margin:0;background:#fcfcfb}
+a{color:#1b1b1f}a:hover{color:#1f4fd1}
 </style>
 </head>
 <body>
-<a class="skip" href="#main-content">Skip to content</a>
+<div style="background: #fcfcfb; color: #1b1b1f; font-family: Inter, system-ui, sans-serif; line-height: 1.5">
 
-<header>
-  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
-  <nav class="topnav"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+<section style="position: relative; overflow: hidden; background-color: #fcfcfb; background-image: linear-gradient(#efefec 1px, transparent 1px), linear-gradient(90deg, #efefec 1px, transparent 1px); background-size: 44px 44px">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 200px; pointer-events: none; background: linear-gradient(to bottom, rgba(252, 252, 251, 0), #fcfcfb)"></div>
+<header style="position: relative; max-width: 1200px; box-sizing: border-box; margin: 0 auto; padding: 22px var(--g); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<a href="../index.html" style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Renata Acioli</a>
+<nav style="display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 15px; font-weight: 500">
+<a href="../index.html" style="text-decoration: none; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center">← All cases</a>
+<a href="../index.html#about" style="text-decoration: none; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center">About</a>
+<a href="#contact" style="text-decoration: none; min-height: 44px; padding: 0 22px; display: inline-flex; align-items: center; background: #1b1b1f; color: #ffffff; border-radius: 999px; font-weight: 600">Contact</a>
+</nav>
 </header>
-
-<!-- ================= HERO ================= -->
-<div class="hero" id="main-content" tabindex="-1">
-  <div class="wrap">
-    <div class="overline">Motion Design · Case Study</div>
-    <h1>Routo <span class="grad">Launch Film</span></h1>
-    <p class="intro">Every broken link is a tiny betrayal of trust. That idea became the heart of this 34-second launch film for <strong>Routo.IO</strong>, a piece I carried from the first sketch to the final render: <strong>concept, script, design and animation.</strong></p>
-    <dl class="meta">
-      <div><dt>Client</dt><dd><a href="https://routo.io/" target="_blank" rel="noopener">Routo.IO</a></dd></div>
-      <div><dt>Role</dt><dd>Motion Design &amp; Direction</dd></div>
-      <div><dt>Format</dt><dd>16:9 · 34 seconds</dd></div>
-      <div><dt>Year</dt><dd>2026</dd></div>
-    </dl>
-    <div class="cue">Watch the film<span>▼</span></div>
-  </div>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start">
+<span style="font-size: 14px; color: #63636b">Case study · Routo.IO launch film, 2026</span>
+<h1 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(48px, 7vw, 104px); line-height: 0.98; font-weight: 700; letter-spacing: -0.04em">A launch film<br>investors watched.</h1>
+<p style="margin: 0; font-size: 21px; line-height: 1.4; color: #63636b; max-width: 660px">Routo.IO sends every user to the right link. For the launch I wrote, designed and animated a 34-second film, and the company later took it into its investor presentation.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px 48px; padding-top: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #63636b">Client</span><span style="font-size: 15px; font-weight: 600">Routo.IO</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #63636b">My role</span><span style="font-size: 15px; font-weight: 600">Concept, script, design and animation</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #63636b">Year</span><span style="font-size: 15px; font-weight: 600">2026</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #63636b">Format</span><span style="font-size: 15px; font-weight: 600">16:9, 34 seconds</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #63636b">Tools</span><span style="font-size: 15px; font-weight: 600">After Effects, Illustrator</span></div>
 </div>
-
-<!-- ================= FILM ================= -->
-<div class="film">
-  <div class="wrap-wide">
-    <div class="film-frame reveal">
-      <video id="film" src="../assets/routo/routo-film.mp4" poster="../assets/routo/poster.jpg" preload="metadata" playsinline></video>
-      <button class="play-btn" id="playBtn" aria-label="Play the Routo launch film">
-        <i><svg width="30" height="34" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.5 14.4a3 3 0 0 1 0 5.2L4.5 33.4A3 3 0 0 1 0 30.8V3.2A3 3 0 0 1 4.5.6l24 13.8Z" fill="#fff"/></svg></i>
-      </button>
-    </div>
-  </div>
 </div>
-
-<!-- ================= PROCESS ================= -->
-<section>
-  <div class="wrap-wide">
-    <div class="label reveal">Process</div>
-    <h2 class="reveal">How I built it.</h2>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="num">01</div>
-        <h3>Starting with the problem</h3>
-        <p>Every broken link is a frustration users already know. So instead of a feature showcase, I built the story around friction itself: wrong screens, broken redirects, dead ends. I wanted the problem to feel instantly recognizable before the solution even shows up.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">02</div>
-        <h3>Finding the look</h3>
-        <p>I pulled the visual world straight from Routo's brand: dark UI surfaces on a subtle grid, bold type, electric blue. The film shifts from light to dark as it moves from problem to product, a quiet cue that something just got fixed.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">03</div>
-        <h3>Making it move</h3>
-        <p>The hardest part of motion design for SaaS isn't smooth UI animation. It's clarity in under 30 seconds. Every transition, pacing decision and typography cue points to one idea: one link, the right path, every time. I wanted the motion language to feel like the product: fast, certain, routing in real time.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">04</div>
-        <h3>Wrapping it up</h3>
-        <p>A final pass on rhythm and polish, landing on the call to action. Then I rendered the 16:9 master and sent it off, ready for launch.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= OUTCOME ================= -->
-<section>
-  <div class="wrap-wide">
-    <div class="label reveal">Outcome</div>
-    <h2 class="reveal">Where it landed.</h2>
-    <div class="outcome reveal">
-      <p>The film shipped on schedule and carried the launch: it ran across <strong>Routo.IO's social channels</strong> and was used in the company's <strong>investor presentation</strong> — the same 34 seconds doing duty as both marketing and pitch material.</p>
-    </div>
-    <figure class="quote reveal">
-      <blockquote>
-        <p>“Renata has a unique talent for turning concepts into captivating animations that clarify complex ideas.</p>
-        <p>Her collaborative spirit is impressive; she values feedback and embraces new ideas, making her a vital part of any team. Her positive energy and professionalism create a motivating environment for everyone.</p>
-        <p>Her talent, work ethic, and passion for design will make a lasting impact on any team. I can't wait to see the amazing things she will accomplish!”</p>
-      </blockquote>
-      <figcaption>Client feedback · Routo.IO</figcaption>
-    </figure>
-  </div>
+<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 72px">
+<video controls playsinline preload="metadata" poster="../assets/routo/poster.jpg" src="../assets/routo/routo-film.mp4" style="width: 100%; aspect-ratio: 16 / 9; display: block; border-radius: 24px; border: 1px solid #e7e7e3; box-sizing: border-box; background: #0b0b0d"></video>
+<p style="margin: 14px 0 0; font-size: 14px; color: #63636b">The film opens on the problem.</p>
 </section>
 
-<!-- ================= STILLS ================= -->
-<section>
-  <div class="wrap-wide">
-    <div class="label reveal">Stills</div>
-    <h2 class="reveal">Selected frames.</h2>
-    <div class="stills">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-01.jpg" alt="Problem scene: 404 Not Found card over floating broken links">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-02.jpg" alt="Meet Routo title card with gradient logotype">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-03.jpg" alt="And routes users to the right place, typography scene">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-04.jpg" alt="One link, feature typography scene">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-05.jpg" alt="Set up in minutes, typography scene with light streak">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-06.jpg" alt="Live routing panel UI: iOS, Android, Desktop">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-07.jpg" alt="All tracked automatically, analytics dashboard scene">
-      <img class="reveal" loading="lazy" src="../assets/routo/still-08.jpg" alt="End card: Start with Routo">
-    </div>
-  </div>
-</section>
-
-<!-- ================= CREDITS ================= -->
-<section>
-  <div class="wrap-wide">
-    <dl class="foot reveal">
-      <div><dt>Tools</dt><dd>Adobe After Effects · Adobe Illustrator</dd></div>
-      <div><dt>Deliverables</dt><dd>Concept · Script · Styleframes · Animation · Final edit</dd></div>
-      <div><dt>Client</dt><dd><a href="https://routo.io/" target="_blank" rel="noopener">Routo.IO ↗</a></dd></div>
-    </dl>
-  </div>
-</section>
-
-<div class="bottom">
-  <p>Got a product that deserves a film like this?</p>
-  <a class="btn solid" href="../index.html#contact">Let's talk →</a>
-  <a class="btn" href="../index.html#work">More work</a>
-  <a class="btn" href="bb-wallet.html">Next: bB Wallet →</a>
+<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+<div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #c2410c"></span>Challenge</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">A new SaaS product had about half a minute to explain what it does and why anyone should care.</p>
 </div>
+<div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #1f4fd1"></span>Decision</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">The film opens on a feeling people already know, the dead end of a 404 page. The product arrives afterwards, as the relief.</p>
+</div>
+<div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #15803d"></span>Result</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">It was delivered on schedule, ran on Routo.IO's social channels at launch and was reused in the pitch to investors.</p>
+</div>
+</section>
 
-<script>
-/* film: poster + play button; plays with sound and native controls */
-(function () {
-  const video = document.getElementById('film');
-  const btn = document.getElementById('playBtn');
-  btn.addEventListener('click', () => {
-    btn.classList.add('hidden');
-    video.controls = true;
-    video.play().catch(() => {});
-  });
-  video.addEventListener('ended', () => {
-    video.controls = false;
-    btn.classList.remove('hidden');
-  });
-})();
+<section style="background: #f4f4f1">
+<div style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-top: 96px; padding-bottom: 76px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Selected frames</h2>
+<p style="margin: 0; font-size: 17px; color: #63636b; max-width: 620px">Four scenes from the film.</p>
+</div>
+<div style="columns: 2 420px; column-gap: 20px">
+<figure style="margin: 0 0 20px; break-inside: avoid"><img src="../assets/routo/still-02.jpg" alt="Frame: Meet Routo" style="width: 100%; border-radius: 14px; display: block; border: 1px solid #e7e7e3; box-sizing: border-box"></figure>
+<figure style="margin: 0 0 20px; break-inside: avoid"><img src="../assets/routo/still-04.jpg" alt="Frame: One link" style="width: 100%; border-radius: 14px; display: block; border: 1px solid #e7e7e3; box-sizing: border-box"></figure>
+<figure style="margin: 0 0 20px; break-inside: avoid"><img src="../assets/routo/still-06.jpg" alt="Frame: routing rules for iOS, Android and desktop" style="width: 100%; border-radius: 14px; display: block; border: 1px solid #e7e7e3; box-sizing: border-box"></figure>
+<figure style="margin: 0 0 20px; break-inside: avoid"><img src="../assets/routo/still-07.jpg" alt="Frame: All tracked automatically, with a bar chart" style="width: 100%; border-radius: 14px; display: block; border: 1px solid #e7e7e3; box-sizing: border-box"></figure>
+</div>
+</div>
+</section>
 
-/* reveal on scroll */
-(function () {
-  const els = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-  els.forEach(el => io.observe(el));
-})();
-</script>
+<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-top: 96px; padding-bottom: 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 460px; min-width: 0"><img src="../assets/routo/zero-broken-paths.gif" alt="Animated excerpt of the Routo film: the line Zero broken paths, then three glowing routes splitting and crossing" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 20px; display: block; background: #0b0b0d"></div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">From script to render</h2>
+<div style="display: flex; flex-direction: column; border-bottom: 1px solid #e7e7e3">
+<div style="display: flex; gap: 20px; padding: 26px 0; border-top: 1px solid #e7e7e3">
+<span style="flex: 0 0 auto; font-size: 13px; font-weight: 700; color: #1f4fd1; min-width: 24px; padding-top: 5px">01</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 24px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">Start with the frustration</h3>
+<p style="margin: 0; font-size: 16px; color: #63636b">Broken redirects and wrong screens fill the first seconds. The viewer recognises the problem before hearing about any feature.</p>
+</div>
+</div>
+<div style="display: flex; gap: 20px; padding: 26px 0; border-top: 1px solid #e7e7e3">
+<span style="flex: 0 0 auto; font-size: 13px; font-weight: 700; color: #1f4fd1; min-width: 24px; padding-top: 5px">02</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 24px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">Borrow the brand's world</h3>
+<p style="margin: 0; font-size: 16px; color: #63636b">Dark interface surfaces, a faint grid, bold type and electric blue all come from Routo's own product. The picture goes from light to dark as the link gets fixed.</p>
+</div>
+</div>
+<div style="display: flex; gap: 20px; padding: 26px 0; border-top: 1px solid #e7e7e3">
+<span style="flex: 0 0 auto; font-size: 13px; font-weight: 700; color: #1f4fd1; min-width: 24px; padding-top: 5px">03</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 24px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">Cut for clarity</h3>
+<p style="margin: 0; font-size: 16px; color: #63636b">Every transition and type cue serves one sentence: a single link that takes each user to the right place.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 96px">
+<figure style="margin: 0; background: #f4f4f1; border-radius: 28px; padding: var(--box); display: flex; flex-direction: column; gap: 20px">
+<blockquote style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(24px, 4vw, 36px); line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; max-width: 900px">“Renata has a unique talent for turning concepts into captivating animations that clarify complex ideas.”</blockquote>
+<figcaption style="font-size: 15px; color: #63636b">Founder and developer of Routo.IO</figcaption>
+</figure>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 40px">
+<a href="../projects/awure.html" style="text-decoration: none; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between; border-top: 1px solid #e7e7e3; border-bottom: 1px solid #e7e7e3; padding: 36px 0">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; color: #63636b">Next case</span>
+<span style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(28px, 4.6vw, 40px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">“It’s for me,” she said →</span>
+</div>
+<img src="../assets/awure/art-kv.jpg" alt="USE Àwúre key visual" style="width: 220px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; display: block">
+</a>
+</section>
+
+<section id="contact" style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-top: 40px; padding-bottom: 96px">
+<div style="background: #1b1b1f; color: #ffffff; border-radius: 28px; padding: var(--box); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: center">
+<h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Launching something? Say hi.</h2>
+<a href="mailto:hello@renataacioli.com" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; border-radius: 999px; background: #ffffff; color: #1b1b1f; font-weight: 600; font-size: 17px; text-decoration: none">hello@renataacioli.com</a>
+</div>
+</section>
+
+</div>
 </body>
 </html>
