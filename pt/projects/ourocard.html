@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ourocard Stories — Renata Acioli</title>
+<meta name="description" content="Case: série de stories animados desenhados à mão para o Ourocard (Banco do Brasil), com animação 2D de Renata Acioli.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/favicon.png">
+<meta property="og:title" content="Ourocard Stories — Renata Acioli">
+<meta property="og:description" content="Case: série de stories animados desenhados à mão para o Ourocard (Banco do Brasil), com animação 2D de Renata Acioli.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/ourocard/thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/ourocard/thumb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Chewy&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --rule:#d9e6f5;          /* notebook ruled lines */
+    --margin:#f6c6c6;        /* red margin line */
+    --ink:#1c1c1e;
+    --soft:#61646e;
+    --blue:#3b4ede;
+    --yellow:#fdf42e;
+    --line:#e8e8ea;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, transparent 63px, var(--margin) 63px, var(--margin) 65px, transparent 65px);
+    background-size:100% 34px, 100% 100%;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+  }
+  ::selection{background:var(--yellow);color:var(--ink)}
+  a{color:var(--blue);text-decoration:none}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.1rem clamp(1.2rem,4vw,3rem);
+    background:rgba(255,255,255,.95);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:2px solid var(--ink);
+  }
+  .back{
+    font-size:.85rem;font-weight:600;color:var(--ink);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--blue)}
+  .crumb{font-family:'Chewy',system-ui,cursive;font-size:.95rem;color:var(--soft);transform:rotate(-2deg)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:#1c1c1e;font-weight:600;position:relative;text-decoration:none}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:#3b4ede;transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(7rem,15vh,9.5rem) 32px 56px;text-align:center}
+  .wrap{max-width:880px;margin:0 auto}
+  .wrap-wide{max-width:1040px;margin:0 auto}
+  .overline{
+    display:inline-block;font-family:'Chewy',system-ui,cursive;font-size:1rem;font-weight:400;letter-spacing:.02em;
+    color:var(--blue);background:var(--yellow);
+    padding:.15rem .9rem;border-radius:4px;transform:rotate(-2deg);
+    margin-bottom:34px;
+  }
+  h1{
+    font-size:clamp(38px,6.5vw,66px);font-weight:700;line-height:1.08;
+    letter-spacing:-.02em;margin-bottom:26px;
+  }
+  h1 .hl{
+    color:var(--blue);
+    background:linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 92%, transparent 92%);
+    padding:0 .12em;
+  }
+  .intro{
+    font-size:clamp(16px,2.1vw,18.5px);color:var(--soft);
+    max-width:640px;margin:0 auto 44px;
+  }
+  .intro strong{color:var(--ink);font-weight:600}
+  .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:12px 48px;
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    padding:22px 12px;margin-bottom:52px;
+  }
+  .meta div{text-align:left}
+  .meta dt{
+    font-size:10.5px;font-weight:700;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--soft);margin-bottom:4px;
+  }
+  .meta dd{font-size:15px;font-weight:600}
+  .cue{font-family:'Chewy',system-ui,cursive;font-size:1.05rem;color:var(--soft)}
+  .cue span{display:block;color:var(--blue);font-size:1rem;margin-top:6px}
+
+  /* ---------- films: two phones taped to the page ---------- */
+  .films{padding:0 32px 96px}
+  .films-grid{
+    display:flex;justify-content:center;gap:clamp(1.6rem,4vw,3.5rem);flex-wrap:wrap;
+  }
+  .phone{width:min(300px,80vw)}
+  .phone-frame{
+    position:relative;border-radius:22px;overflow:hidden;
+    border:3px solid var(--ink);
+    background:#fff;
+    box-shadow:8px 10px 0 rgba(28,28,30,.12);
+    transform:rotate(-1.2deg);
+  }
+  .phone:last-child .phone-frame{transform:rotate(1.4deg)}
+  .phone-frame::before{
+    content:"";position:absolute;top:-14px;left:50%;translate:-50% 0;z-index:4;
+    width:92px;height:26px;background:rgba(253,244,46,.75);
+    transform:rotate(-3deg);
+    border-left:1px dashed rgba(28,28,30,.25);border-right:1px dashed rgba(28,28,30,.25);
+  }
+  .phone-frame video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover}
+  .play-btn{
+    position:absolute;inset:0;width:100%;height:100%;z-index:3;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.12);border:0;cursor:pointer;
+    transition:background .25s ease;
+  }
+  .play-btn:hover{background:rgba(255,255,255,0)}
+  .play-btn i{
+    width:70px;height:70px;border-radius:50%;
+    background:var(--yellow);border:3px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .play-btn:hover i{transform:scale(1.1) rotate(3deg)}
+  .play-btn svg{margin-left:4px}
+  .play-btn.hidden{display:none}
+  .phone-cap{
+    font-family:'Chewy',system-ui,cursive;font-size:1.1rem;color:var(--ink);
+    text-align:center;margin-top:1.1rem;transform:rotate(-1deg);
+  }
+  .phone-cap b{color:var(--blue)}
+
+  /* ---------- sections ---------- */
+  section{padding:0 32px 96px}
+  .label{
+    display:inline-block;font-family:'Chewy',system-ui,cursive;font-size:1rem;font-weight:400;letter-spacing:.02em;
+    color:var(--blue);background:var(--yellow);padding:.1rem .8rem;border-radius:4px;
+    transform:rotate(-2deg);margin-bottom:18px;
+  }
+  h2{
+    font-size:clamp(28px,4.2vw,42px);font-weight:700;
+    letter-spacing:-.02em;line-height:1.12;margin-bottom:48px;
+  }
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .step{
+    background:#fff;border:2px solid var(--ink);border-radius:14px;overflow:hidden;
+    box-shadow:6px 7px 0 rgba(28,28,30,.1);
+  }
+  .step .frame{
+    width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+    border-bottom:2px solid var(--ink);
+  }
+  .step-body{padding:24px 26px 28px}
+  .step .num{
+    font-family:'Chewy',system-ui,cursive;font-size:1.2rem;font-weight:700;color:var(--blue);
+    margin-bottom:10px;
+  }
+  .step h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .step p{font-size:14.5px;color:var(--soft)}
+
+  /* outcome block */
+  .outcome{
+    background:#fff;border:2px solid var(--ink);border-radius:16px;
+    padding:2rem 1.9rem;box-shadow:6px 7px 0 rgba(28,28,30,.1);
+    max-width:1040px;margin-inline:auto;
+  }
+  .outcome p{font-size:1rem;color:var(--soft);margin-bottom:.9rem}
+  .outcome p:last-child{margin-bottom:0}
+  .outcome strong{color:var(--ink);font-weight:700}
+  .outcome .kicker-line{
+    font-family:'Chewy',system-ui,cursive;font-size:1.15rem;color:var(--blue);
+    margin-top:1.2rem;transform:rotate(-.6deg);
+  }
+
+  .stills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .stills img{
+    width:100%;height:auto;display:block;border-radius:12px;
+    border:2px solid var(--ink);background:#fff;
+    box-shadow:5px 6px 0 rgba(28,28,30,.1);
+    transition:transform .3s ease;
+  }
+  .stills img:nth-child(odd){transform:rotate(-.8deg)}
+  .stills img:nth-child(even){transform:rotate(.8deg)}
+  .stills img:hover{transform:rotate(0) scale(1.03)}
+
+  .foot{
+    display:flex;flex-wrap:wrap;gap:32px 64px;justify-content:space-between;
+    border-top:2px solid var(--ink);padding-top:40px;
+  }
+  .foot dt{
+    font-size:10.5px;font-weight:700;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--soft);margin-bottom:6px;
+  }
+  .foot dd{font-size:15px;font-weight:600;line-height:1.7}
+
+  /* ---------- bottom ---------- */
+  .bottom{border-top:2px solid var(--ink);padding:52px 32px;text-align:center}
+  .bottom p{font-family:'Chewy',system-ui,cursive;font-size:1.25rem;color:var(--soft);margin-bottom:1.3rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-weight:600;font-size:.93rem;color:var(--ink);
+    border:2px solid var(--ink);border-radius:999px;padding:.65rem 1.5rem;
+    transition:transform .2s, box-shadow .2s;
+    background:#fff;
+  }
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 rgba(28,28,30,.18)}
+  .btn.solid{background:var(--yellow)}
+  .btn.solid{margin-right:.8rem}
+
+  /* reveal (progressive enhancement) */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #3b4ede;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#3b4ede;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  /* small-screen guard */
+  @media (max-width:600px){
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom{padding-inline:20px}
+    .meta{gap:1rem 1.8rem}
+    .foot{gap:1.2rem 2rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .films-grid{gap:2.4rem}
+    .phone{width:min(280px,84vw)}
+    .step{box-shadow:4px 5px 0 rgba(28,28,30,.1)}
+    .outcome{padding:1.5rem 1.2rem}
+    body{background-size:100% 30px, 100% 100%}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Pular para o conteúdo</a>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Trabalhos</a><a href="../index.html#about">Sobre</a><a href="../index.html#contact">Contato</a><span role="group" aria-label="Idioma" style="display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid rgba(0,0,0,.15);border-radius:999px;background:rgba(255,255,255,.7);font-size:12px;font-weight:700;line-height:1"><a href="../../projects/ourocard.html" hreflang="en" lang="en" title="See in English" style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;min-height:26px;padding:0 7px;border-radius:999px;color:#63636b;text-decoration:none">EN</a><span aria-current="true" style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;min-height:26px;padding:0 7px;border-radius:999px;background:#1b1b1f;color:#fff;text-decoration:none">PT</span></span></nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="main-content" tabindex="-1">
+  <div class="wrap">
+    <div class="overline">uma história Ourocard ✏️</div>
+    <h1>Ourocard <span class="hl">Stories</span></h1>
+    <p class="intro">Uma série de histórias animadas desenhadas à mão para o <strong>Ourocard</strong>, a marca de cartões do Banco do Brasil: pequenos dramas do dia a dia rabiscados em tinta, amarelo e azul, como se saíssem de um caderno. Dei vida aos desenhos como <strong>animadora 2D</strong> da série.</p>
+    <dl class="meta">
+      <div><dt>Cliente</dt><dd>Banco do Brasil · Ourocard</dd></div>
+      <div><dt>Papel</dt><dd>Animação 2D</dd></div>
+      <div><dt>Formato</dt><dd>9:16 · Stories para redes sociais</dd></div>
+      <div><dt>Série</dt><dd>5 episódios</dd></div>
+    </dl>
+    <div class="cue">assista a dois episódios<span>▼</span></div>
+  </div>
+</div>
+
+<!-- ================= FILMS ================= -->
+<div class="films">
+  <div class="films-grid">
+    <div class="phone reveal">
+      <div class="phone-frame">
+        <video src="../../assets/ourocard/tiktok-trend.mp4" poster="../../assets/ourocard/poster-tiktok.jpg" preload="metadata" playsinline></video>
+        <button class="play-btn" aria-label="Assistir ao episódio TikTok Trend">
+          <i><svg width="24" height="28" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.5 14.4a3 3 0 0 1 0 5.2L4.5 33.4A3 3 0 0 1 0 30.8V3.2A3 3 0 0 1 4.5.6l24 13.8Z" fill="#1c1c1e"/></svg></i>
+        </button>
+      </div>
+      <p class="phone-cap"><b>TikTok Trend</b> — café, devaneios e um cartão</p>
+    </div>
+    <div class="phone reveal">
+      <div class="phone-frame">
+        <video src="../../assets/ourocard/whatsapp-ep4.mp4" poster="../../assets/ourocard/poster-whatsapp.jpg" preload="metadata" playsinline></video>
+        <button class="play-btn" aria-label="Assistir ao episódio do WhatsApp">
+          <i><svg width="24" height="28" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.5 14.4a3 3 0 0 1 0 5.2L4.5 33.4A3 3 0 0 1 0 30.8V3.2A3 3 0 0 1 4.5.6l24 13.8Z" fill="#1c1c1e"/></svg></i>
+        </button>
+      </div>
+      <p class="phone-cap"><b>Ep. 4</b> — inovação pelo WhatsApp</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROCESS ================= -->
+<section>
+  <div class="wrap-wide">
+    <div class="label reveal">processo</div>
+    <h2 class="reveal">Animar um rabisco sem matar o charme dele.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <img class="frame" loading="lazy" src="../../assets/ourocard/step-01.jpg" alt="Bicicleta azul rabiscada em tinta sobre papel de caderno" style="object-position:50% 58%">
+        <div class="step-body">
+          <div class="num">01 —</div>
+          <h3>Uma história em tinta</h3>
+          <p>Cada episódio é um pequeno drama do dia a dia, desenhado em traços soltos de tinta sobre papel de caderno, com o amarelo e o azul do Banco do Brasil como únicas cores. O estilo parece fácil, e é justamente isso que torna a animação difícil.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <img class="frame" loading="lazy" src="../../assets/ourocard/step-02.jpg" alt="Personagem corredora comemorando com um gesto expressivo, desenhada à mão em tinta" style="object-position:50% 10%">
+        <div class="step-body">
+          <div class="num">02 —</div>
+          <h3>Manter o traço vivo</h3>
+          <p>Personagens desenhados à mão não podem se mexer como bonecos com rig, senão a ilusão quebra. Animei gestos, reações e lip-sync para cada movimento manter aquela energia de rascunho, imperfeita, como se o próprio rabisco tivesse decidido atuar.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <img class="frame" loading="lazy" src="../../assets/ourocard/step-03.jpg" alt="Lettering na tela com o texto “Pausa pro café” e uma xícara fumegante" style="object-position:50% 22%">
+        <div class="step-body">
+          <div class="num">03 —</div>
+          <h3>Feito para o feed</h3>
+          <p>Vertical 9:16, legenda sempre ligada e ritmo pensado para redes: um gancho nos primeiros segundos, a piada e a solução Ourocard, antes de o polegar de alguém perder a paciência.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTCOME ================= -->
+<section>
+  <div class="wrap-wide">
+    <div class="label reveal">o que veio depois</div>
+    <h2 class="reveal">Uma série feita por iniciativa própria que virou campanha nacional.</h2>
+    <div class="outcome reveal">
+      <p>Tudo começou como um <strong>projeto do coração da equipe</strong> , na onda das histórias narradas em desenho, e nunca foi publicado como série.</p>
+      <p>O cliente gostou tanto do estilo que levou ele para uma <strong>campanha interna nacional</strong>. Parte do prêmio: a funcionária vencedora ganhou <strong>a própria história ilustrada e animada neste mesmo estilo</strong>, publicada no canal interno do banco.</p>
+      <p class="kicker-line">Às vezes, o trabalho que ninguém pediu é o que abre a porta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STILLS ================= -->
+<section>
+  <div class="wrap-wide">
+    <div class="label reveal">frames</div>
+    <h2 class="reveal">Frames da série.</h2>
+    <div class="stills">
+      <img class="reveal" loading="lazy" src="../../assets/ourocard/still-01.jpg" alt="Pipoca rabiscada num balão de pensamento sobre a personagem sonhando acordada">
+      <img class="reveal" loading="lazy" src="../../assets/ourocard/still-02.jpg" alt="Personagem avó acenando dentro de um balão de pensamento">
+      <img class="reveal" loading="lazy" src="../../assets/ourocard/still-03.jpg" alt="Personagem corredora comemorando, desenhada em tinta com toques de amarelo e azul">
+      <img class="reveal" loading="lazy" src="../../assets/ourocard/still-04.jpg" alt="Bicicleta azul rabiscada encostada num muro desenhado">
+      <img class="reveal" loading="lazy" src="../../assets/ourocard/still-05.jpg" alt="Personagem segurando um cartão Ourocard e um celular">
+      <img class="reveal" loading="lazy" src="../../assets/ourocard/still-06.jpg" alt="Cartela final com o texto “Uma história Ourocard Visa” e o logo do Banco do Brasil">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<section>
+  <div class="wrap-wide">
+    <dl class="foot reveal">
+      <div><dt>Papel</dt><dd>Animação 2D</dd></div>
+      <div><dt>Episódios mostrados</dt><dd>TikTok Trend · Ep. 4 (WhatsApp)</dd></div>
+      <div><dt>Cliente</dt><dd>Banco do Brasil · Ourocard Visa</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="bottom">
+  <p>quer a sua marca rabiscada em movimento?</p>
+  <a class="btn solid" href="../index.html#contact">Vamos conversar →</a>
+  <a class="btn" href="../index.html#work">Mais trabalhos</a>
+  <a class="btn" href="clarice.html">Próximo: O Sonho de Clarice →</a>
+</div>
+
+<script>
+/* phone players: poster + play button; play with sound, pause the other one */
+(function () {
+  const phones = document.querySelectorAll('.phone');
+  const videos = [];
+  phones.forEach(p => {
+    const v = p.querySelector('video');
+    const btn = p.querySelector('.play-btn');
+    videos.push(v);
+    btn.addEventListener('click', () => {
+      videos.forEach(o => { if (o !== v) { o.pause(); } });
+      btn.classList.add('hidden');
+      v.controls = true;
+      v.play().catch(() => {});
+    });
+    v.addEventListener('ended', () => {
+      v.controls = false;
+      btn.classList.remove('hidden');
+    });
+  });
+})();
+
+/* reveal on scroll */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quem partiu é amor de alguém — Renata Acioli</title>
+<meta name="description" content="Case: vinhetas de abertura e encerramento para uma ação de conscientização sobre a COVID-19 do movimento Vigília Silenciosa, com animação de Renata Acioli.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/favicon.png">
+<meta property="og:title" content="Quem partiu é amor de alguém — Renata Acioli">
+<meta property="og:description" content="Case: vinhetas de abertura e encerramento para uma ação de conscientização sobre a COVID-19 do movimento Vigília Silenciosa, com animação de Renata Acioli.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/quem-partiu/thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/quem-partiu/thumb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#75c0d2;
+    --sky-hi:#85cbdb;
+    --sky-lo:#63b2c6;
+    --ink:#274850;
+    --soft:#1f434c;
+    --heart:#c8341a;
+    --white:#ffffff;
+    --hairline:rgba(39,72,80,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    font-family:'Lato',system-ui,sans-serif;
+    background:linear-gradient(180deg, var(--sky-hi) 0%, var(--sky) 45%, var(--sky-lo) 100%);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--heart);color:#fff}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- sky layer: clouds + balloons, whole page ---------- */
+  #sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .cloud{
+    position:absolute;left:-340px;
+    width:var(--w,240px);opacity:var(--op,.6);
+    will-change:transform;
+  }
+  .cloud svg{width:100%;height:auto;display:block}
+  @media (prefers-reduced-motion: no-preference){
+    .cloud{animation:driftLR var(--dur,120s) linear infinite;animation-delay:var(--delay,0s)}
+    @keyframes driftLR{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(100vw + 680px))}
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cloud{left:auto}
+    .cloud:nth-child(1){left:6%}.cloud:nth-child(2){left:38%}
+    .cloud:nth-child(3){left:66%}.cloud:nth-child(4){left:20%}
+    .cloud:nth-child(5){left:82%}.cloud:nth-child(6){left:50%}
+  }
+  .balloon{
+    position:absolute;bottom:-90px;
+    will-change:transform;opacity:0;
+  }
+  .balloon svg{width:100%;height:auto;display:block}
+  @media (prefers-reduced-motion: no-preference){
+    .balloon{animation:rise linear forwards}
+    @keyframes rise{
+      0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0}
+      7%{opacity:var(--op,.75)}
+      90%{opacity:var(--op,.75)}
+      100%{transform:translateY(calc(-100vh - 200px)) translateX(var(--drift,30px)) rotate(var(--rot,4deg));opacity:0}
+    }
+  }
+  main{position:relative;z-index:1}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.05rem clamp(1.2rem,4vw,3rem);
+    background:rgba(133,203,219,.95);
+    backdrop-filter:saturate(1.4) blur(10px);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid rgba(39,72,80,.22);
+    box-shadow:0 1px 0 rgba(23,52,60,.08);
+  }
+  .back{
+    font-size:.85rem;font-weight:700;color:var(--ink);
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .back:hover .arrow{transform:translateX(-4px)}
+  .back .arrow{display:inline-block;transition:transform .25s ease;color:var(--heart)}
+  .topnav{display:flex;gap:clamp(.9rem,2.5vw,1.8rem);font-size:.88rem}
+  .topnav a{color:var(--ink);font-weight:700;position:relative}
+  .topnav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--heart);transition:width .25s ease}
+  .topnav a:hover::after{width:100%}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:clamp(7.5rem,16vh,10.5rem) 32px 72px;text-align:center}
+  .wrap{max-width:820px;margin:0 auto}
+  .wrap-wide{max-width:1020px;margin-inline:auto}
+  .kicker{
+    font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--soft);margin-bottom:2.4rem;
+  }
+  .hero-balloon{width:56px;margin:0 auto 1.6rem;display:block}
+  @media (prefers-reduced-motion: no-preference){
+    .hero-balloon{animation:sway 6s ease-in-out infinite;transform-origin:50% 100%}
+    @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+  }
+  h1{
+    font-family:'Lora',serif;font-style:italic;font-weight:600;
+    font-size:clamp(2.4rem,6.4vw,4.3rem);line-height:1.18;
+    color:var(--ink);margin-bottom:2.8rem;
+  }
+  .intro{
+    font-size:clamp(1.02rem,1.9vw,1.2rem);color:var(--soft);
+    max-width:44rem;margin:0 auto 3rem;
+  }
+  .intro em{font-family:'Lora',serif;color:var(--ink)}
+  .intro strong{color:var(--ink)}
+  .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem 3.6rem;
+    border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+    padding:1.5rem 1rem;margin-bottom:3rem;text-align:left;
+  }
+  .meta dt{
+    font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+    color:rgba(39,72,80,.55);margin-bottom:.25rem;
+  }
+  .meta dd{font-size:.95rem;font-weight:700;color:var(--ink)}
+  .cue{
+    font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--soft);
+  }
+  .cue span{color:var(--heart);margin-left:.5rem}
+
+  /* ---------- film ---------- */
+  .film{padding:0 32px 104px}
+  .film-frame{
+    background:var(--white);border-radius:18px;padding:10px;
+    box-shadow:0 34px 70px -34px rgba(23,52,60,.5);
+  }
+  .film-frame .inner{border-radius:10px;overflow:hidden}
+  .film-frame iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+  .film-cap{
+    text-align:center;margin-top:1.3rem;
+    font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--soft);
+  }
+
+  /* ---------- process ---------- */
+  section{position:relative;padding:0 32px 104px}
+  .label{
+    font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--soft);margin-bottom:1rem;text-align:center;
+  }
+  h2{
+    font-family:'Lora',serif;font-style:italic;font-weight:600;color:var(--ink);
+    font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.15;margin-bottom:3.2rem;text-align:center;
+  }
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(1.4rem,3vw,2rem)}
+  .step{
+    background:var(--white);border-radius:20px;
+    padding:2.1rem 2rem;
+    box-shadow:0 26px 50px -30px rgba(23,52,60,.45);
+  }
+  .step .num{
+    font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:var(--heart);
+    margin-bottom:.7rem;
+  }
+  .step h3{
+    font-family:'Lora',serif;font-weight:600;font-size:1.35rem;color:var(--ink);
+    margin-bottom:.7rem;
+  }
+  .step p{font-size:.96rem;color:var(--soft)}
+
+  /* ---------- credits ---------- */
+  .foot{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1.6rem 4.5rem;
+    border-top:1px solid var(--hairline);padding-top:2.4rem;text-align:left;
+  }
+  .foot dt{
+    font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+    color:rgba(39,72,80,.55);margin-bottom:.25rem;
+  }
+  .foot dd{font-size:.95rem;font-weight:700;color:var(--ink)}
+
+  /* ---------- bottom ---------- */
+  .bottom{padding:40px 32px 80px;text-align:center;position:relative;z-index:1}
+  .bottom p{
+    font-family:'Lora',serif;font-style:italic;font-weight:600;
+    font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--ink);margin-bottom:1.8rem;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;margin:.25rem;
+    font-weight:700;font-size:.93rem;color:var(--ink);
+    border:1.5px solid var(--ink);border-radius:999px;padding:.7rem 1.6rem;
+    transition:background .25s,color .25s,transform .25s;
+  }
+  .btn:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+  .btn.solid{background:var(--heart);border-color:var(--heart);color:#fff}
+  .btn.solid:hover{background:var(--ink);border-color:var(--ink)}
+
+  /* reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* ---------- keyboard focus & tap targets ---------- */
+  :focus-visible{
+    outline:3px solid #f56344;outline-offset:3px;border-radius:6px;
+  }
+  .topnav a, nav a, .back, .btn{padding-block:.4rem}
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:#f56344;color:#fff;padding:.7rem 1.2rem;border-radius:0 0 8px 0;
+    font-weight:700;font-size:.9rem;
+  }
+  .skip:focus{left:0}
+
+  @media (max-width:600px){
+    section, .film, .hero{padding-inline:20px}
+    .meta{gap:1.1rem 2rem}
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:640px){
+    /* nav: keep the back link, shrink the menu, guarantee tap targets */
+    header{padding:.8rem 1rem}
+    .back{font-size:.8rem}
+    .topnav{gap:.85rem;font-size:.8rem}
+    .topnav a{padding-block:.55rem}
+    .back{padding-block:.55rem}
+
+    /* generic rhythm */
+    section, .film, .hero, .films, .process, .credits, .strip-head, .bottom, .strip{
+      padding-inline:1.1rem;
+    }
+    .hero{padding-top:5.5rem}
+
+    /* meta blocks stack into two readable columns */
+    .meta{
+      display:grid !important;grid-template-columns:1fr 1fr;gap:1rem 1rem;
+      text-align:left;
+    }
+    .foot{display:grid;grid-template-columns:1fr;gap:1.1rem}
+
+    /* every multi-column grid becomes a single column */
+    .steps, .stills, .frames, .shots, .art, .gallery, .outcome-grid, .channels, .fest-list{
+      grid-template-columns:1fr !important;
+    }
+    .tile.span2, .frames .wide, .art .wide{grid-column:auto !important}
+
+    /* buttons: full width, comfortable height */
+    .btn{width:100%;justify-content:center;padding-block:.85rem}
+    .bottom .btn{margin:.3rem 0}
+  }
+  @media (max-width:400px){
+    .topnav{gap:.6rem;font-size:.74rem}
+    .meta{grid-template-columns:1fr !important}
+  }
+
+  @media (max-width:640px){
+    .film-frame{padding:7px}
+    .step{padding:1.7rem 1.4rem}
+    .hero{padding-top:6rem}
+    .cloud{max-width:60vw}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Pular para o conteúdo</a>
+
+<div id="sky" aria-hidden="true"></div>
+
+<header>
+  <a class="back" href="../index.html"><span class="arrow">←</span> renata acioli</a>
+  <nav class="topnav"><a href="../index.html#work">Trabalhos</a><a href="../index.html#about">Sobre</a><a href="../index.html#contact">Contato</a><span role="group" aria-label="Idioma" style="display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid rgba(0,0,0,.15);border-radius:999px;background:rgba(255,255,255,.7);font-size:12px;font-weight:700;line-height:1"><a href="../../projects/quem-partiu.html" hreflang="en" lang="en" title="See in English" style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;min-height:26px;padding:0 7px;border-radius:999px;color:#63636b;text-decoration:none">EN</a><span aria-current="true" style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;min-height:26px;padding:0 7px;border-radius:999px;background:#1b1b1f;color:#fff;text-decoration:none">PT</span></span></nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">Animação 2D · Conscientização · <span lang="pt-BR">Vigília Silenciosa</span></p>
+    <svg class="hero-balloon" viewBox="0 0 40 100" fill="none" aria-hidden="true">
+      <path d="M20 34 C 8 25, 4.5 17.5, 5.5 11.5 C 6.5 6, 11 3, 15.5 3.6 C 18 4, 19.6 5.6, 20.4 7.6 C 21.6 5.2, 24 3.4, 27 3.4 C 32 3.4, 35.6 7.4, 35 13 C 34.3 19.5, 29.5 27, 20 34 Z" fill="#f56344"/>
+      <path d="M20 34 C 21 52, 17 70, 21 97" stroke="#274850" stroke-opacity=".55" stroke-width="1.3"/>
+    </svg>
+    <h1 lang="pt-BR">quem partiu é<br>amor de alguém</h1>
+    <p class="intro">Vinhetas de abertura e encerramento para uma ação de conscientização do movimento Vigília Silenciosa, sobre a COVID-19 e as pessoas por trás dos números: <em>"quem partiu é amor de alguém."</em> Um projeto em que a animação precisava, <strong>antes de tudo, ser delicada.</strong></p>
+    <dl class="meta reveal">
+      <div><dt>Projeto</dt><dd>Ação de conscientização sobre a COVID-19</dd></div>
+      <div><dt>Papel</dt><dd>Animação e design</dd></div>
+      <div><dt>Formato</dt><dd>Vinhetas de abertura e encerramento</dd></div>
+    </dl>
+    <p class="cue">Assista<span>▼</span></p>
+  </div>
+</div>
+
+<!-- ================= FILM ================= -->
+<div class="film">
+  <div class="wrap-wide">
+    <div class="film-frame reveal">
+      <div class="inner">
+        <iframe src="https://www.youtube-nocookie.com/embed/-3TSCV2BGdA" title="Quem partiu é amor de alguém — Vigília Silenciosa"
+                loading="lazy" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+    <p class="film-cap">Animação das vinhetas: Renata Acioli · Direção e edição do filme: Marcius Barbieri</p>
+  </div>
+</div>
+
+<!-- ================= PROCESS ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Processo</p>
+    <h2 class="reveal">Desenhar com cuidado.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <p class="num">um</p>
+        <h3>Um briefing delicado</h3>
+        <p>Não era uma peça sobre estatísticas. Era sobre pessoas e sobre quem as amava. Cada escolha de design partiu do respeito: pelo luto, pelas famílias, pelo peso do momento.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">dois</p>
+        <h3>A contenção como linguagem</h3>
+        <p>Céu aberto, letra manuscrita, movimento suave e espaço para respirar. A animação fala baixinho e emoldura a mensagem da ação, sem competir com ela.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">três</p>
+        <h3>Abertura e fechamento</h3>
+        <p>A abertura prepara quem assiste, e o encerramento deixa descansar. Juntas, as duas envolvem o conteúdo da ação como uma moldura e dão à campanha um começo e um fim feitos com o mesmo cuidado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTCOME ================= -->
+<section>
+  <div class="wrap-wide">
+    <p class="label reveal">Resultado</p>
+    <h2 class="reveal">Chegou muito além da sala.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <p class="num">onde</p>
+        <h3>Museu Nacional, Brasília</h3>
+        <p>A ação aconteceu no Museu Nacional, em Brasília, um espaço público no coração da capital, escolhido para que o luto que ela nomeava não pudesse ser ignorado.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">alcance</p>
+        <h3>Cobertura da imprensa nacional</h3>
+        <p>A vigília foi noticiada por veículos de todo o país, levando a mensagem muito além de quem pôde estar lá.</p>
+      </div>
+      <div class="step reveal">
+        <p class="num">ainda</p>
+        <h3>Ainda disponível</h3>
+        <p>O filme completo continua no YouTube, e a ação segue cumprindo o seu papel: um registro das pessoas por trás dos números.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<section>
+  <div class="wrap-wide">
+    <dl class="foot reveal">
+      <div><dt>Vinhetas</dt><dd>Renata Acioli</dd></div>
+      <div><dt>Filme do movimento</dt><dd>Direção e edição: Marcius Barbieri</dd></div>
+      <div><dt>Movimento</dt><dd lang="pt-BR">Vigília Silenciosa</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="bottom">
+  <p>Algumas histórias pedem um toque mais leve.</p>
+  <a class="btn solid" href="../index.html#contact">Vamos conversar →</a>
+  <a class="btn" href="../index.html#work">Mais trabalhos</a>
+  <a class="btn" href="motion-monster.html">Próximo: Motion Monster →</a>
+</div>
+
+</main>
+
+<script>
+/* ============================================================
+   SKY — fluffy clouds drifting slowly, left to right
+============================================================ */
+(function () {
+  const sky = document.getElementById('sky');
+  const CLOUD =
+    '<svg viewBox="0 0 240 96" fill="none">' +
+    '<path d="M28 82 C 12 82, 4 71, 4 61 C 4 50, 12 42, 23 41 C 24 26, 36 14, 52 14 ' +
+    'C 63 14, 73 20, 78 29 C 83 17, 95 8, 110 8 C 129 8, 144 21, 147 38 ' +
+    'C 149 37.6, 152 37.4, 155 37.4 C 172 37.4, 186 48, 189 62 C 198 63, 206 70, 206 78 ' +
+    'C 206 89, 196 96, 185 96 L 42 96 C 34 96, 28 90, 28 82 Z" fill="#ffffff"/></svg>';
+  const clouds = [
+    { top:'8%',  w:250, op:.65, dur:150, delay:-30 },
+    { top:'20%', w:170, op:.45, dur:190, delay:-120 },
+    { top:'34%', w:300, op:.55, dur:170, delay:-70 },
+    { top:'55%', w:200, op:.40, dur:210, delay:-160 },
+    { top:'70%', w:270, op:.5,  dur:180, delay:-15 },
+    { top:'86%', w:180, op:.35, dur:230, delay:-100 },
+  ];
+  clouds.forEach(c => {
+    const el = document.createElement('span');
+    el.className = 'cloud';
+    el.innerHTML = CLOUD;
+    el.style.top = c.top;
+    el.style.setProperty('--w', c.w + 'px');
+    el.style.width = c.w + 'px';
+    el.style.setProperty('--op', c.op);
+    el.style.opacity = c.op;
+    el.style.setProperty('--dur', c.dur + 's');
+    el.style.setProperty('--delay', c.delay + 's');
+    sky.appendChild(el);
+  });
+})();
+
+/* ============================================================
+   HEART BALLOONS — a quiet ambient drift, plus more balloons
+   released as you scroll down the page
+============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  const sky = document.getElementById('sky');
+  const HEART =
+    '<svg viewBox="0 0 40 100" fill="none">' +
+    '<path d="M20 34 C 8 25, 4.5 17.5, 5.5 11.5 C 6.5 6, 11 3, 15.5 3.6 C 18 4, 19.6 5.6, 20.4 7.6 C 21.6 5.2, 24 3.4, 27 3.4 C 32 3.4, 35.6 7.4, 35 13 C 34.3 19.5, 29.5 27, 20 34 Z" fill="#f56344"/>' +
+    '<path d="M20 34 C 21 52, 17 70, 21 97" stroke="#274850" stroke-opacity=".45" stroke-width="1.2"/></svg>';
+  const MAX = 16;
+
+  function spawn(strong) {
+    if (sky.querySelectorAll('.balloon').length >= MAX) return;
+    const b = document.createElement('span');
+    b.className = 'balloon';
+    b.innerHTML = HEART;
+    const size = strong ? 26 + Math.random() * 26 : 18 + Math.random() * 18;
+    b.style.width = size + 'px';
+    b.style.left = (Math.random() * 94 + 2) + '%';
+    b.style.setProperty('--op', (strong ? 0.55 + Math.random() * 0.3 : 0.3 + Math.random() * 0.3).toFixed(2));
+    b.style.setProperty('--drift', ((Math.random() - 0.5) * 140).toFixed(0) + 'px');
+    b.style.setProperty('--rot', ((Math.random() - 0.5) * 10).toFixed(1) + 'deg');
+    b.style.animationDuration = (22 + Math.random() * 20) + 's';
+    sky.appendChild(b);
+    b.addEventListener('animationend', () => b.remove());
+  }
+
+  /* quiet ambient */
+  for (let i = 0; i < 3; i++) setTimeout(() => spawn(false), i * 3000);
+  setInterval(() => spawn(false), 9000);
+
+  /* the further you scroll, the more hearts take flight */
+  let last = window.scrollY, acc = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    acc += Math.abs(y - last);
+    last = y;
+    while (acc > 340) {          /* one balloon every ~340px scrolled */
+      acc -= 340;
+      spawn(true);
+    }
+  }, { passive: true });
+})();
+
+/* ---------- reveal on scroll ---------- */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

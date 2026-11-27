@@ -36,8 +36,9 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 .mq:hover .mq-track{animation-play-state:paused}
 @media (prefers-reduced-motion: reduce){.wf-move,.mq-track{animation:none !important}}
 @media (max-width: 1100px){.wf-float{display:none !important}}
-@media (hover: hover) and (pointer: fine){.cv-live,.cv-live a,.cv-live button{cursor:none}}
+@media (hover: hover) and (pointer: fine){.cv-live{cursor:none}.cv-live a,.cv-live button,.cv-live [role="button"]{cursor:pointer}}
 @media (hover: none), (pointer: coarse){.cur{display:none !important}}
+a{transition:background-color .18s ease,border-color .18s ease}a[style*="background: #1f4fd1"]:hover{background:#163a9c !important;color:#ffffff !important}a[style*="background: #1b1b1f"]:hover{background:#000000 !important;color:#ffffff !important}a[style*="background: #ffffff"][style*="border-radius: 999px"]:hover{background:#efefec !important}a[style*="border: 1.5px solid #1b1b1f"]:hover{background:#efefec !important}
 </style>
 <style>
 @keyframes mA{0%{transform:translate(0,0)}30%{transform:translate(-22px,10px)}65%{transform:translate(-8px,-12px)}100%{transform:translate(0,0)}}
@@ -123,13 +124,13 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 <svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#6d3fd1" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
 <span style="margin-top: 16px; background: #6d3fd1; color: #ffffff; font-weight: 600; font-size: 13px; line-height: 1.3; padding: 4px 9px; border-radius: 4px; white-space: nowrap">Diretora de Arte</span>
 </div>
-<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 4; right: 15%; top: 41%; display: flex; align-items: flex-start; gap: 2px; pointer-events: none; animation: wfC 21s ease-in-out infinite">
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 4; right: 11%; top: 32%; display: flex; align-items: flex-start; gap: 2px; pointer-events: none; animation: wfC 21s ease-in-out infinite">
 <svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2 L18 9.5 L11 11.5 L8.5 18.5 Z" fill="#c2410c" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
 <span style="margin-top: 16px; background: #c2410c; color: #ffffff; font-weight: 600; font-size: 13px; line-height: 1.3; padding: 4px 9px; border-radius: 4px; white-space: nowrap">Motion Designer</span>
 </div>
 
 <div style="position: relative; z-index: 3; flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 32px 24px 110px; text-align: center">
-<h1 style="margin: 0; max-width: 880px; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(36px, 4.6vw, 68px); line-height: 1.1; font-weight: 700; letter-spacing: -0.035em"><span style="position: relative; display: inline-block; background: #d6e4ff; border-left: 3px solid #1f4fd1; border-right: 3px solid #1f4fd1; padding: 0 6px">Estratégia<span aria-hidden="true" style="position: absolute; left: -9px; top: -8px; width: 14px; height: 14px; border-radius: 50%; background: #1f4fd1"></span><span aria-hidden="true" style="position: absolute; right: -9px; bottom: -8px; width: 14px; height: 14px; border-radius: 50%; background: #1f4fd1"></span></span> em movimento.<br>Do briefing ao resultado.</h1>
+<h1 style="margin: 0; max-width: 880px; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(36px, 4.6vw, 68px); line-height: 1.1; font-weight: 700; letter-spacing: -0.035em">Estratégia em movimento.<br>Do briefing ao <span style="position: relative; display: inline-block; background: #d6e4ff; border-left: 3px solid #1f4fd1; border-right: 3px solid #1f4fd1; padding: 0 6px">resultado<span aria-hidden="true" style="position: absolute; left: -9px; top: -8px; width: 14px; height: 14px; border-radius: 50%; background: #1f4fd1"></span><span aria-hidden="true" style="position: absolute; right: -9px; bottom: -8px; width: 14px; height: 14px; border-radius: 50%; background: #1f4fd1"></span></span>.</h1>
 <p style="margin: 0; font-size: 19px; color: #63636b; max-width: 600px">Estratégia criativa, direção de arte e motion design para marcas.</p>
 <a href="#work" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">Ver os cases</a>
 </div>
@@ -229,7 +230,7 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 <p style="margin: 0; font-size: 17px; color: #63636b; max-width: 440px">Ilustração, animação 2D, logos animados e os experimentos que faço por diversão. O arquivo completo está a um clique.</p>
 <a href="projects.html" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">Ver todos os projetos</a>
 </div>
-<div style="flex: 1 1 420px; min-width: 0; position: relative; height: 370px">
+<a href="projects.html" aria-label="Ver todos os projetos" style="display: block; color: inherit; text-decoration: none; flex: 1 1 420px; min-width: 0; position: relative; height: 370px">
 <img src="../assets/bbwallet/poster.jpg" alt="bB Wallet: frame ilustrado do tutorial" class="fan-l" style="transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); position: absolute; left: 6%; top: 50px; width: 200px; height: 270px; object-fit: cover; border-radius: 18px; transform: rotate(-8deg); box-shadow: 0 14px 34px rgba(27, 27, 31, 0.14)">
 <img src="../assets/monster/thumb.jpg" alt="Motion Monster: frame de exercício de curso" class="fan-r" style="transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); position: absolute; right: 6%; top: 50px; width: 200px; height: 270px; object-fit: cover; border-radius: 18px; transform: rotate(8deg); box-shadow: 0 14px 34px rgba(27, 27, 31, 0.14)">
 <img src="../assets/clarice/poster-film.jpg" alt="Pôster de O Sonho de Clarice" class="fan-c" style="transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); position: absolute; left: 50%; top: 14px; width: 232px; height: 326px; margin-left: -116px; object-fit: cover; object-position: 50% 30%; border-radius: 18px; box-shadow: 0 18px 44px rgba(27, 27, 31, 0.2)">
@@ -237,7 +238,7 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 <span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #6d3fd1; margin-top: 4px"></span>
 <span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Diretora de Arte</span><span style="font-size: 13px; color: #63636b">Os esquisitos também ficam.</span></span>
 </div>
-</div>
+</a>
 </div>
 </section>
 
@@ -258,7 +259,11 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 </div>
 <div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 2; right: 5%; bottom: 22%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px; animation: wfWig 7.5s ease-in-out -1s infinite">
 <span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
-<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Brasília · GMT-3</span><span style="font-size: 13px; color: #63636b">Mais de 6 anos em campanhas e eventos</span></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Campanhas e eventos</span><span style="font-size: 13px; color: #63636b">Mais de 6 anos com marcas como Banco do Brasil e Visa</span></span>
+</div>
+<div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 2; right: 3%; top: 44%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px; animation: wfWig 9s ease-in-out -5s infinite">
+<svg aria-hidden="true" width="12" height="15" viewBox="0 0 12 15" style="flex: 0 0 auto; margin-top: 2px"><path d="M6 14.2C6 14.2 11 9.2 11 5.6A5 5 0 0 0 1 5.6C1 9.2 6 14.2 6 14.2Z" fill="#1b1b1f"/><circle cx="6" cy="5.6" r="1.9" fill="#ffffff"/></svg>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">Brasília · GMT-3</span><span style="font-size: 13px; color: #63636b">Umidade a 12%, ideias a 100%.</span></span>
 </div>
 <div class="wf-float wf-move" aria-hidden="true" style="position: absolute; z-index: 2; left: 4%; top: 52%; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 18px 18px 18px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; text-align: left; max-width: 250px; animation: wfWig 8s ease-in-out -3s infinite">
 <span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
@@ -295,8 +300,12 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 <div class="m-only">
 <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px">
 <div aria-hidden="true" style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 16px 16px 16px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 9px 12px; display: flex; gap: 8px; align-items: flex-start; text-align: left">
+<svg aria-hidden="true" width="10" height="13" viewBox="0 0 12 15" style="flex: 0 0 auto; margin-top: 2px"><path d="M6 14.2C6 14.2 11 9.2 11 5.6A5 5 0 0 0 1 5.6C1 9.2 6 14.2 6 14.2Z" fill="#1b1b1f"/><circle cx="6" cy="5.6" r="1.9" fill="#ffffff"/></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700">Brasília · GMT-3</span><span style="font-size: 12px; color: #63636b">Umidade a 12%, ideias a 100%.</span></span>
+</div>
+<div aria-hidden="true" style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 16px 16px 16px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 9px 12px; display: flex; gap: 8px; align-items: flex-start; text-align: left">
 <span style="flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
-<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700">Brasília · GMT-3</span><span style="font-size: 12px; color: #63636b">Mais de 6 anos em campanhas e eventos</span></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700">Campanhas e eventos</span><span style="font-size: 12px; color: #63636b">Mais de 6 anos com marcas como Banco do Brasil e Visa</span></span>
 </div>
 <div aria-hidden="true" style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 6px 16px 16px 16px; box-shadow: 0 6px 20px rgba(27, 27, 31, 0.06); padding: 9px 12px; display: flex; gap: 8px; align-items: flex-start; text-align: left">
 <span style="flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #1b1b1f; margin-top: 4px"></span>
@@ -342,7 +351,7 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
   function at(e){var r=root.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
   root.addEventListener('mousemove',function(e){
     var p=at(e);
-    if(fine&&cur){root.classList.add('cv-live');cur.style.transform='translate('+(p.x-3)+'px,'+(p.y-2)+'px)';cur.style.opacity='1';}
+    if(fine&&cur){root.classList.add('cv-live');cur.style.transform='translate('+(p.x-3)+'px,'+(p.y-2)+'px)';var hot=e.target&&e.target.closest&&e.target.closest('a,button,[role="button"]');cur.style.opacity=hot?'0':'1';}
     light(p.x,p.y);
   });
   root.addEventListener('mouseleave',function(){if(cur)cur.style.opacity='0';});
