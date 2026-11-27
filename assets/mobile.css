@@ -1,5 +1,8 @@
 /* Mobile layer for the new pages. Desktop is untouched: everything sits inside the media query. */
 .m-menu-btn, .m-sheet, .m-dots { display: none; }
+.m-acc-chev { display: none; }
+.m-acc-btn { all: unset; display: contents; }
+
 
 @media (max-width: 720px) {
   /* ---------- header and hidden menu ---------- */
@@ -48,6 +51,44 @@
   #more { padding-bottom: 56px !important; }
   #work { padding-top: 48px !important; gap: 24px !important; }
   #about { min-height: 0 !important; padding-top: 72px !important; padding-bottom: 72px !important; }
+
+
+  /* ---------- case pages ---------- */
+  .m-kicker { display: block; }
+  .m-label { display: inline-flex; align-items: center; min-height: 26px; padding: 0 11px; border-radius: 999px; background: #1b1b1f; color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .m-kicker-sep { display: none; }
+  .m-kicker-rest { display: block; margin-top: 12px; font-size: 14px; color: #63636b; }
+  .m-kicker + h1 { font-size: 44px !important; line-height: 1.02 !important; }
+
+  .m-specs { display: block !important; align-self: stretch; width: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 18px; padding: 2px 16px !important; margin-top: 4px; }
+  .m-specs > div { flex-direction: row !important; justify-content: space-between; align-items: baseline; gap: 16px !important; padding: 13px 0; border-top: 1px solid #efefec; }
+  .m-specs > div:first-child { border-top: 0; }
+  .m-specs > div > span:first-child { font-size: 13px !important; color: #63636b; flex: 0 0 auto; }
+  .m-specs > div > span:last-child { font-size: 14px !important; text-align: right; }
+
+  section[style*="padding-top: 96px"] { padding-top: 64px !important; }
+  section[style*="padding-bottom: 96px"] { padding-bottom: 64px !important; }
+
+  .m-acc { display: block !important; background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 0 18px !important; margin-left: var(--g, 20px) !important; margin-right: var(--g, 20px) !important; }
+  section.m-acc { padding-bottom: 0 !important; padding-top: 0 !important; margin-top: 8px !important; margin-bottom: 64px !important; }
+  div.m-acc { margin-left: 0 !important; margin-right: 0 !important; }
+  .m-acc > * { background: transparent !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; gap: 0 !important; border-top: 1px solid #efefec !important; }
+  .m-acc > *:first-child { border-top: 0 !important; }
+  .m-acc .m-acc-btn { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 62px; padding: 14px 0; cursor: pointer; font-weight: 600; font-size: 16px; color: #1b1b1f; }
+  .m-acc .m-acc-btn:focus-visible { outline: 2px solid #1f4fd1; outline-offset: 2px; border-radius: 8px; }
+  .m-acc .m-acc-btn h3 { font-size: 18px !important; line-height: 1.25 !important; margin: 0 !important; }
+  .m-acc .m-acc-btn > span:not(.m-acc-chev) { font-size: 13px !important; }
+  .m-acc .m-acc-btn > *:not(.m-acc-chev) { flex: 0 1 auto; }
+  .m-acc-chev { display: block; margin-left: auto; flex: 0 0 auto; width: 10px; height: 10px; border-right: 2px solid #1b1b1f; border-bottom: 2px solid #1b1b1f; transform: rotate(45deg) translate(-3px, -3px); transition: transform .2s ease; }
+  .m-acc-btn[aria-expanded="true"] .m-acc-chev { transform: rotate(225deg) translate(-3px, -3px); }
+  .m-acc-body { padding: 0 0 20px; display: flex; flex-direction: column; gap: 14px; }
+  .m-acc-body[hidden] { display: none; }
+  .m-acc-body p { font-size: 16px !important; line-height: 1.6 !important; }
+
+  .m-stats { display: flex !important; flex-direction: column; gap: 10px !important; }
+  .m-stats > div { flex-direction: row !important; align-items: baseline; gap: 14px !important; padding: 16px 18px !important; border-radius: 16px !important; }
+  .m-stats > div > span:first-child { font-size: 26px !important; flex: 0 0 auto; min-width: 92px; }
+  .m-stats > div > span:last-child { font-size: 14px !important; line-height: 1.45; }
 
   /* ---------- horizontal rails ---------- */
   .m-rail {

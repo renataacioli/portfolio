@@ -69,8 +69,57 @@
     });
   }
 
-  /* ---------- rails: position dots ---------- */
   var mq = window.matchMedia('(max-width: 720px)');
+
+  /* ---------- accordions (mobile only, one open at a time) ---------- */
+  if (mq.matches) {
+    var uid = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('.m-acc'), function (box) {
+      var items = Array.prototype.slice.call(box.children);
+      var btns = [];
+      items.forEach(function (item, i) {
+        var kids = Array.prototype.slice.call(item.children);
+        var h3 = item.querySelector(':scope > h3');
+        var head;
+        if (h3) {
+          head = [];
+          var prev = h3.previousElementSibling;
+          if (prev && prev.tagName === 'SPAN') head.push(prev);
+          head.push(h3);
+        } else {
+          head = [kids[0]];
+        }
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'm-acc-btn';
+        var body = document.createElement('div');
+        body.className = 'm-acc-body';
+        body.id = 'm-acc-' + (++uid);
+        btn.setAttribute('aria-controls', body.id);
+        kids.forEach(function (k) { if (head.indexOf(k) === -1) body.appendChild(k); });
+        head.forEach(function (k) { btn.appendChild(k); });
+        var chev = document.createElement('span');
+        chev.className = 'm-acc-chev';
+        chev.setAttribute('aria-hidden', 'true');
+        btn.appendChild(chev);
+        item.appendChild(btn);
+        item.appendChild(body);
+        var open = i === 0;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        body.hidden = !open;
+        btns.push([btn, body]);
+      });
+      btns.forEach(function (pair) {
+        pair[0].addEventListener('click', function () {
+          var willOpen = pair[0].getAttribute('aria-expanded') !== 'true';
+          btns.forEach(function (o) { o[0].setAttribute('aria-expanded', 'false'); o[1].hidden = true; });
+          if (willOpen) { pair[0].setAttribute('aria-expanded', 'true'); pair[1].hidden = false; }
+        });
+      });
+    });
+  }
+
+  /* ---------- rails: position dots ---------- */
   Array.prototype.forEach.call(document.querySelectorAll('.m-rail'), function (rail) {
     var items = rail.children.length;
     if (items < 2) return;
