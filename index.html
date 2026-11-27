@@ -55,6 +55,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 @media (max-width: 1100px){.m-only{display:block}}
 </style>
 <meta name="twitter:image" content="https://renataacioli.com/assets/og-home.png">
+<link rel="stylesheet" href="assets/mobile.css">
 </head>
 <body>
 <div id="page" style="position: relative; overflow-x: hidden; background: #fcfcfb; color: #1b1b1f; font-family: Inter, system-ui, sans-serif; line-height: 1.5">
@@ -194,7 +195,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 
 <section id="work" style="max-width: 1200px; margin: 0 auto; padding: 72px var(--g) 40px; display: flex; flex-direction: column; gap: 36px">
 <h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(34px, 5.5vw, 48px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Cases</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 28px">
+<div class="m-rail" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 28px">
 <a id="case-1" href="projects/na-praia.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
 <img src="assets/napraia/central-3.jpg" alt="Na Praia Festival: frame of the Colecione momentos promotion, two friends at a festival" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block">
 <span style="font-size: 13px; color: #63636b">Na Praia Festival · Concept and motion system</span>
@@ -291,11 +292,10 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 <div style="position: relative; display: flex; flex-direction: column; gap: 16px; align-items: center; margin-top: 28px">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <span style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: 30px; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em">Take <span style="position: relative; display: inline-block; background: #d6e4ff; border-left: 2px solid #1f4fd1; border-right: 2px solid #1f4fd1; padding: 0 6px">the CV<span aria-hidden="true" style="position: absolute; left: -7px; top: -6px; width: 10px; height: 10px; border-radius: 50%; background: #1f4fd1"></span><span aria-hidden="true" style="position: absolute; right: -7px; bottom: -6px; width: 10px; height: 10px; border-radius: 50%; background: #1f4fd1"></span></span>. It's free.</span>
-<span style="font-size: 16px; color: #63636b">PDF, in English or in Portuguese.</span>
+<span style="font-size: 16px; color: #63636b">One page, PDF.</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
-<a href="assets/Renata-Acioli-CV.pdf" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">Download CV (EN)</a>
-<a href="assets/Renata-Acioli-CV-PT.pdf" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; border: 1.5px solid #1b1b1f; background: #fcfcfb; font-weight: 600; font-size: 17px; text-decoration: none">Baixar CV (PT)</a>
+<a href="assets/Renata-Acioli-CV.pdf" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #1f4fd1; color: #ffffff; font-weight: 600; font-size: 17px; text-decoration: none">Download CV</a>
 </div>
 <div class="m-only">
 <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px">
@@ -358,5 +358,6 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
   root.addEventListener('touchmove',function(e){var t=e.touches&&e.touches[0];if(t){var p=at(t);light(p.x,p.y);}},{passive:true});
 })();
 </script>
+<script src="assets/mobile.js" defer></script>
 </body>
 </html>

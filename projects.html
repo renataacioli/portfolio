@@ -26,6 +26,7 @@ a{color:#1b1b1f}a:hover{color:#1f4fd1}
 
 a{transition:background-color .18s ease,border-color .18s ease}a[style*="background: #1f4fd1"]:hover{background:#163a9c !important;color:#ffffff !important}a[style*="background: #1b1b1f"]:hover{background:#000000 !important;color:#ffffff !important}a[style*="background: #ffffff"][style*="border-radius: 999px"]:hover{background:#efefec !important}a[style*="border: 1.5px solid #1b1b1f"]:hover{background:#efefec !important}
 </style>
+<link rel="stylesheet" href="assets/mobile.css">
 </head>
 <body>
 <div style="background: #fcfcfb; color: #1b1b1f; font-family: Inter, system-ui, sans-serif; line-height: 1.5">
@@ -45,7 +46,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 <p style="margin: 0; font-size: 19px; color: #63636b; max-width: 560px">Client work comes first and the playground sits at the end.</p>
 </div>
 </section>
-<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px">
+<section class="m-chips" style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px">
 <button type="button" aria-pressed="true" style="font: inherit; font-size: 14px; font-weight: 600; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #1b1b1f; background: #1b1b1f; color: #ffffff" data-filter="all">All</button>
 <button type="button" aria-pressed="false" style="font: inherit; font-size: 14px; font-weight: 600; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #e7e7e3; background: #ffffff; color: #1b1b1f" data-filter="strategy">Strategy and concept</button>
 <button type="button" aria-pressed="false" style="font: inherit; font-size: 14px; font-weight: 600; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #e7e7e3; background: #ffffff; color: #1b1b1f" data-filter="art">Art direction</button>
@@ -56,7 +57,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 </section>
 <section id="client-work" style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-top: 36px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 24px">
 <h2 style="margin: 0; font-size: 15px; font-weight: 600; color: #63636b">Client work</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 40px 28px">
+<div class="m-grid2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 40px 28px">
 <a data-tags="strategy motion" href="projects/na-praia.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 10px">
 <div style="position: relative"><img src="assets/napraia/central-3.jpg" alt="Na Praia Festival promotion frame" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; border: 1px solid #e7e7e3; box-sizing: border-box"><span style="position: absolute; left: 12px; top: 12px; background: #1b1b1f; color: #ffffff; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 4px">Case study</span></div>
 <span style="font-size: 13px; color: #63636b">Concept and motion system · Banco do Brasil</span>
@@ -115,7 +116,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 <h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(24px, 4vw, 36px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Playground</h2>
 <span style="font-size: 16px; color: #63636b">Personal projects and course exercises, made with nobody to approve them.</span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 40px 28px">
+<div class="m-grid2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 40px 28px">
 <a data-tags="playground" href="projects/quem-partiu.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 10px">
 <div style="position: relative"><img src="assets/quem-partiu/thumb.jpg" alt="Red heart balloon on blue" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; border: 1px solid #e7e7e3; box-sizing: border-box"></div>
 <span style="font-size: 13px; color: #63636b">Personal animation</span>
@@ -154,5 +155,6 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
   chips.forEach(function(c){c.style.cursor='pointer';c.addEventListener('click',function(){set(c.getAttribute('data-filter'));});});
 })();
 </script>
+<script src="assets/mobile.js" defer></script>
 </body>
 </html>

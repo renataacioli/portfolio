@@ -1,0 +1,81 @@
+/* Mobile layer for the new pages. Desktop is untouched: everything sits inside the media query. */
+.m-menu-btn, .m-sheet, .m-dots { display: none; }
+
+@media (max-width: 720px) {
+  /* ---------- header and hidden menu ---------- */
+  header { flex-wrap: nowrap !important; align-items: center !important; justify-content: space-between !important; padding-top: 14px !important; padding-bottom: 14px !important; }
+  header > nav { display: none !important; }
+  .m-menu-btn {
+    display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    width: 46px; height: 46px; flex: 0 0 auto; border-radius: 999px; border: 1px solid #e7e7e3; background: #ffffff;
+    cursor: pointer; padding: 0; margin-left: auto;
+  }
+  .m-menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: #1b1b1f; }
+  .m-menu-btn:focus-visible, .m-sheet a:focus-visible, .m-sheet button:focus-visible { outline: 2px solid #1f4fd1; outline-offset: 3px; }
+
+  .m-sheet[data-open="true"] {
+    display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 1000;
+    background-color: #fcfcfb;
+    background-image: linear-gradient(#efefec 1px, transparent 1px), linear-gradient(90deg, #efefec 1px, transparent 1px);
+    font-family: Inter, system-ui, sans-serif; color: #1b1b1f;
+    background-size: 44px 44px; padding: 14px 20px 32px; box-sizing: border-box; overflow-y: auto;
+  }
+  .m-sheet-top { display: flex; align-items: center; justify-content: space-between; min-height: 46px; }
+  .m-sheet-top > a { font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-weight: 700; font-size: 20px; color: #1b1b1f; text-decoration: none; letter-spacing: -0.02em; }
+  .m-close { width: 46px; height: 46px; border-radius: 999px; border: 1px solid #e7e7e3; background: #ffffff; font-size: 26px; line-height: 1; color: #1b1b1f; cursor: pointer; padding: 0; }
+  .m-sheet-nav { display: flex; flex-direction: column; gap: 4px; margin-top: 40px; }
+  .m-sheet-nav > a {
+    font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.03em;
+    color: #1b1b1f; text-decoration: none; min-height: 58px; display: flex; align-items: center; border-bottom: 1px solid #e7e7e3;
+  }
+  .m-sheet-nav > a.m-cta { margin-top: 28px; border: 0; align-self: flex-start; min-height: 56px; padding: 0 30px; border-radius: 999px; background: #1b1b1f; color: #ffffff; font-family: Inter, system-ui, sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0; }
+  .m-sheet-nav > [role="group"] { align-self: flex-start; margin-top: 28px !important; }
+  body.m-lock { overflow: hidden; }
+
+  /* ---------- reading comfort ---------- */
+  h1 { overflow-wrap: break-word; }
+  p { line-height: 1.6; }
+  [style*="font-size: 21px"] { font-size: 18px !important; }
+  [style*="font-size: 19px"] { font-size: 17px !important; }
+  section h2 { line-height: 1.12 !important; }
+
+
+  /* ---------- home ---------- */
+  #top { min-height: 0 !important; padding-bottom: 8px !important; }
+  #top > div[style*="flex: 1 1 auto"] { padding: 24px 20px 28px !important; gap: 22px !important; }
+  #top h1 { font-size: 40px !important; line-height: 1.06 !important; }
+  #more, #contact { padding-left: var(--g, 20px) !important; padding-right: var(--g, 20px) !important; }
+  #more { padding-bottom: 56px !important; }
+  #work { padding-top: 48px !important; gap: 24px !important; }
+  #about { min-height: 0 !important; padding-top: 72px !important; padding-bottom: 72px !important; }
+
+  /* ---------- horizontal rails ---------- */
+  .m-rail {
+    display: flex !important; grid-template-columns: none !important; columns: auto !important;
+    flex-wrap: nowrap !important; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-left: var(--g, 20px);
+    gap: 14px !important; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .m-rail::-webkit-scrollbar { display: none; }
+  div.m-rail { margin-left: calc(-1 * var(--g, 20px)) !important; margin-right: calc(-1 * var(--g, 20px)) !important; padding: 2px var(--g, 20px) 6px !important; }
+  section.m-rail { padding-left: var(--g, 20px) !important; padding-right: var(--g, 20px) !important; }
+  section.m-rail::after, div.m-rail::after { content: ""; flex: 0 0 6px; }
+  .m-rail > * { flex: 0 0 84% !important; max-width: 84%; scroll-snap-align: start; margin: 0 !important; box-sizing: border-box; }
+  .m-rail.m-rail-narrow > * { flex-basis: 72% !important; max-width: 72%; }
+
+  .m-rail > figure img { height: auto !important; max-height: 340px; width: 100% !important; object-fit: contain; background: #f4f4f1; }
+
+  .m-dots { display: flex; justify-content: center; gap: 6px; margin: 14px 0 0; }
+  section.m-rail + .m-dots { margin-top: -64px; margin-bottom: 48px; position: relative; }
+  .m-dots i { width: 6px; height: 6px; border-radius: 999px; background: #d4d4cf; transition: width .2s ease, background-color .2s ease; }
+  .m-dots i.on { width: 18px; background: #1b1b1f; }
+
+  /* ---------- all projects: compact grid ---------- */
+  .m-grid2 { grid-template-columns: 1fr 1fr !important; gap: 22px 12px !important; }
+  .m-grid2 h3 { font-size: 16px !important; line-height: 1.2 !important; }
+  .m-grid2 p { font-size: 12px !important; line-height: 1.35 !important; }
+  .m-grid2 > a { gap: 8px !important; }
+  .m-chips { flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; padding-left: var(--g, 20px) !important; padding-right: var(--g, 20px) !important; }
+  .m-chips::-webkit-scrollbar { display: none; }
+  .m-chips > * { flex: 0 0 auto; white-space: nowrap; }
+}

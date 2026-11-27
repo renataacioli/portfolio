@@ -25,6 +25,7 @@ html,body{margin:0;background:#fcfcfb}
 a{color:#1b1b1f}a:hover{color:#1f4fd1}
 a{transition:background-color .18s ease,border-color .18s ease}a[style*="background: #1f4fd1"]:hover{background:#163a9c !important;color:#ffffff !important}a[style*="background: #1b1b1f"]:hover{background:#000000 !important;color:#ffffff !important}a[style*="background: #ffffff"][style*="border-radius: 999px"]:hover{background:#efefec !important}a[style*="border: 1.5px solid #1b1b1f"]:hover{background:#efefec !important}
 </style>
+<link rel="stylesheet" href="../assets/mobile.css">
 </head>
 <body>
 <div style="background: #fcfcfb; color: #1b1b1f; font-family: Inter, system-ui, sans-serif; line-height: 1.5">
@@ -59,7 +60,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 <p style="margin: 14px 0 0; font-size: 14px; color: #63636b">Stage mockup built over the technical drawing, 30 seconds.</p>
 </section>
 
-<section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+<section class="m-rail" style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
 <div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
 <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #c2410c"></span>Challenge</span>
 <p style="margin: 0; font-size: 17px; line-height: 1.45">The stage had 18 LED surfaces in 10 formats, spread over more than 300 m². The piece would play in the breaks between shows, alongside other brands' activations.</p>
@@ -99,7 +100,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 
 <section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 40px">
 <h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">From the festival guide to the render</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 32px">
+<div class="m-rail" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <img src="../assets/napraia/theme.jpg" alt="Na Praia Festival identity for the 2025 Italy edition" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; display: block">
 <span style="font-size: 13px; font-weight: 700; color: #1f4fd1">01</span>
@@ -123,7 +124,7 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 
 <section style="max-width: 1200px; margin: 0 auto; padding-left: var(--g); padding-right: var(--g); padding-bottom: 96px; display: flex; flex-direction: column; gap: 32px">
 <h2 style="margin: 0; font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Where it played</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px">
+<div class="m-rail m-rail-narrow" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px">
 <div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); font-weight: 700; letter-spacing: -0.03em">12 weeks</span><span style="font-size: 15px; color: #63636b">of festival, from 27 June to 14 September 2025</span></div>
 <div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); font-weight: 700; letter-spacing: -0.03em">100+</span><span style="font-size: 15px; color: #63636b">music acts on the same stage</span></div>
 <div style="background: #ffffff; border: 1px solid #e7e7e3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-size: clamp(32px, 5vw, 44px); font-weight: 700; letter-spacing: -0.03em">400,000+</span><span style="font-size: 15px; color: #63636b">visitors forecast by the organisers for the season</span></div>
@@ -149,5 +150,6 @@ a{transition:background-color .18s ease,border-color .18s ease}a[style*="backgro
 </section>
 
 </div>
+<script src="../assets/mobile.js" defer></script>
 </body>
 </html>
